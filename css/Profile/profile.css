@@ -6,3 +6,8 @@
 .info-list .list-group-item label {
     font-weight: bold;
 }
+.profile-img {
+    border-radius: 50%;
+    width: 75%;
+    max-height: 320px;
+}
