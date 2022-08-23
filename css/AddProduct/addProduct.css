@@ -1,3 +1,26 @@
 .border-grey {
     border: 0.5px solid #ced4da;
 }
+.image-area {
+    border: 2px dashed rgba(181, 179, 179, 0.7);
+    padding: 0.5rem;
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+
+}
+.image-area::before {
+    content: 'UPLOADED IMAGE RESULT';
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.image-area img {
+    z-index: 2;
+    position: relative;
+}
