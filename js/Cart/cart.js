@@ -1,16 +1,16 @@
-$(document).ready(function() {
-    $('.minus').click(function () {
-        var $input = $(this).parent().find('input');
-        var count = parseInt($input.val()) - 1;
-        count = count < 1 ? 1 : count;
-        $input.val(count);
-        $input.change();
-        return false;
-    });
-    $('.plus').click(function () {
-        var $input = $(this).parent().find('input');
-        $input.val(parseInt($input.val()) + 1);
-        $input.change();
-        return false;
-    });
+const minusButton = document.getElementById('minus');
+const plusButton = document.getElementById('plus');
+const inputField = document.getElementById('input');
+
+minusButton.addEventListener('click', event => {
+  event.preventDefault();
+  const currentValue = Number(inputField.value) || 0;
+  if (currentValue > 1)
+    inputField.value = currentValue - 1;
+});
+
+plusButton.addEventListener('click', event => {
+  event.preventDefault();
+  const currentValue = Number(inputField.value) || 0;
+  inputField.value = currentValue + 1;
 });
