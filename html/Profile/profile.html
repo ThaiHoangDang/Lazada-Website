@@ -50,21 +50,21 @@
                             </li> -->
                         </ul>
                     </article>
-                    <div class="col-md-5 d-flex flex-column align-items-center">
-                        <article class="py-2">
-                            <div class="profile-img object-center">
-                                <label class="-label" for="img-file">
+                    <div class="col-md-5">
+                        <article class="py-2 d-flex justify-content-center">
+                            <div class="profile-picture">
+                                <label for="img-file">
                                     <span>Change Image</span>
                                 </label>
                                 <input id="img-file" type="file" onchange="loadFile(event)" />
-                                <img class="object-center" id="profile-img" src="../../img/profile.jpeg" alt="profile picture"/>
+                                <img id="profile-img" src="../../img/profile.jpeg" alt="profile picture"/>
                             </div>
                         </article>
 
                         <article class="py-2 w-100">
                             <div class="list-group">
                                 <a class="list-group-item list-group-item active" href="">My profile</a>
-                                <a class="list-group-item list-group-item-action" href="">Sign Out</a>
+                                <a class="list-group-item list-group-item-action" href="../Login/login.html">Sign Out</a>
                             </div>
                         </article>
                     </div>

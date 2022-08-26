@@ -1,21 +1,21 @@
-.info-list .list-group-item {
-    padding: 20px 15px 10px 15px;
-    border-bottom: 1px solid rgb(159, 158, 158)
-}
-.info-list .list-group-item label {
-    font-weight: bold;
+.page-content {
+    margin: 120px auto;
 }
 
-.profile-picture {
+/* From profile.css */
+.profile-pic {
     display: flex;
+    /* justify-content: center; */
     color: transparent;
     position: relative;
+    
 }
-.profile-picture input {
+
+.profile-pic input {
     display: none;
 }
 
-.profile-picture img {
+.profile-pic img {
     position: absolute;
     object-fit: cover;
     width: 200px;
@@ -25,13 +25,14 @@
     z-index: 0;
 }
 
-.profile-picture label {
+.profile-pic label {
     cursor: pointer;
     height: 200px;
     width: 200px;
+
 }
 
-.profile-picture:hover label {
+.profile-pic:hover label {
     display: flex;
     justify-content: center;
     align-items: center;
