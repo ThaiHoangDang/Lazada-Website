@@ -1,4 +1,6 @@
 
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,100&display=swap');
 
 /* navbar */
@@ -7,6 +9,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
 }
 
 nav {
@@ -118,8 +122,6 @@ input[type="checkbox"] {
     nav {
         display: block;
         padding: 0;
-
-
     }
 
     nav .icon {
@@ -156,13 +158,14 @@ input[type="checkbox"] {
         font-size: 28px ;
         padding: 25px;
         display: block;
+        text-align: left;
     }
 
     nav .bar {
         display: block;
         position: absolute;
         top: 20px;
-        right: 80px;
+        left: 20px;
         cursor: pointer;
     }
     nav .bar #times{
@@ -176,14 +179,18 @@ input[type="checkbox"] {
     }
     #check:checked ~nav ol {
         visibility: visible;
-        height: 300px;
-    }    
+        height: 400px;
+    }
+    
+    .dropdown-item {
+        height: 30px;
+    }
 
 }
 
 /* Footer */
 .container {
-    max-width: 1170px;
+    max-width: 1200px;
     margin: auto;
 }
 .row {
@@ -241,8 +248,7 @@ ul {
 
 }
 .footer-col ul li a:hover {
-    color: #ffffff;
-    padding-left: 8px;
+    color: red;
 
 }.footer-col .social-links a{
     display: inline-block;
@@ -267,4 +273,71 @@ ul {
         width: 50%;
         margin-bottom: 30px;
     }
+}
+
+.copyright {
+    background-color: #000;
+    padding-bottom: 1px;
+    height: 50px;
+}
+
+.copyright p {
+    color: #d2d2d2;
+    text-align: center;
+
+}
+
+.copyright p a {
+    text-decoration: none;
+    color: #d2d2d2;
+}
+
+
+
+/* productlist */
+.box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #ccc;
+}
+
+.box {
+    flex: 1 1 300px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.box .image {
+    padding: 10px;
+    background: white;
+    text-align: center;
+}
+
+.box .image img {
+    height: 200px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.box .info .product-name {
+    padding: 30px;
+    color: #666;
+    font-size: 20px;
+}
+
+.box .info .subinfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+
+.box .info .subinfo .price {
+    color: #ff3300;
+    font-size: 20px;
 }
