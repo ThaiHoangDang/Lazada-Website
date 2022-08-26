@@ -1,3 +1,12 @@
+/* Login & Register */
+.page-content {
+    margin: 120px auto;
+}
+.dialogue-signin {
+    max-width: 500px;
+    margin: 0 auto;
+}
+/* My account page */
 .info-list .list-group-item {
     padding: 20px 15px 10px 15px;
     border-bottom: 1px solid rgb(159, 158, 158)
