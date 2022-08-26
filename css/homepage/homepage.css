@@ -118,7 +118,7 @@ input[type="checkbox"] {
 
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1024px) {
     nav {
         display: block;
         padding: 0;
@@ -268,7 +268,7 @@ ul {
     background-color: #ffffff;
 }
 
-@media(max-width: 574px) {
+@media(max-width: 1024px) {
     .footer-col {
         width: 50%;
         margin-bottom: 30px;
@@ -304,7 +304,7 @@ ul {
 }
 
 .box {
-    flex: 1 1 300px;
+    flex: 100 100 500px;
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.3);
     position: relative;
@@ -319,8 +319,8 @@ ul {
 }
 
 .box .image img {
-    height: 200px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     object-fit: cover;
 }
 
@@ -340,4 +340,54 @@ ul {
 .box .info .subinfo .price {
     color: #ff3300;
     font-size: 20px;
+}
+
+@media screen and (min-width: 768px) and (max-width:1023px) {
+    .box-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        background: #ccc;
+    }
+    
+    .box {
+        flex: 100 100 300px;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        margin: 20px;
+    }
+    
+    .box .image {
+        padding: 10px;
+        background: white;
+        text-align: center;
+    }
+    
+    .box .image img {
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+    }
+    
+    .box .info .product-name {
+        padding: 30px;
+        color: #666;
+        font-size: 20px;
+    }
+    
+    .box .info .subinfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 10px;
+    }
+    
+    .box .info .subinfo .price {
+        color: #ff3300;
+        font-size: 20px;
+    }
+    
 }
