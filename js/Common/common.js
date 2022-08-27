@@ -5,6 +5,7 @@ var loadFile = function (event) {
         URL.revokeObjectURL(output.src)
     }
 };
+
 (function () {
     'use strict';
     window.addEventListener('load', function () {
