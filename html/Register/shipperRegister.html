@@ -22,39 +22,48 @@
                             <label for="img-file">
                                 <span>Change Image</span>
                             </label>
-                            <input id="img-file" type="file" onchange="loadFile(event)" />
-                            <img id="img-output" src="../../img/default_profile.jpeg" alt="profile picture" />
+                            <input id="img-file" type="file" onchange="loadFile(event)" required/>
+                            <img id="img-output" src="../../img/default_profile.jpeg" alt="profile picture"/>
                         </div>
                     </div>
                     <div class="col-12">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label required">Username</label>
                         <input type="text" class="form-control" id="username" placeholder="Username" minlength="8" maxlength="15" required>
                         <div class="invalid-feedback">
                             Username must be from 8 to 15 charactes
                         </div>
                     </div>
                     <div class="col-12">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label required">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Password"
                             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$" required>
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" id="password-feedback">
                             Invalid password
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="name" class="form-label">Shipper name</label>
                         <input type="text" class="form-control" id="name" placeholder="Shipper name" minlength="5">
+                        <div class="invalid-feedback">
+                            Input must be at least 5 characters
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Email address" minlength="5" >
+                        <div class="invalid-feedback">
+                            Input must be at least 5 characters
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="form-label">Phone Number</label>
                         <input type="tel" class="form-control" id="phone" placeholder="Phone number" minlength="5">
+                        <div class="invalid-feedback">
+                            Input must be at least 5 characters
+                        </div>
                     </div>
                     <div class="col-12">
-                        <label for="distri-hub" class="form-label">Distribution hub</label>
+                        <label for="distri-hub" class="form-label required">Distribution hub</label>
                         <select class="form-select" id="distri-hub" required>
                             <option disabled selected value>Select the distribution hub</option>
                             <option value="1">Hoan Kiem, Ha Noi</option>

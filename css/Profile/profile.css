@@ -50,3 +50,8 @@
     transition: background-color 0.15s ease-in-out;
     border-radius: 100px;
 }
+
+.required::after{
+    content: " *";
+    color: red;
+}

@@ -24,3 +24,8 @@
     z-index: 2;
     position: relative;
 }
+
+.required::after {
+    content: " *";
+    color: red;
+}
