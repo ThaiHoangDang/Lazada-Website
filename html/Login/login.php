@@ -19,8 +19,14 @@ if (isset($_POST['signin'])) {
                 "distribution-hub" => $data[$index]["Distribution hub"],
             ];
             $_SESSION["user_data"] = $user_data;
-            // header('location: ../Homepage/homepage.html');
-            header('location: dashboard.php');
+            // header('location: ../Dashboard/dashboard.php');
+            if ($user_data["role"] == "Customer") {
+                header('location: ../myAccount/customerMyAccount.php');
+            } elseif ($user_data["role"] == "Vendor") {
+                header('location: ../myAccount/vendorMyAccount.php');
+            } elseif ($user_data["role"] == "Shipper") {
+                header('location: ../myAccount/shipperMyAccount.php');
+            }
         }
     }
 
