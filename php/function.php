@@ -43,6 +43,16 @@
         $data = explode("|", $string);
         return $data;
     }
+    function getproductdata(array $items) {
+        if (isset($_GET["id"])) {
+            foreach ($items as $item) {
+                if ($_GET["id"] === $item["Product ID"]) {
+                    return $item;
+                }
+            }
+        }
+        return false;
+    }
     // $data = readcsv("../data/users.csv");
     // writecsv("../data/users.csv", $data);
     // echo '<pre>';
