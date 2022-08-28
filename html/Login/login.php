@@ -1,11 +1,29 @@
 <?php
+// Include files
+require_once("../../php/function.php");
+
 session_start();
 
 if (isset($_POST['signin'])) {
-    if (isset($_POST['pass']) && $_POST['pass'] == 'password135') {
-        $_SESSION['username'] = $_POST['username'];
-        header('location: ../Homepage/homepage.html');
+    $data = readcsv("../../data/users.csv");
+    for ($index = 0; $index < count($data); $index++) {
+        if ($_POST['username'] == $data[$index]["username"] && $_POST['password'] == $data[$index]["password"]) {
+            $user_data = [
+                "username" => $data[$index]["username"],
+                "password" => $data[$index]["password"],
+                "role" => $data[$index]["role"],
+                "name" => $data[$index]["name"],
+                "email" => $data[$index]["email"],
+                "phone" => $data[$index]["phone"],
+                "address" => $data[$index]["address"],
+                "distribution-hub" => $data[$index]["Distribution hub"],
+            ];
+            $_SESSION["user_data"] = $user_data;
+            // header('location: ../Homepage/homepage.html');
+            header('location: dashboard.php');
+        }
     }
+
     $status = 'Invalid username/password';
 }
 ?>
@@ -34,7 +52,7 @@ if (isset($_POST['signin'])) {
                             <label for="username">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             <label for="pass">Password</label>
                         </div>
                         <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
