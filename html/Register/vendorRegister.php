@@ -1,3 +1,26 @@
+<?php
+// Include files
+require_once("../../php/function.php");
+
+session_start();
+
+if (isset($_POST['act'])) {
+    header('location: ../Login/login.php');
+    $newUser = [
+        "username" => $_POST['username'],
+        "password" => $_POST['password'],
+        "role" => "Vendor",
+        "name" => $_POST["name"],
+        "email" => $_POST["email"],
+        "phone" => $_POST["phone"],
+        "address" => $_POST["address"],
+        "profile-img" => $_POST["profile-img"]
+
+    ];
+    // Write new user to the database
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/Profile/profile.css">
 </head>
 
@@ -22,7 +44,7 @@
                             <label for="img-file">
                                 <span>Change Image</span>
                             </label>
-                            <input id="img-file" type="file" onchange="loadFile(event)" required/>
+                            <input type="file" id="img-file" name="profile-img" onchange="loadFile(event)" required />
                             <img id="img-output" src="../../img/default_profile.jpeg" alt="profile picture" />
                             <div class="invalid-feedback">
                                 Please choose the profile image
@@ -31,29 +53,28 @@
                     </div>
                     <div class="col-12">
                         <label for="username" class="form-label required">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Username" minlength="8" maxlength="15" required>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" minlength="8" maxlength="15" required>
                         <div class="invalid-feedback">
                             Username must be from 8 to 15 charactes
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="password" class="form-label required">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password"
-                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$" required>
                         <div class="invalid-feedback" id="password-feedback">
                             Invalid password
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="name" class="form-label required">Business name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Business name" minlength="5" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Business name" minlength="5" required>
                         <div class="invalid-feedback">
                             Input must be at least 5 characters
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="address" class="form-label required">Business address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Business Address" minlength="5" required>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Business Address" minlength="5" required>
                         <div class="invalid-feedback">
                             Input must be at least 5 characters
                         </div>
@@ -61,14 +82,14 @@
 
                     <div class="col-md-6">
                         <label for="email" class="form-label">Business email </label>
-                        <input type="email" class="form-control" id="email" placeholder="Email address" minlength="5">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email address" minlength="5">
                         <div class="invalid-feedback">
                             Must be an email account with at least 5 characters
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="form-label">Business phone number</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Phone number" minlength="5">
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number" minlength="5">
                         <div class="invalid-feedback">
                             Input must be at least 5 characters
                         </div>
