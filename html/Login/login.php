@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_POST['act'])) {
+if (isset($_POST['signin'])) {
     if (isset($_POST['pass']) && $_POST['pass'] == 'password135') {
         $_SESSION['username'] = $_POST['username'];
         header('location: ../Homepage/homepage.html');
@@ -9,6 +9,7 @@ if (isset($_POST['act'])) {
     $status = 'Invalid username/password';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +37,7 @@ if (isset($_POST['act'])) {
                             <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
                             <label for="pass">Password</label>
                         </div>
-                        <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="act">Sign in</button>
+                        <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
                         <div class="mt-2 mb-3">
                             <a href="../Register/pickRegister.html" class="link-secondary">Sign up for new account</a>
                         </div>

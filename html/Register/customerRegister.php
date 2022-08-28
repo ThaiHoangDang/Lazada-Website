@@ -1,14 +1,24 @@
+<?php
+session_start();
+
+if (isset($_POST['act'])) {
+    header('location: ../Login/login.php');
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/Profile/profile.css">
 </head>
+
 <body class="bg-light">
     <main class="page-content">
         <div class="container">
@@ -20,7 +30,7 @@
                             <label for="img-file">
                                 <span>Change Image</span>
                             </label>
-                            <input id="img-file" type="file" onchange="loadFile(event)" required/>
+                            <input id="img-file" type="file" onchange="loadFile(event)" required />
                             <img id="img-output" src="../../img/default_profile.jpeg" alt="profile picture" />
                             <div class="invalid-feedback">
                                 Please choose the profile image
@@ -43,7 +53,7 @@
                     </div>
                     <div class="col-12">
                         <label for="name" class="form-label required">Customer name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Customer name" minlength="5" required >
+                        <input type="text" class="form-control" id="name" placeholder="Customer name" minlength="5" required>
                         <div class="invalid-feedback">
                             Input must be at least 5 characters
                         </div>
@@ -78,4 +88,5 @@
     </main>
     <script src="../../js/Common/common.js" async></script>
 </body>
+
 </html>
