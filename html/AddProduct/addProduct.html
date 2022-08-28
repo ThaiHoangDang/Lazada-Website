@@ -34,13 +34,21 @@
                         <label for="product-price" class="form-label required">Product Price</label>
                         <input type="number" class="form-control" id="product-price" placeholder="Enter product price: " min="0" required>
                     </div>
+                    <div class="col-6">
+                        <label for="product-price" class="form-label">Product Category</label>
+                        <input type="text" class="form-control" id="product-category" placeholder="Enter product category: " >
+                    </div>
+                    <div class="col-6">
+                        <label for="product-price" class="form-label">Product Brand</label>
+                        <input type="text" class="form-control" id="product-brand" placeholder="Enter product brand: ">
+                    </div>
                     <div class="col-12">
                         <label for="product-description" class="form-label required">Product Description</label>
                         <textarea class="form-control" id="product-description" rows="4" maxlength="500" required></textarea>
                     </div>
                     <div class="col-12">
                         <label for="product-image" class="form-label required">Product image</label>
-                        <input class="form-control" type="file" accept="image/*" onchange="loadFile(event)" required>
+                        <input class="form-control" type="file" name="img-file[]" accept="image/*" onchange="loadFile(event)" multiple required>
                     </div>
                     <p class="text-center">The uploaded product image will be showed inside the box below:</p>
                     <div class="image-area col-12">

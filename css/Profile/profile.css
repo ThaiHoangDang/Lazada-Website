@@ -6,6 +6,14 @@
     max-width: 500px;
     margin: 0 auto;
 }
+.img-cover {
+    height: 250px;
+    object-fit: cover;
+}
+.required::after {
+    content: " *";
+    color: red;
+}
 /* My account page */
 .info-list .list-group-item {
     padding: 20px 15px 10px 15px;
@@ -15,8 +23,11 @@
     font-weight: bold;
 }
 
+/* Profile picture */
 .profile-picture {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     color: transparent;
     position: relative;
 }
@@ -51,7 +62,4 @@
     border-radius: 100px;
 }
 
-.required::after{
-    content: " *";
-    color: red;
-}
+
