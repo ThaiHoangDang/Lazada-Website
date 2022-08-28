@@ -4,9 +4,9 @@
         $file = fopen($path, "r");
         if ($file !== false) {
             flock($file, LOCK_SH);
-            $title_line = fgetcsv($file, null, ';');
+            $title_line = fgetcsv($file);
             while (!feof($file)) {
-                $line = fgetcsv($file, null, ';');
+                $line = fgetcsv($file);
                 if (!empty($line)) {
                     $data_fields = [];
                     for ($index = 0; $index < count($title_line); $index++) {
@@ -28,9 +28,9 @@
             foreach ($data[0] as $title => $field) {
                 $title_line[] = $title;
             }
-            fputcsv($file, $title_line, ";");
+            fputcsv($file, $title_line);
             foreach ($data as $fields) {
-                fputcsv($file, $fields,";");
+                fputcsv($file, $fields);
             }
             flock($file, LOCK_UN);
             fclose($file);
@@ -43,4 +43,9 @@
         $data = explode("|", $string);
         return $data;
     }
+    // $data = readcsv("../data/users.csv");
+    // writecsv("../data/users.csv", $data);
+    // echo '<pre>';
+    // print_r($data);
+    // echo '</pre>';
 ?>
