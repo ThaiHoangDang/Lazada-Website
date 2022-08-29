@@ -60,8 +60,8 @@
 
             <div class="col-lg-7 pb-5">
                 <h3 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h3>
+                <h2 class="font-weight-light">Brand: <?=$product["Brand Name"]; ?></h2>
                 <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
-                <p class="mb-4"><?=$product["About Product"]; ?></p>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Quantity</span>
                     <input type="text" class="form-control" placeholder="Quantity" aria-label="Quantity" aria-describedby="basic-addon1">
@@ -72,8 +72,12 @@
         <div class="row px-xl-5">
             <div class="col">
                 <h4 class="mb-3">Product Description</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <?php
+                    $product_des = explode(" | ", $product["About Product"]);
+                    foreach ($product_des as $content){
+                        echo "<p>" . $content . "</p>";
+                    }
+                ?>
             </div>
         </div>
     </div>
