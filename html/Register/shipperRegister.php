@@ -70,7 +70,7 @@ if (isset($_POST['act'])) {
     <main class="page-content">
         <div class="container">
             <div class="p-5 bg-white rounded-1">
-                <form class="row g-3 needs-validation" method="post" action="shipperRegister.php" novalidate>
+                <form class="row g-3 needs-validation" enctype="multipart/form-data" method="post" action="shipperRegister.php" novalidate>
                     <h2 class="text-center">Register as shipper</h2>
                     <div class="col-12 d-flex justify-content-center">
                         <div class="my-4 profile-picture">
