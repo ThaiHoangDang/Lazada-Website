@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once("../../php/function.php");
-    $products = readcsv("../../data/product.csv");
+    $products = readcsv("../../data/product.csv", false);
     $product = getproductdata($products);
     $images = getimagearray($product);
 

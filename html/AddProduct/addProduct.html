@@ -25,7 +25,7 @@
         </div>
         <div class="container">
             <div class="mt-3 p-5 bg-white rounded-1 border-grey">
-                <form class="row g-3 needs-validation" method="post" action="addProduct.php" novalidate>
+                <form class="row g-3 needs-validation"  enctype="multipart/form-data" method="post" action="addProduct.php" novalidate>
                     <div class="col-12">
                         <label for="product-name" class="form-label required">Product Name</label>
                         <input type="text" class="form-control" id="product-name" placeholder="Enter product name:" minlength="10" maxlength="20" required>

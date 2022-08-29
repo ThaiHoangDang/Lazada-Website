@@ -7,8 +7,8 @@ session_start();
 if (isset($_POST['act'])) {
 
     // Get uset input
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
@@ -17,23 +17,27 @@ if (isset($_POST['act'])) {
     $profile_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $username . "." . $exten;
-    $upload_destination = '../../data/profile_img' . $save_file_name;
+    $upload_destination = '../../data/media/' . $save_file_name;
 
 
     // Check if the username is unique
-    $data = readcsv("../../data/users.csv");
-    $headers = $data[0];
+    $data = readcsv("../../data/users.csv", true);
+    $headers;
+    foreach ($data[0] as $header => $field) {
+        $headers[] = $header;
+    }
+
     $unique_account = true;
     for ($index = 0; $index < count($data); $index++) {
         if ($_POST['username'] == $data[$index]["username"]) {
             $unique_account == false;
             break;
-        } 
+        }
     }
 
     // Add new user to the database
     if ($unique_account) {
-        $hashed_pwd = password_hash($password, PASSWORD_BCRYPT); 
+        $hashed_pwd = password_hash($password, PASSWORD_BCRYPT);
 
         $newUserFields = [$username, $hashed_pwd, "Customer", $name, $email, $phone, $address, null, $save_file_name];
         $newUser = [];
@@ -45,15 +49,9 @@ if (isset($_POST['act'])) {
 
         // Save the uploaded the profile image 
         move_uploaded_file($profile_img_file, $upload_destination);
-
-        // Redirect user to the login page
-        header('location: ../Login/login.php');
     } else {
         // Print the error - the username is not unique
     }
-
-
-
 }
 ?>
 
@@ -73,7 +71,7 @@ if (isset($_POST['act'])) {
     <main class="page-content">
         <div class="container">
             <div class="p-5 bg-white rounded-1">
-                <form class="row g-3 needs-validation" method="post" action="customerRegister.php" novalidate>
+                <form class="row g-3 needs-validation" enctype="multipart/form-data" method="post" action="customerRegister.php" novalidate>
                     <h2 class="text-center">Register as customer</h2>
                     <div class="col-12 d-flex justify-content-center">
                         <div class="my-4 profile-picture">
@@ -132,10 +130,24 @@ if (isset($_POST['act'])) {
                     <div class="col-12">
                         <button class="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
                     </div>
+
+                    <!-- Redirect user to the login page -->
+                    <?php
+                    if (isset($_POST["act"])) {
+                        if ($unique_account) {
+                            echo "<p>You will be redirected in <span id='counter'>10</span> second(s).</p>";
+                            echo "<script src='../../js/Register/redirectRegister.js'></script>";
+                        } else {
+                            echo "<p> Can't register</p>";
+                        }
+                    }
+                    ?>
+
                 </form>
             </div>
         </div>
     </main>
-    <script src="../../js/Common/common.js" async></script>
+    <script src="../../js/Common/common.js"></script>
 </body>
+
 </html>
