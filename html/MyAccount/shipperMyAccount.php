@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] |= "Shipper") {
+if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Shipper") {
     header('location: ../Login/login.php');
 }
 ?>

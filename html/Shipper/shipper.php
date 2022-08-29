@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
+      header('location: login.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
