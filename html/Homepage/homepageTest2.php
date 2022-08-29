@@ -7,6 +7,7 @@
     // }
 
     $products = readcsv("../../data/product.csv");
+    include("../Homepage/header.html")
 ?>
 
 
@@ -23,7 +24,7 @@
     <body class="bg-light">
 
         <div class="container py-5">
-            <h2>Products</h2>
+            <h2 class="px-3">Products</h2>
             <div class="grid-container">
                 <?php 
                     for ($i = 0; $i < 18; $i++) {
@@ -50,3 +51,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     </body>
 </html>
+
+<?php 
+    include("../Homepage/footer.html")
+?>
