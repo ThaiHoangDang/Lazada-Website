@@ -1,8 +1,8 @@
 username,password,role,name,email,phone,address,"Distribution hub"
-cclowsley0,YqrTqPuuiud,Customer,"Chip Clowsley",cclowsley0@senate.gov,6815644049,"9232 Graceland Center",
-bdacke1,W1ejgAookQh,Customer,"Bethina Dacke",bdacke1@noaa.gov,4464835273,"67729 Oak Circle",
-wbastistini2,hQU82Y,Customer,"Werner Bastistini",wbastistini2@cyberchimps.com,4952275936,"6224 Manufacturers Street",
-zpinilla3,Nr9N1jrsB,Customer,"Zack Pinilla",zpinilla3@house.gov,1482242588,"3 Pond Way",
+cclowsley0,YqrTqPuuiud,Customer,"Chip Clowsley",cclowsley0@senate.gov,6815644049,"9232 Graceland Center","data/media/cclowsley0.png",
+bdacke1,W1ejgAookQh,Customer,"Bethina Dacke",bdacke1@noaa.gov,4464835273,"67729 Oak Circle","data/media/bdacke1.webp",
+wbastistini2,hQU82Y,Customer,"Werner Bastistini",wbastistini2@cyberchimps.com,4952275936,"6224 Manufacturers Street","data/media/wbastistini2.webp",
+zpinilla3,Nr9N1jrsB,Customer,"Zack Pinilla",zpinilla3@house.gov,1482242588,"3 Pond Way","data/media/zpinilla3.jpeg",
 sbredee4,d3JDFuuuW,Vendor,Ngaos,sbredee4@is.gd,3312079917,"97852 Fairview Circle",
 sreuther5,1gJ11KJ8VF5,Vendor,Orico,sreuther5@nps.gov,8911675970,"56317 David Drive",
 agallie6,jcSp9Gg,Vendor,Humankind,agallie6@drupal.org,5824652049,"7 Hansons Avenue",
