@@ -33,8 +33,10 @@ if (isset($_POST['act'])) {
 
     // Add new user to the database
     if ($unique_account) {
-        $newUserFields = [$username, $password, "Customer", $name, $email, $phone, $address, null, $save_file_name];
-        $newUser;
+        $hashed_pwd = password_hash($password, PASSWORD_BCRYPT); 
+
+        $newUserFields = [$username, $hashed_pwd, "Customer", $name, $email, $phone, $address, null, $save_file_name];
+        $newUser = [];
         for ($index = 0; $index < count($headers); $index++) {
             $newUser[$headers[$index]] = $newUserFields[$index];
         }
@@ -136,5 +138,4 @@ if (isset($_POST['act'])) {
     </main>
     <script src="../../js/Common/common.js" async></script>
 </body>
-
 </html>
