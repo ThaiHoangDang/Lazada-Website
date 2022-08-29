@@ -33,7 +33,7 @@
                                 <h3 class="card-title">Vendor</h3>
                                 <p class="card-text">Vendors upload their products to the shopping mall in order to sell them to the customers
                                 </p>
-                                <a href="../../html/Register/vendorRegister.html" class="btn btn-primary">Register as vendor</a>
+                                <a href="../../html/Register/vendorRegister.php" class="btn btn-primary">Register as vendor</a>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <h3 class="card-title">Shipper</h3>
                                 <p class="card-text">Shippers are responsibe for shipping the product from the distribution hubs to the customers
                                 </p>
-                                <a href="../../html/Register/shipperRegister.html" class="btn btn-primary">Register as shipper</a>
+                                <a href="../../html/Register/shipperRegister.php" class="btn btn-primary">Register as shipper</a>
                             </div>
                         </div>
                     </div>

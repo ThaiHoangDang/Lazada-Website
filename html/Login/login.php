@@ -17,10 +17,17 @@ if (isset($_POST['signin'])) {
                 "phone" => $data[$index]["phone"],
                 "address" => $data[$index]["address"],
                 "distribution-hub" => $data[$index]["Distribution hub"],
+                // "profile-img" => $data[$index]["profile-img"]
             ];
             $_SESSION["user_data"] = $user_data;
-            // header('location: ../Homepage/homepage.html');
-            header('location: dashboard.php');
+            // header('location: ../Dashboard/dashboard.php');
+            if ($user_data["role"] == "Customer") {
+                header('location: ../myAccount/customerMyAccount.php');
+            } elseif ($user_data["role"] == "Vendor") {
+                header('location: ../myAccount/vendorMyAccount.php');
+            } elseif ($user_data["role"] == "Shipper") {
+                header('location: ../myAccount/shipperMyAccount.php');
+            }
         }
     }
 
@@ -57,7 +64,7 @@ if (isset($_POST['signin'])) {
                         </div>
                         <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
                         <div class="mt-2 mb-3">
-                            <a href="../Register/pickRegister.html" class="link-secondary">Sign up for new account</a>
+                            <a href="../Register/pickRegister.php" class="link-secondary">Sign up for new account</a>
                         </div>
 
                         <?php
