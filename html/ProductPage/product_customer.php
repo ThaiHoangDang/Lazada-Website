@@ -5,7 +5,7 @@
     $product = getproductdata($products);
     $images = getimagearray($product);
 
-    $page_title = $product["Brand Name"] . "|" . $product["Product Name"];
+    $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
     <style>
     <?php include '../../css/ProductPage/product_page.css'; ?>
     </style>
-    <title>Document</title>
+    <title><?=$page_title?></title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
