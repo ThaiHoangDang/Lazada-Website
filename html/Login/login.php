@@ -7,7 +7,7 @@ session_start();
 if (isset($_POST['signin'])) {
     $data = readcsv("../../data/users.csv");
     for ($index = 0; $index < count($data); $index++) {
-        if ($_POST['username'] == $data[$index]["username"] && $_POST['password'] == $data[$index]["password"]) {
+        if ($_POST['username'] == $data[$index]["username"] && password_verify($_POST['password'], $data[$index]["password"])) {
             $user_data = [
                 "username" => $data[$index]["username"],
                 "password" => $data[$index]["password"],
@@ -16,8 +16,8 @@ if (isset($_POST['signin'])) {
                 "email" => $data[$index]["email"],
                 "phone" => $data[$index]["phone"],
                 "address" => $data[$index]["address"],
-                "distribution-hub" => $data[$index]["Distribution hub"],
-                // "profile-img" => $data[$index]["profile-img"]
+                "distribution_hub" => $data[$index]["Distribution hub"],
+                "profile_img" => $data[$index]["Image"]
             ];
             $_SESSION["user_data"] = $user_data;
             // header('location: ../Dashboard/dashboard.php');

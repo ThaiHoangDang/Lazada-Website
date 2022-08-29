@@ -7,8 +7,8 @@ session_start();
 if (isset($_POST['act'])) {
 
     // Get uset input
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
@@ -17,16 +17,20 @@ if (isset($_POST['act'])) {
     $profile_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $username . "." . $exten;
-    $upload_destination = '../../data/profile_img' . $save_file_name;
+    $upload_destination = '../../data/media/' . $save_file_name;
 
 
     // Check if the username is unique
     $data = readcsv("../../data/users.csv");
-    $headers = $data[0];
+    $headers;
+    foreach ($data[0] as $header => $field) {
+        $headers[] = $header;
+    }
+
     $unique_account = true;
     for ($index = 0; $index < count($data); $index++) {
-        if ($_POST['username'] == $data[$index]["username"]) {
-            $unique_account == false;
+        if ($username == $data[$index]["username"]) {
+            $unique_account = false;
             break;
         }
     }
@@ -45,11 +49,6 @@ if (isset($_POST['act'])) {
 
         // Save the uploaded the profile image 
         move_uploaded_file($profile_img_file, $upload_destination);
-
-        // Redirect user to the login page
-        header('location: ../Login/login.php');
-    } else {
-        // Print the error - the username is not unique
     }
 }
 ?>
@@ -129,6 +128,20 @@ if (isset($_POST['act'])) {
                     <div class="col-12">
                         <button class="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
                     </div>
+
+                    <!-- Redirect user to the login page -->
+                    <?php
+                    if (isset($_POST["act"])) {
+                        if ($unique_account) {
+                            echo "<p class='text-success my-0'>Register successfully</p>";
+                            echo "<p class='my-0'>You will be redirected in <span id='counter'>10</span> second(s).</p>";
+                            echo "<script src='../../js/Register/redirectRegister.js'></script>";
+                        } else {
+                            echo "<p class='text-danger'> The username is not unique</p>";
+                        }
+                    }
+                    ?>
+
                 </form>
             </div>
         </div>
