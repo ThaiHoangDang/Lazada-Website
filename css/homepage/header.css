@@ -1,0 +1,67 @@
+
+
+.logo {
+    color: white;
+}
+
+.container-fluid {
+    color: white;
+}
+
+
+
+.logo {
+    font-size: 30px;
+    margin: 20px;
+    
+}
+
+nav {
+    font-size: 20px;
+}
+
+.d-flex {
+    width: 35%;
+    padding-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.d-flex .btn {
+    color: rgb(215, 237, 243);
+    background-color: red;
+}
+
+.d-flex .form-control {
+    font-size: 20px;
+}
+
+.nav-item {
+    padding-left: 25px;
+    font-size: 20px;
+    position: relative;
+}
+
+@media only screen and (max-width:1024px) {
+    .d-flex {
+        width: 90%;
+        padding-right: 10px;
+    }
+    .nav-item {
+        padding-left: 0px;
+        font-size: 20px;
+        position: relative;
+    }
+
+    .logo {
+        display: inline-block;
+
+    }
+    
+}
+
+
+
+

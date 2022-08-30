@@ -1,0 +1,17 @@
+.container {
+    color: black;
+}
+
+#copyright {
+    background-color: rgba(80, 132, 201, 0.5);
+    color: black;
+}
+
+
+.col-md-2 a {
+    text-decoration: none;
+}
+
+.col-md-3 a {
+    text-decoration: none;
+}
