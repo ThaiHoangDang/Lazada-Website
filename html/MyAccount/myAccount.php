@@ -4,7 +4,7 @@ require_once("../../php/function.php");
 
 session_start();
 
-if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Customer") {
+if (!isset($_SESSION["user_data"])) {
     header('location: ../Login/login.php');
 }
 
@@ -73,15 +73,21 @@ if (isset($_POST['saveImg'])) {
                             <li class="list-group-item"><label>Name:</label>
                                 <?= $_SESSION["user_data"]["name"]; ?>
                             </li>
-                            <li class="list-group-item"><label> Address:</label>
-                                <?= $_SESSION["user_data"]["address"]; ?>
-                            </li>
+
                             <li class="list-group-item"><label>Email:</label>
                                 <?= $_SESSION["user_data"]["email"]; ?>
                             </li>
                             <li class="list-group-item"><label>Phone Number:</label>
                                 <?= $_SESSION["user_data"]["phone"]; ?>
                             </li>
+                            <?php
+                                if ($_SESSION["user_data"]["role"] == "Shipper") {
+                                    echo "<li class='list-group-item'><label>Distribution Hub:</label> {$_SESSION["user_data"]["distribution_hub"]}</li>";
+                                } else {
+                                    echo "<li class='list-group-item'><label>Address:</label> {$_SESSION["user_data"]["address"]}</li>";
+                                }
+                            ?>
+
                         </ul>
                     </article>
                     <div class="col-md-5">
@@ -99,11 +105,11 @@ if (isset($_POST['saveImg'])) {
                                 </div>
 
                                 <?php
-                                    if (isset($_POST['saveImg'])) {
-                                        if (isset($new_img_file)) {
-                                            echo "<p class='text-success mb-0'>Change profile image successfully!</p>";
-                                        }
+                                if (isset($_POST['saveImg'])) {
+                                    if (isset($new_img_file)) {
+                                        echo "<p class='text-success mb-0'>Change profile image successfully!</p>";
                                     }
+                                }
                                 ?>
                             </form>
                         </article>
