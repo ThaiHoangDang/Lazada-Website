@@ -29,7 +29,7 @@ if (isset($_POST['act'])) {
 
     $unique_account = true;
     for ($index = 0; $index < count($data); $index++) {
-        if ($username == $data[$index]["username"]) {
+        if ($username == $data[$index]["username"] || ($data[$index]["role"] == "Vendor" && $name == $data[$index]["name"])) {
             $unique_account = false;
             break;
         }
@@ -93,7 +93,7 @@ if (isset($_POST['act'])) {
                         <label for="password" class="form-label required">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$" required>
                         <div class="invalid-feedback" id="password-feedback">
-                            Invalid password
+                            Password must be from 8 to 20 characters with appropriate characters, contain at least 1 lowercase character, 1 uppercase letter, 1 digit, and 1 special character: !@#$%^&*
                         </div>
                     </div>
                     <div class="col-12">
@@ -137,7 +137,7 @@ if (isset($_POST['act'])) {
                             echo "<p class='my-0'>You will be redirected in <span id='counter'>10</span> second(s).</p>";
                             echo "<script src='../../js/Register/redirectRegister.js'></script>";
                         } else {
-                            echo "<p class='text-danger'> The username is not unique</p>";
+                            echo "<p class='text-danger'> The username or the business name is not unique</p>";
                         }
                     }
                     ?>

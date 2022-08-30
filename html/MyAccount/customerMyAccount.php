@@ -1,8 +1,38 @@
 <?php
+// Include files
+require_once("../../php/function.php");
+
 session_start();
 
 if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Customer") {
     header('location: ../Login/login.php');
+}
+
+if (isset($_POST['saveImg'])) {
+
+    $new_img_file = $_FILES["profile-img"]["tmp_name"];
+    $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
+    $save_file_name = $_SESSION["user_data"]["username"] . "." . $exten;
+    $upload_destination = '../../data/media/' . $save_file_name;
+
+    // Check if the file name already exists
+    $old_file_path = "../../data/media" . $_SESSION["user_data"]["profile_img"];
+    if (file_exists($old_file_path)) {
+        chmod($old_file_path, 0755);
+        unlink($old_file_path);
+    }
+    move_uploaded_file($new_img_file, $upload_destination);
+
+    $_SESSION["user_data"]["profile_img"] = $save_file_name;
+
+    // Write data back to the database
+    $data = readcsv("../../data/users.csv");
+    for ($index = 0; $index < count($data); $index++) {
+        if ($data[$index]["username"] == $_SESSION["user_data"]["username"]) {
+            $data[$index]["Image"] = $save_file_name;
+        }
+    }
+    writecsv("../../data/users.csv", $data);
 }
 ?>
 
@@ -56,17 +86,25 @@ if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Custome
                     </article>
                     <div class="col-md-5">
                         <article class="py-2 d-flex justify-content-center">
-                            <form method="post" action="myAccount.php">
+                            <form enctype="multipart/form-data" method="post" action="customerMyAccount.php">
                                 <div class="profile-picture">
                                     <label for="img-file">
                                         <span>Change Image</span>
                                     </label>
-                                    <input id="img-file" type="file" onchange="loadFile(event)" />
-                                    <img id="img-output" src="../../img/profile.jpeg" alt="profile picture" />
+                                    <input id="img-file" name="profile-img" type="file" onchange="loadFile(event)" />
+                                    <img id="img-output" src="<?php echo "../../data/media/" . (empty($_SESSION["user_data"]["profile_img"]) ? "default.jpeg" : $_SESSION["user_data"]["profile_img"]); ?>" alt="profile picture" />
                                 </div>
                                 <div class="mt-3 text-center">
-                                    <button type="submit" class="btn btn-secondary">Save image</button>
+                                    <button type="submit" name="saveImg" class="btn btn-secondary">Save image</button>
                                 </div>
+
+                                <?php
+                                    if (isset($_POST['saveImg'])) {
+                                        if (isset($new_img_file)) {
+                                            echo "<p class='text-success mb-0'>Change profile image successfully!</p>";
+                                        }
+                                    }
+                                ?>
                             </form>
                         </article>
 

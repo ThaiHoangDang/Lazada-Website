@@ -94,7 +94,7 @@ if (isset($_POST['act'])) {
                         <label for="password" class="form-label required">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$" required>
                         <div class="invalid-feedback" id="password-feedback">
-                            Invalid password
+                            Password must be from 8 to 20 characters with appropriate characters, contain at least 1 lowercase character, 1 uppercase letter, 1 digit, and 1 special character: !@#$%^&*
                         </div>
                     </div>
                     <div class="col-12">
