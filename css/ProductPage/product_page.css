@@ -1,4 +1,5 @@
 .carousel-item{
+    background-color: white;
     position:relative;
     overflow:hidden;
     padding-bottom:100%;
