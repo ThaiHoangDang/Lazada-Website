@@ -2,9 +2,9 @@
     session_start();
     require_once("../../php/function.php");
     
-    // if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Vendor") {
-    //     header('location: ../login/login.php');
-    // }
+    if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Vendor") {
+        header('location: ../login/login.php');
+    }
 
     $allProducts = readcsv("../../data/product.csv");
     $vendorProducts = array();
