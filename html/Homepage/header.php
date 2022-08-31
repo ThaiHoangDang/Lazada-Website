@@ -33,7 +33,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/html/homepage/homepage.php">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="cart">
               <a class="nav-link" href="/html/cart/cart.php">Cart</a>
             </li>
             <li class="nav-item">

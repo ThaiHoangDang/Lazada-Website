@@ -4,6 +4,10 @@
     margin: 0 20px;
 }
 
+.navbar {
+    max-height: 70px;
+}
+
 .container-fluid {
     color: white;
 }
@@ -15,7 +19,7 @@ nav {
 .d-flex {
     width: 35%;
     padding-right: 10px;
-    padding-top: 16px;
+    padding-top: 18px;
 }
 
 .navbar-nav .nav-link {
@@ -32,7 +36,11 @@ nav {
     position: relative;
 }
 
-@media only screen and (max-width:1024px) {
+@media only screen and (max-width:992px) {
+    .navbar {
+        max-height: 400px;
+    }
+
     .d-flex {
         width: 90%;
         padding-right: 10px;
@@ -44,7 +52,6 @@ nav {
     }
     .logo {
         display: inline-block;
-
     }
     
 }
