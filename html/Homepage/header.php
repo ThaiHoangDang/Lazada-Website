@@ -1,4 +1,15 @@
-
+<?php
+  echo $_SESSION["user_data"]["role"];
+  if (($_SESSION["user_data"]["role"] = "Vendor")||($_SESSION["user_data"]["role"] = "Shipper")) {
+    ?>
+    <style type="text/css">
+    #cart {
+    display:none;
+    }
+    </style>
+  <?php
+  }
+?>
 
 <!doctype html>
 <html lang="en">
@@ -19,7 +30,7 @@
       </div>
       <ol>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Cart</a></li>
+        <li id="cart"><a href="#">Cart</a></li>
         <li><a href="#">My account</a></li>
       </ol>
       <label for="check" class="bar">
