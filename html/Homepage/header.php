@@ -1,5 +1,4 @@
 <?php
-  echo $_SESSION["user_data"]["role"];
   if (($_SESSION["user_data"]["role"] = "Vendor")||($_SESSION["user_data"]["role"] = "Shipper")) {
     ?>
     <style type="text/css">
