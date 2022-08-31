@@ -40,7 +40,7 @@
                     for ($i = 0; $i < 18; $i++) {
                         echo('
                                 <div class="coll-4 coll-s-6">
-                                    <a href="http://localhost:4000/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'" style="text-decoration: none" >
+                                    <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'" style="text-decoration: none" >
                                         <div class="card mx-auto">
                                             <div class="container ratio ratio-1x1"> 
                                                 <img src="'. $products[$i]["Image"].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
