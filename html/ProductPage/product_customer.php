@@ -21,20 +21,17 @@
     <title><?=$page_title?></title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-    <div class="container-fluid bg-light mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">Product Details</h1>
-            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Category</li>
-                </ol>
-            </nav>
-        </div>
+<body class="bg-light">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb py-4 fw-bold">
+                <li class="breadcrumb-item"><a href="../../Homepage/homepage.php">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?= $product["Product Name"]; ?></li>
+            </ol>
+        </nav>
     </div>
 
-    <div class="container-fluid py-5">
+    <div class="container py-5 bg-white rounded-1">
         <div class="row px-xl-5">
             <div class="col-lg-5 pb-5">
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
@@ -59,8 +56,8 @@
             </div>
 
             <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h3>
-                <h2 class="font-weight-light">Brand: <?=$product["Brand Name"]; ?></h2>
+                <h2 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h2>
+                <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
                 <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Quantity</span>

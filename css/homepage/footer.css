@@ -2,6 +2,10 @@
     color: black;
 }
 
+a:link:hover {
+    text-decoration: underline;
+}
+
 #copyright {
     background-color: rgba(80, 132, 201, 0.5);
     color: black;

@@ -2,10 +2,6 @@
     session_start();
     require_once("../../php/function.php");
     
-    // if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Customer") {
-    //     header('location: ../login/login.php');
-    // }
-
     $products = readcsv("../../data/product.csv");
     include("../Homepage/header.php");
     include("../Homepage/slider.html");
@@ -18,15 +14,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cart</title>
+        <title>Homepage</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../css/homepage/homepageTest2.css">
+        <link rel="stylesheet" href="../../css/homepage/homepage.css">
     </head>
     <body class="bg-light">
         <div class="container py-5">
             <div class="row">
                 <div class="row">
-                    <h2 class="col-8 px-4">Featured Products</h2>
+                    <h1 class="col-8">Featured Products</h1>
                     <!-- <div class="col-4 px-4 float-end" style="width:150px;">
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Filter</option>
@@ -36,7 +32,7 @@
                         </select>
                     </div> -->
                 </div>
-                <div class="grid-container">
+                <div class="grid-container bg-white rounded-1">
                     <?php 
                         for ($i = count($products)-1; $i > count($products)-20; $i--) {
                             echo('
