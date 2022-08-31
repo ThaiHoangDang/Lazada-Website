@@ -1,6 +1,7 @@
 <?php
 // Include files
 require_once("../../php/function.php");
+require_once("../../php/validateInput.php");
 
 session_start();
 
@@ -18,37 +19,44 @@ if (isset($_POST['act'])) {
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $username . "." . $exten;
     $upload_destination = '../../data/media/' . $save_file_name;
+    $unique_account;
 
-
-    // Check if the username is unique
-    $data = readcsv("../../data/users.csv", true);
-    $headers;
-    foreach ($data[0] as $header => $field) {
-        $headers[] = $header;
-    }
-
-    $unique_account = true;
-    for ($index = 0; $index < count($data); $index++) {
-        if ($username == $data[$index]["username"]) {
-            $unique_account = false;
-            break;
+    if (
+        validate_length($username, 8, 20) &&
+        validate_password($password) &&
+        validate_length($name, 5) &&
+        validate_length($address, 5)
+    ) {
+        // Check if the username is unique
+        $users = readcsv("../../data/users.csv", true);
+        $headers;
+        foreach ($users[0] as $header => $field) {
+            $headers[] = $header;
         }
-    }
 
-    // Add new user to the database
-    if ($unique_account) {
-        $hashed_pwd = password_hash($password, PASSWORD_BCRYPT);
-
-        $newUserFields = [$username, $hashed_pwd, "Customer", $name, $email, $phone, $address, null, $save_file_name];
-        $newUser = [];
-        for ($index = 0; $index < count($headers); $index++) {
-            $newUser[$headers[$index]] = $newUserFields[$index];
+        $unique_account = true;
+        for ($index = 0; $index < count($users); $index++) {
+            if ($username == $users[$index]["username"]) {
+                $unique_account = false;
+                break;
+            }
         }
-        $data[] = $newUser;
-        writecsv("../../data/users.csv", $data);
 
-        // Save the uploaded the profile image 
-        move_uploaded_file($profile_img_file, $upload_destination);
+        // Add new user to the database
+        if ($unique_account) {
+            $hashed_pwd = password_hash($password, PASSWORD_BCRYPT);
+
+            $newUserFields = [$username, $hashed_pwd, "Customer", $name, $email, $phone, $address, null, $save_file_name];
+            $newUser = [];
+            for ($index = 0; $index < count($headers); $index++) {
+                $newUser[$headers[$index]] = $newUserFields[$index];
+            }
+            $users[] = $newUser;
+            writecsv("../../data/users.csv", $users);
+
+            // Save the uploaded the profile image 
+            move_uploaded_file($profile_img_file, $upload_destination);
+        }
     }
 }
 ?>

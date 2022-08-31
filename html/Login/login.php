@@ -4,6 +4,10 @@ require_once("../../php/function.php");
 
 session_start();
 
+if (isset($_SESSION["user_data"])) {
+    header('location: ../myAccount/myAccount.php');
+}
+
 if (isset($_POST['signin'])) {
     $data = readcsv("../../data/users.csv");
     for ($index = 0; $index < count($data); $index++) {
@@ -54,11 +58,11 @@ if (isset($_POST['signin'])) {
                     <form class="w-100 text-center" method="post" action="login.php">
                         <h3 class="mb-3">Please sign in</h3>
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                             <label for="username">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             <label for="pass">Password</label>
                         </div>
                         <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
