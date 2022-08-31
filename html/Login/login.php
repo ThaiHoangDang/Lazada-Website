@@ -65,6 +65,10 @@ if (isset($_POST['signin'])) {
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             <label for="pass">Password</label>
                         </div>
+                        <div class="mt-2">
+                            <input type="checkbox" onclick="togglePasswordVisibility()">
+                            <label>Show password</label>
+                        </div>
                         <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
                         <div class="mt-2 mb-3">
                             <a href="../Register/pickRegister.html" class="link-secondary">Sign up for new account</a>
@@ -79,6 +83,7 @@ if (isset($_POST['signin'])) {
             </div>
         </div>
     </main>
+    <script src="../../js/Common/common.js" async></script>
 </body>
 
 </html>
