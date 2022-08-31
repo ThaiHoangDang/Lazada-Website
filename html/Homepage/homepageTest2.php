@@ -7,7 +7,8 @@
     // }
 
     $products = readcsv("../../data/product.csv");
-    include("../Homepage/header.html")
+    include("../Homepage/header.html");
+    include("../Homepage/slider.html");
 ?>
 
 
@@ -22,27 +23,36 @@
         <link rel="stylesheet" href="../../css/homepage/homepageTest2.css">
     </head>
     <body class="bg-light">
-
         <div class="container py-5">
-            <h2 class="px-3">Feature Products</h2>
+            <div class="row">
+                <h2 class="col-8 px-4">Featured Products</h2>
+                <!-- <div class="col-4 px-4 float-end" style="width:150px;">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Filter</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div> -->
+            </div>
             <div class="grid-container">
                 <?php 
                     for ($i = 0; $i < 18; $i++) {
                         echo('
-                            <a href="http://localhost:4000/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'">
                                 <div class="coll-4 coll-s-6">
-                                    <div class="card mx-auto">
-                                        <div class="container ratio ratio-1x1"> 
-                                            <img src="'. $products[$i]["Image"].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
+                                    <a href="http://localhost:4000/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'" style="text-decoration: none" >
+                                        <div class="card mx-auto">
+                                            <div class="container ratio ratio-1x1"> 
+                                                <img src="'. $products[$i]["Image"].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
+                                            </div>
+                                            <div class="card-body text-bg-light rounded-2">
+                                            <h5 class="card-title">'. $products[$i]["Product Name"] .'</h5>
+                                            <p class="card-text"><small class="text-muted">'. $products[$i]["Brand Name"].'</small></p>
+                                            <p class="card-text">$'. $products[$i]["Price"].'</p>
+                                            </div>
                                         </div>
-                                        <div class="card-body text-bg-light rounded-2">
-                                        <h5 class="card-title">'. $products[$i]["Product Name"] .'</h5>
-                                        <p class="card-text"><small class="text-muted">'. $products[$i]["Brand Name"].'</small></p>
-                                        <p class="card-text">$'. $products[$i]["Price"].'</p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
                         ');
                     }
                 ?>
