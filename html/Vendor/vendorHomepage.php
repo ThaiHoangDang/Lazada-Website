@@ -29,9 +29,6 @@
         $description = implode(" | ", explode("\n", $_POST["description"]));
         
         $product_imgs = $_FILES["img-file"];
-        echo '<pre>';
-        print_r($product_imgs);
-        echo '</pre>';
         $patharr = array();
         for ($i = 0; $i < count($product_imgs['name']); $i++){
             $exten = pathinfo($product_imgs['name'][$i], PATHINFO_EXTENSION);
@@ -45,9 +42,6 @@
         foreach ($allProducts[0] as $header => $field) {
             $headers[] = $header;
         }
-        echo '<pre>';
-        print_r($headers);
-        echo '</pre>';
         $newProductFields = [$id, $name, $brand, $cat, $price, $description, $imglist];
         $newProduct = [];
         for ($i = 0; $i < count($headers); $i++) {
