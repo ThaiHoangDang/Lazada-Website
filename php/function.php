@@ -39,14 +39,14 @@
     return false;
     }
     function getimagearray(array $product): array{
-        $string = $product['Image'];
+        $string = $product["Image"];
         $data = explode("|", $string);
         return $data;
     }
     function getproductdata(array $items) {
         if (isset($_GET["id"])) {
             foreach ($items as $item) {
-                if ($_GET["id"] === $item["Product ID"]) {
+                if ($_GET["id"] == $item["Product ID"]) {
                     return $item;
                 }
             }

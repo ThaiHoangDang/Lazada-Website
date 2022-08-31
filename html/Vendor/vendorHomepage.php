@@ -49,7 +49,7 @@
         }
         $allProducts[] = $newProduct;
         writecsv("../../data/product.csv", $allProducts);
-    
+        header("vendorHomepage.php");
     }
 ?>
 
@@ -80,7 +80,7 @@
                                     <div class="coll-4 coll-s-6">
                                         <div class="card mx-auto">
                                             <div class="container ratio ratio-1x1"> 
-                                                <img src="'. $vendorProducts[$i]["Image"].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
+                                                <img src="'. explode("|", $vendorProducts[$i]["Image"])[0].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
                                             </div>
                                             <div class="card-body text-bg-light rounded-2">
                                             <h5 class="card-title">'. $vendorProducts[$i]["Product Name"] .'</h5>
