@@ -1,5 +1,5 @@
 <?php
-  if (($_SESSION["user_data"]["role"] = "Vendor")||($_SESSION["user_data"]["role"] = "Shipper")) {
+  if (($_SESSION["user_data"]["role"] == "Vendor")||($_SESSION["user_data"]["role"] == "Shipper")) {
     ?>
     <style type="text/css">
     #cart {
