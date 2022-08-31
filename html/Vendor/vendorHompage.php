@@ -13,9 +13,13 @@
             $vendorProducts[] = $product;
         }
     }
-    include("../Homepage/header.html")
+    $categories = array();
+    foreach ($allProducts as $product){
+        $categories[] = $product["Category"];
+    }
+    $categories = array_unique($categories);
+    include("../Homepage/header.html");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,13 +30,15 @@
         <title>Cart</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <link rel="stylesheet" href="../../css/homepage/homepageTest2.css">
+        <link rel="stylesheet" href="/css/Vendor/vendorpage.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-light">
         <div class="container py-5">
             <div class="row">
                 <div class="row row-cols-auto">
                         <h2>Your Products</h2>
-                        <button type="button" class="btn btn-outline-primary h-75">Add</button>
+                        <button type="button" class="btn btn-outline-primary h-75" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New</button>
                 </div>
                 <div class="grid-container ">
                     <?php 
@@ -58,8 +64,50 @@
                 </div>
             </div>
         </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="Product Name" class="form-label required">Product name</label>
+                            <input type="text" class="form-control" id="Product Name" placeholder="Product Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Product Name" class="form-label">Brand</label>
+                            <input type="text" class="form-control" id="Brand" placeholder=<?=$_SESSION['user_data']['name']?> disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Price" class="form-label required">Price</label>
+                            <input type="number" class="form-control" id="Product Name" placeholder="Price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Category" class="form-label required">Category</label>
+                            <select class="form-select" aria-label="Default select example" id="Category">
+                                <?php
+                                    foreach ($categories as $cat){
+                                        echo ('
+                                        <option value="' . $cat . '">' . $cat . '</option>
+                                        ');
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Product Description" class="form-label required">Product Description</label>
+                            <textarea class="form-control" id="Product Description" rows="3" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 
