@@ -30,12 +30,15 @@
     <body class="bg-light">
 
         <div class="container py-5">
-            <h2 class="px-3">Your Products</h2>
-            <div class="grid-container">
+            <div class="row row-cols-auto">
+                    <h2 class="">Your Products</h2>
+                    <button type="button" class="btn btn-outline-primary h-75">Add</button>
+            </div>
+            <div class="grid-container ">
                 <?php 
-                    for ($i = 0; $i < 18; $i++) {
+                    for ($i = 0; $i < count($vendorProducts); $i++) {
                         echo('
-                            <a href="/html/productpage/product_customer.php/get?id='.$vendorProducts[$i]["Product ID"].'">
+                            <a href="/html/productpage/product_customer.php/get?id='.$vendorProducts[$i]["Product ID"].'" class="d-block">
                                 <div class="coll-4 coll-s-6">
                                     <div class="card mx-auto">
                                         <div class="container ratio ratio-1x1"> 
@@ -60,5 +63,5 @@
 </html>
 
 <?php 
-    include("../Homepage/footer.html")
-?>
+    include("../Homepage/footer.html");
+?> 
