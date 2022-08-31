@@ -20,13 +20,12 @@ if (isset($_POST['signin'])) {
                 "profile_img" => $data[$index]["Image"]
             ];
             $_SESSION["user_data"] = $user_data;
-            // header('location: ../Dashboard/dashboard.php');
             if ($user_data["role"] == "Customer") {
-                header('location: ../myAccount/customerMyAccount.php');
+                header('location: ../myAccount/myAccount.php');
             } elseif ($user_data["role"] == "Vendor") {
-                header('location: ../myAccount/vendorMyAccount.php');
+                header('location: ../myAccount/myAccount.php');
             } elseif ($user_data["role"] == "Shipper") {
-                header('location: ../myAccount/shipperMyAccount.php');
+                header('location: ../myAccount/myAccount.php');
             }
         }
     }

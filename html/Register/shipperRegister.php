@@ -3,6 +3,9 @@
 require_once("../../php/function.php");
 
 session_start();
+$hubList = readcsv("../../data/distribution_hubs.csv");
+
+
 
 if (isset($_POST['act'])) {
 
@@ -21,15 +24,15 @@ if (isset($_POST['act'])) {
 
 
     // Check if the username is unique
-    $data = readcsv("../../data/users.csv");
+    $users = readcsv("../../data/users.csv");
     $headers;
-    foreach ($data[0] as $header => $field) {
+    foreach ($users[0] as $header => $field) {
         $headers[] = $header;
     }
 
     $unique_account = true;
-    for ($index = 0; $index < count($data); $index++) {
-        if ($username == $data[$index]["username"]) {
+    for ($index = 0; $index < count($users); $index++) {
+        if ($username == $users[$index]["username"]) {
             $unique_account == false;
             break;
         }
@@ -44,8 +47,8 @@ if (isset($_POST['act'])) {
         for ($index = 0; $index < count($headers); $index++) {
             $newUser[$headers[$index]] = $newUserFields[$index];
         }
-        $data[] = $newUser;
-        writecsv("../../data/users.csv", $data);
+        $users[] = $newUser;
+        writecsv("../../data/users.csv", $users);
 
         // Save the uploaded the profile image 
         move_uploaded_file($profile_img_file, $upload_destination);
@@ -122,9 +125,11 @@ if (isset($_POST['act'])) {
                         <label for="distri-hub" class="form-label required">Distribution hub</label>
                         <select class="form-select" id="distri-hub" name="distri-hub" required>
                             <option disabled selected value>Select the distribution hub</option>
-                            <option value="1">Hoan Kiem, Ha Noi</option>
-                            <option value="2">Nam Tu Liem, Ha Noi</option>
-                            <option value="3">Ha Dong, Ha Noi</option>
+                            <?php
+                            for ($index = 0; $index < count($hubList); $index++) {
+                                echo "<option value={$hubList[$index]["Name"]}>{$hubList[$index]["Name"]} : {$hubList[$index]["Address"]}</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="col-12">
