@@ -39,6 +39,7 @@
                 <?php 
                     for ($i = 0; $i < 18; $i++) {
                         echo('
+                            <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'">
                                 <div class="coll-4 coll-s-6">
                                     <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'" style="text-decoration: none" >
                                         <div class="card mx-auto">
