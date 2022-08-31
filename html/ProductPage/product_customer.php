@@ -1,10 +1,12 @@
 <?php
     session_start();
+    if (!isset($_GET["id"])){
+        header("Location: ../404/404.html");
+    }
     require_once("../../php/function.php");
     $products = readcsv("../../data/product.csv", false);
     $product = getproductdata($products);
     $images = getimagearray($product);
-
     $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 ?>
 <!DOCTYPE html>
