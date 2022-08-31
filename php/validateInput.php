@@ -7,10 +7,10 @@ function validate_length($value, int $min_length, $max_length = null)
         return strlen($value) >= $min_length && strlen($value) <= $max_length;
     }
 }
-// function validate_length($value, int $min_length, int $max_length = strlen($value) + 1)
-// {
-//     return (strlen($value) > $min_length && strlen($value) < $max_length);
-// }
+function validate_username($username): bool {
+    $username_regex = "/[A-Za-z\d]{8,15}$/";
+    return boolval(preg_match($username_regex, $username));    
+}
 function validate_password($pass): bool
 {
     $pass_regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/";

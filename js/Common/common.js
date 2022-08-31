@@ -1,3 +1,11 @@
+function togglePasswordVisibility() {
+    var pass = document.querySelector('#password');
+    if (pass.type === "password") {
+        pass.type = "text";
+    } else {
+        pass.type = "password";
+    }
+}
 // Show the image input 
 var loadFile = function (event) {
     var image = document.querySelector('#img-output');

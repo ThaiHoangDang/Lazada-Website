@@ -15,12 +15,14 @@ if (isset($_POST['act'])) {
     $phone = $_POST["phone"];
     $address = $_POST["address"];
 
+    // Variables for save profile image
     $profile_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $username . "." . $exten;
     $upload_destination = '../../data/media/' . $save_file_name;
     $unique_account;
 
+    // Validate input at the server side
     if (
         validate_length($username, 8, 20) &&
         validate_password($password) &&
@@ -70,7 +72,7 @@ if (isset($_POST['act'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/Profile/profile.css">
+    <link rel="stylesheet" href="../../css/Account/account.css">
 </head>
 
 <body class="bg-light">
@@ -93,9 +95,9 @@ if (isset($_POST['act'])) {
                     </div>
                     <div class="col-12">
                         <label for="username" class="form-label required">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" minlength="8" maxlength="15" required>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" pattern="[A-Za-z\d]{8,15}$" required>
                         <div class="invalid-feedback">
-                            Username must be from 8 to 15 charactes
+                            Username must be from 8 to 15 charactes with only letters (lowercase or uppercase) and digits
                         </div>
                     </div>
                     <div class="col-12">
