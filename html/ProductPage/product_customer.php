@@ -1,10 +1,12 @@
 <?php
     session_start();
+    if (!isset($_GET["id"])){
+        header("Location: ../404/404.html");
+    }
     require_once("../../php/function.php");
     $products = readcsv("../../data/product.csv", false);
     $product = getproductdata($products);
     $images = getimagearray($product);
-
     $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 ?>
 <!DOCTYPE html>
@@ -37,9 +39,12 @@
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner border">
                         <?php
-                        foreach ($images as $image_url){
                             echo "<div class='carousel-item active'>
-                                <img class='d-block' src=" . "'" . $image_url . "'" . "alt='Image'>
+                                <img class='d-block' src=" . $images[0] . " alt='Image'>
+                                </div>";
+                        for ($i=1; $i<count($images); $i++){
+                            echo "<div class='carousel-item'>
+                                <img class='d-block' src=" . $images[$i] . " alt='Image'>
                                 </div>";
                         }
                         ?>

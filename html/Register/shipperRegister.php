@@ -1,6 +1,7 @@
 <?php
 // Include files
 require_once("../../php/function.php");
+require_once("../../php/validateInput.php");
 
 session_start();
 $hubList = readcsv("../../data/distribution_hubs.csv");
@@ -17,41 +18,49 @@ if (isset($_POST['act'])) {
     $phone = $_POST["phone"];
     $distribution_hub = $_POST["distri-hub"];
 
+    // Variables for save profile image
     $profile_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $username . "." . $exten;
     $upload_destination = '../../data/media/' . $save_file_name;
+    $unique_account;
 
-
-    // Check if the username is unique
-    $users = readcsv("../../data/users.csv");
-    $headers;
-    foreach ($users[0] as $header => $field) {
-        $headers[] = $header;
-    }
-
-    $unique_account = true;
-    for ($index = 0; $index < count($users); $index++) {
-        if ($username == $users[$index]["username"]) {
-            $unique_account == false;
-            break;
+    // Validate input at the server side
+    if (
+        validate_length($username, 8, 20) &&
+        validate_password($password) &&
+        validate_length($name, 5)
+    ) {
+        // Check if the username is unique
+        $users = readcsv("../../data/users.csv");
+        $headers;
+        foreach ($users[0] as $header => $field) {
+            $headers[] = $header;
         }
-    }
 
-    // Add new user to the database
-    if ($unique_account) {
-        $hashed_pwd = password_hash($password, PASSWORD_BCRYPT);
-
-        $newUserFields = [$username, $hashed_pwd, "Shipper", $name, $email, $phone, null, $distribution_hub, $save_file_name];
-        $newUser = [];
-        for ($index = 0; $index < count($headers); $index++) {
-            $newUser[$headers[$index]] = $newUserFields[$index];
+        $unique_account = true;
+        for ($index = 0; $index < count($users); $index++) {
+            if ($username == $users[$index]["username"]) {
+                $unique_account == false;
+                break;
+            }
         }
-        $users[] = $newUser;
-        writecsv("../../data/users.csv", $users);
 
-        // Save the uploaded the profile image 
-        move_uploaded_file($profile_img_file, $upload_destination);
+        // Add new user to the database
+        if ($unique_account) {
+            $hashed_pwd = password_hash($password, PASSWORD_BCRYPT);
+
+            $newUserFields = [$username, $hashed_pwd, "Shipper", $name, $email, $phone, null, $distribution_hub, $save_file_name];
+            $newUser = [];
+            for ($index = 0; $index < count($headers); $index++) {
+                $newUser[$headers[$index]] = $newUserFields[$index];
+            }
+            $users[] = $newUser;
+            writecsv("../../data/users.csv", $users);
+
+            // Save the uploaded the profile image 
+            move_uploaded_file($profile_img_file, $upload_destination);
+        }
     }
 }
 ?>
@@ -65,7 +74,7 @@ if (isset($_POST['act'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/Profile/profile.css">
+    <link rel="stylesheet" href="../../css/Account/account.css">
 </head>
 
 <body class="bg-light">
@@ -88,9 +97,9 @@ if (isset($_POST['act'])) {
                     </div>
                     <div class="col-12">
                         <label for="username" class="form-label required">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" minlength="8" maxlength="15" required>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" pattern="[A-Za-z\d]{8,15}$" required>
                         <div class="invalid-feedback">
-                            Username must be from 8 to 15 charactes
+                            Username must be from 8 to 15 charactes with only letters (lowercase or uppercase) and digits
                         </div>
                     </div>
                     <div class="col-12">

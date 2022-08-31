@@ -4,6 +4,10 @@ require_once("../../php/function.php");
 
 session_start();
 
+if (isset($_SESSION["user_data"])) {
+    header('location: ../myAccount/myAccount.php');
+}
+
 if (isset($_POST['signin'])) {
     $data = readcsv("../../data/users.csv");
     for ($index = 0; $index < count($data); $index++) {
@@ -43,7 +47,7 @@ if (isset($_POST['signin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/Profile/profile.css">
+    <link rel="stylesheet" href="../../css/Account/account.css">
 </head>
 
 <body class="bg-light">
@@ -54,12 +58,16 @@ if (isset($_POST['signin'])) {
                     <form class="w-100 text-center" method="post" action="login.php">
                         <h3 class="mb-3">Please sign in</h3>
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                             <label for="username">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             <label for="pass">Password</label>
+                        </div>
+                        <div class="mt-2">
+                            <input type="checkbox" onclick="togglePasswordVisibility()">
+                            <label>Show password</label>
                         </div>
                         <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
                         <div class="mt-2 mb-3">
@@ -75,6 +83,7 @@ if (isset($_POST['signin'])) {
             </div>
         </div>
     </main>
+    <script src="../../js/Common/common.js" async></script>
 </body>
 
 </html>
