@@ -18,7 +18,47 @@
         $categories[] = $product["Category"];
     }
     $categories = array_unique($categories);
-    include("../Homepage/header.html");
+    include("../Homepage/header.php");
+
+    if (isset($_POST['act'])) {
+
+        // Get uset input
+        $id = "P" . count($allProducts) + 1;
+        $name = $_POST["name"];
+        $cat = $_POST["category"];
+        $brand = $_SESSION["user_data"]["name"];
+        $price = $_POST["price"];
+        $description = implode(" | ", explode("\n", $_POST["description"]));
+        
+        $product_imgs = $_FILES["img-file"];
+        echo '<pre>';
+        print_r($product_imgs);
+        echo '</pre>';
+        $patharr = array();
+        for ($i = 0; $i < count($product_imgs['name']); $i++){
+            $exten = pathinfo($product_imgs['name'][$i], PATHINFO_EXTENSION);
+            $file_name = $id . "_" . $i . ". " . $exten;
+            $upload_destination = '../../data/media/products/' . $file_name;
+            move_uploaded_file($product_imgs["tmp_name"][$i],$upload_destination);
+            $patharr[] = $upload_destination;
+        }
+        $imglist = implode("|", $patharr);
+        $headers = array();
+        foreach ($allProducts[0] as $header => $field) {
+            $headers[] = $header;
+        }
+        echo '<pre>';
+        print_r($headers);
+        echo '</pre>';
+        $newProductFields = [$id, $name, $brand, $cat, $price, $description, $imglist];
+        $newProduct = [];
+        for ($i = 0; $i < count($headers); $i++) {
+            $newProduct[$headers[$i]] = $newProductFields[$i];
+        }
+        $allProducts[] = $newProduct;
+        writecsv("../../data/product.csv", $allProducts);
+    
+    }
 ?>
 
 <!DOCTYPE html>
@@ -72,38 +112,44 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="Product Name" class="form-label required">Product name</label>
-                            <input type="text" class="form-control" id="Product Name" placeholder="Product Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Product Name" class="form-label">Brand</label>
-                            <input type="text" class="form-control" id="Brand" placeholder=<?=$_SESSION['user_data']['name']?> disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Price" class="form-label required">Price</label>
-                            <input type="number" class="form-control" id="Product Name" placeholder="Price" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Category" class="form-label required">Category</label>
-                            <select class="form-select" aria-label="Default select example" id="Category">
-                                <?php
-                                    foreach ($categories as $cat){
-                                        echo ('
-                                        <option value="' . $cat . '">' . $cat . '</option>
-                                        ');
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Product Description" class="form-label required">Product Description</label>
-                            <textarea class="form-control" id="Product Description" rows="3" required></textarea>
-                        </div>
+                        <form id ="addProduct" enctype="multipart/form-data" method="post" action="vendorHomepage.php">
+                            <div class="mb-3">
+                                <label for="Product Name" class="form-label required">Product name</label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Product Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Product Name" class="form-label">Brand</label>
+                                <input type="text" class="form-control" name="brand" id="brand" placeholder=<?=$_SESSION['user_data']['name']?> disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Price" class="form-label required">Price</label>
+                                <input type="number" class="form-control" name="price" id="pric" placeholder="Price" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Category" class="form-label required">Category</label>
+                                <select class="form-select" aria-label="Default select example" name="category" id="category">
+                                    <?php
+                                        foreach ($categories as $cat){
+                                            echo ('
+                                            <option value="' . $cat . '">' . $cat . '</option>
+                                            ');
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="product-image" class="form-label required">Product Images</label>
+                                <input class="form-control" type="file" name="img-file[]" accept="image/*" onchange="loadFile(event)" multiple required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Product Description" class="form-label required">Product Description</label>
+                                <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add</button>
+                        <button type="submit" form="addProduct" class="btn btn-primary" name="act">Add</button>
                     </div>
                 </div>
             </div>
