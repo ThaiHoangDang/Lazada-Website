@@ -28,33 +28,34 @@
         <link rel="stylesheet" href="../../css/homepage/homepageTest2.css">
     </head>
     <body class="bg-light">
-
         <div class="container py-5">
-            <div class="row row-cols-auto">
-                    <h2 class="">Your Products</h2>
-                    <button type="button" class="btn btn-outline-primary h-75">Add</button>
-            </div>
-            <div class="grid-container ">
-                <?php 
-                    for ($i = 0; $i < count($vendorProducts); $i++) {
-                        echo('
-                            <a href="/html/productpage/product_customer.php/get?id='.$vendorProducts[$i]["Product ID"].'" class="d-block">
-                                <div class="coll-4 coll-s-6">
-                                    <div class="card mx-auto">
-                                        <div class="container ratio ratio-1x1"> 
-                                            <img src="'. $vendorProducts[$i]["Image"].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
-                                        </div>
-                                        <div class="card-body text-bg-light rounded-2">
-                                        <h5 class="card-title">'. $vendorProducts[$i]["Product Name"] .'</h5>
-                                        <p class="card-text"><small class="text-muted">'. $vendorProducts[$i]["Brand Name"].'</small></p>
-                                        <p class="card-text">$'. $vendorProducts[$i]["Price"].'</p>
+            <div class="row">
+                <div class="row row-cols-auto">
+                        <h2>Your Products</h2>
+                        <button type="button" class="btn btn-outline-primary h-75">Add</button>
+                </div>
+                <div class="grid-container ">
+                    <?php 
+                        for ($i = 0; $i < count($vendorProducts); $i++) {
+                            echo('
+                                <a href="/html/productpage/product_customer.php/get?id='.$vendorProducts[$i]["Product ID"].'" class="d-block">
+                                    <div class="coll-4 coll-s-6">
+                                        <div class="card mx-auto">
+                                            <div class="container ratio ratio-1x1"> 
+                                                <img src="'. $vendorProducts[$i]["Image"].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
+                                            </div>
+                                            <div class="card-body text-bg-light rounded-2">
+                                            <h5 class="card-title">'. $vendorProducts[$i]["Product Name"] .'</h5>
+                                            <p class="card-text"><small class="text-muted">'. $vendorProducts[$i]["Brand Name"].'</small></p>
+                                            <p class="card-text">$'. $vendorProducts[$i]["Price"].'</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        ');
-                    }
-                ?>
+                                </a>
+                            ');
+                        }
+                    ?>
+                </div>
             </div>
         </div>
         
