@@ -37,7 +37,7 @@
             </div>
             <div class="grid-container">
                 <?php 
-                    for ($i = 0; $i < 18; $i++) {
+                    for ($i = count($products)-1; $i > count($products)-19; $i--) {
                         echo('
                             <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'">
                                 <div class="coll-4 coll-s-6">
