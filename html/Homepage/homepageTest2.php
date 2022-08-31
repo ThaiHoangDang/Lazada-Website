@@ -7,7 +7,7 @@
     // }
 
     $products = readcsv("../../data/product.csv");
-    include("../Homepage/header.html");
+    include("../Homepage/header.php");
     include("../Homepage/slider.html");
 ?>
 
