@@ -10,6 +10,7 @@ if (!isset($_SESSION["user_data"])) {
 
 if (isset($_POST['saveImg'])) {
 
+    // Variables for save profile image
     $new_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $_SESSION["user_data"]["username"] . "." . $exten;
@@ -45,7 +46,7 @@ if (isset($_POST['saveImg'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/Profile/profile.css">
+    <link rel="stylesheet" href="../../css/Account/account.css">
 </head>
 
 <body class="bg-light">
@@ -81,11 +82,11 @@ if (isset($_POST['saveImg'])) {
                                 <?= $_SESSION["user_data"]["phone"]; ?>
                             </li>
                             <?php
-                                if ($_SESSION["user_data"]["role"] == "Shipper") {
-                                    echo "<li class='list-group-item'><label>Distribution Hub:</label> {$_SESSION["user_data"]["distribution_hub"]}</li>";
-                                } else {
-                                    echo "<li class='list-group-item'><label>Address:</label> {$_SESSION["user_data"]["address"]}</li>";
-                                }
+                            if ($_SESSION["user_data"]["role"] == "Shipper") {
+                                echo "<li class='list-group-item'><label>Distribution Hub:</label> {$_SESSION["user_data"]["distribution_hub"]}</li>";
+                            } else {
+                                echo "<li class='list-group-item'><label>Address:</label> {$_SESSION["user_data"]["address"]}</li>";
+                            }
                             ?>
 
                         </ul>
