@@ -26,16 +26,17 @@
         $cat = $_POST["category"];
         $brand = $_SESSION["user_data"]["name"];
         $price = $_POST["price"];
-        $description = implode(" | ", explode("\n", $_POST["description"]));
+        $description = implode(" | ", preg_split('#(\r\n?|\n)+#',$_POST["description"]));
         
         $product_imgs = $_FILES["img-file"];
         $patharr = array();
         for ($i = 0; $i < count($product_imgs['name']); $i++){
             $exten = pathinfo($product_imgs['name'][$i], PATHINFO_EXTENSION);
-            $file_name = $id . "_" . $i . ". " . $exten;
+            $file_name = $id . "_" . $i . "." . $exten;
             $upload_destination = '../../data/media/products/' . $file_name;
+            $path = '/data/media/products/' . $file_name;
             move_uploaded_file($product_imgs["tmp_name"][$i],$upload_destination);
-            $patharr[] = $upload_destination;
+            $patharr[] = $path;
         }
         $imglist = implode("|", $patharr);
         $headers = array();
@@ -49,7 +50,7 @@
         }
         $allProducts[] = $newProduct;
         writecsv("../../data/product.csv", $allProducts);
-        header("vendorHomepage.php");
+        header("location: vendorHomepage.php");
     }
 ?>
 
