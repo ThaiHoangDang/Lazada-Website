@@ -116,7 +116,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="Price" class="form-label required">Price</label>
-                                <input type="number" class="form-control" name="price" id="pric" placeholder="Price" required>
+                                <input type="number" class="form-control" name="price" id="price" placeholder="Price" step="0.01" min="0" required>
                             </div>
                             <div class="mb-3">
                                 <label for="Category" class="form-label required">Category</label>
