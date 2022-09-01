@@ -1,9 +1,10 @@
 <?php
   session_start();
-
-  if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
-      header('location: login.php');
-  }
+  require_once("../../php/function.php");
+  include("../Homepage/header.php");
+  // if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
+  //     header('location: login.php');
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +17,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body class="bg-light">
-    <div class ="container ">
-      <h1 class="text-start">Orders List</h1>
+    <div class ="container py-5">
+      <h2>Orders List</h2>
     </div>
     <div class="container bg-white rounded-1 py-4">
         <div class="card mx-5 my-3 text-start">

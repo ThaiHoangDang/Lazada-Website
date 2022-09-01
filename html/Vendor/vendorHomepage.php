@@ -80,8 +80,8 @@
                                 <a href="/html/productpage/product_customer.php/get?id='.$vendorProducts[$i]["Product ID"].'" class="d-block">
                                     <div class="coll-4 coll-s-6">
                                         <div class="card mx-auto">
-                                            <div class="container ratio ratio-1x1"> 
-                                                <img src="'. explode("|", $vendorProducts[$i]["Image"])[0].'" class="card-img-top p-4 ratio ratio-1x1" alt="...">
+                                            <div class="container position-relative bg-white overflow-hidden ratio ratio-1x1"> 
+                                                <img src="'. explode("|", $vendorProducts[$i]["Image"])[0].'" class="position-absolute top-50 start-50 translate-middle w-auto p-4" alt="...">
                                             </div>
                                             <div class="card-body text-bg-light rounded-2">
                                             <h5 class="card-title">'. $vendorProducts[$i]["Product Name"] .'</h5>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="Price" class="form-label required">Price</label>
-                                <input type="number" class="form-control" name="price" id="pric" placeholder="Price" required>
+                                <input type="number" class="form-control" name="price" id="price" placeholder="Price" step="0.01" min="0" required>
                             </div>
                             <div class="mb-3">
                                 <label for="Category" class="form-label required">Category</label>
