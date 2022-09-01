@@ -14,10 +14,10 @@ if (isset($_POST['saveImg'])) {
     $new_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $_SESSION["user_data"]["username"] . "." . $exten;
-    $upload_destination = '../../data/media/' . $save_file_name;
+    $upload_destination = '../../data/media/users/' . $save_file_name;
 
     // Check if the file name already exists
-    $old_file_path = "../../data/media" . $_SESSION["user_data"]["profile_img"];
+    $old_file_path = "../../data/media/users/" . $_SESSION["user_data"]["profile_img"];
     if (file_exists($old_file_path)) {
         chmod($old_file_path, 0755);
         unlink($old_file_path);
@@ -56,8 +56,16 @@ if (isset($_POST['saveImg'])) {
     <main>
         <div class="container">
             <ul class="breadcrumb py-4 fw-bold">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active"><a href="#">My account</a></li>
+                <?php
+                if ($_SESSION["user_data"]["role"] == "Shipper") {
+                    echo "<li class='breadcrumb-item'><a href='#'>Home</a></li>";
+                } elseif ($_SESSION["user_data"]["role"] == "Vendor") {
+                    echo "<li class='breadcrumb-item'><a href='../Vendor/vendorHomepage.php'>Home</a></li>";
+                } else {
+                    echo "<li class='breadcrumb-item'><a href='../Homepage/homepage.php'>Home</a></li>";
+                }
+                ?>
+                <li class="breadcrumb-item active" aria-current="page">My account</a></li>
             </ul>
         </div>
         <div class="container">
@@ -101,7 +109,7 @@ if (isset($_POST['saveImg'])) {
                                         <span>Change Image</span>
                                     </label>
                                     <input id="img-file" name="profile-img" type="file" onchange="loadFile(event)" />
-                                    <img id="img-output" src="<?php echo "../../data/media/" . (empty($_SESSION["user_data"]["profile_img"]) ? "default.jpeg" : $_SESSION["user_data"]["profile_img"]); ?>" alt="profile picture" />
+                                    <img id="img-output" src="<?php echo "../../data/media/users/" . (empty($_SESSION["user_data"]["profile_img"]) ? "default.jpeg" : $_SESSION["user_data"]["profile_img"]); ?>" alt="profile picture" />
                                 </div>
                                 <div class="mt-3 text-center">
                                     <button type="submit" name="saveImg" class="btn btn-secondary">Save image</button>
