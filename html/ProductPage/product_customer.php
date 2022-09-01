@@ -9,6 +9,10 @@
     $images = getimagearray($product);
     $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 
+    if (isset($_POST['addToCart'])) {
+        
+    }
+
     include("../Homepage/header.php");
 ?>
 
@@ -63,14 +67,13 @@
                 </div>
 
                 <div class="col-lg-7 pb-5">
-                    <h2 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h2>
-                    <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
-                    <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Quantity</span>
-                        <input type="text" class="form-control" placeholder="Quantity" aria-label="Quantity" aria-describedby="basic-addon1">
-                        <button class="btn btn-primary px-3">Add To Cart</button>
+                    <div class="pb-4">
+                        <h2 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h2>
+                        <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
                     </div>
+                    <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
+                    <button type="button" class="btn btn-outline-dark" name="addToCart">Add To Cart</button>
+                    <button type="button" class="btn btn-dark" name="buyNow">Buy Now</button>
                 </div>
             </div>
             <div class="row px-xl-5 pt-4">

@@ -21,16 +21,22 @@
     <body class="bg-light">
         <div class="container py-5">
             <div class="row">
-                <div class="row">
-                    <h1 class="col-8">Featured Products</h1>
-                    <!-- <div class="col-4 px-4 float-end" style="width:150px;">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Filter</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
+                <div class="py-2">
+                    <h1>Featured Products</h1>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter
+                            </button>
+                            <ul class="dropdown-menu">
+                                <form action="filteredHomepage.php" class="text-center">
+                                    <input class="dropdown-item" type="number" placeholder="min" name="min">
+                                    <input class="dropdown-item" type="number" placeholder="max" name="max">
+                                    <input class="btn btn-outline-dark" type="submit">
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid-container bg-white rounded-1 px-5 py-4">
                     <?php 
