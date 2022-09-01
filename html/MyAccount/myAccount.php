@@ -1,8 +1,8 @@
 <?php
+session_start();
 // Include files
 require_once("../../php/function.php");
-
-session_start();
+include("../Homepage/header.php");
 
 if (!isset($_SESSION["user_data"])) {
     header('location: ../Login/login.php');
@@ -71,7 +71,7 @@ if (isset($_POST['saveImg'])) {
         <div class="container">
             <h1 class="text-center"> My account</h1>
         </div>
-        <div class="container">
+        <div class="container pb-5 mb-5">
             <div class="mt-3 bg-white rounded-1">
                 <section class="row px-5 py-4">
                     <article class="col-md-7">
@@ -140,3 +140,6 @@ if (isset($_POST['saveImg'])) {
 </body>
 
 </html>
+<?php
+include("../Homepage/footer.php");
+?>

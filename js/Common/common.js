@@ -14,7 +14,7 @@ var loadFile = function (event) {
         URL.revokeObjectURL(output.src)
     }
 };
-// Validate Bootstrap form
+// Validate user input at the client side (for Bootstrap form)
 (() => {
     'use strict'
     const forms = document.querySelectorAll('.needs-validation')

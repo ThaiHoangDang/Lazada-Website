@@ -1,3 +1,7 @@
+<?php
+include("../Homepage/header.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register as</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/Account/account.css">
 </head>
 
@@ -17,7 +20,7 @@
             <div class="p-5 bg-white rounded-1">
                 <h1 class="text-center mb-4">Register as ...</h1>
                 <div class="row row-cols-3 g-3">
-                    <div class="col">   
+                    <div class="col">
                         <div class="card shadow-sm">
                             <img src="../../img/register/customer.jpeg" class="card-img-top img-cover" alt="Customer Illustration">
                             <div class="card-body">
@@ -55,4 +58,9 @@
         </div>
     </main>
 </body>
+
 </html>
+
+<?php
+include("../Homepage/footer.php");
+?>

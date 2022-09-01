@@ -1,12 +1,12 @@
 <?php
+session_start();
+
 // Include files
 require_once("../../php/function.php");
 require_once("../../php/validateInput.php");
+include("../Homepage/header.php");
 
-session_start();
 $hubList = readcsv("../../data/distribution_hubs.csv");
-
-
 
 if (isset($_POST['act'])) {
 
@@ -166,3 +166,7 @@ if (isset($_POST['act'])) {
 </body>
 
 </html>
+
+<?php
+include("../Homepage/footer.php");
+?>

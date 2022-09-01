@@ -1,8 +1,9 @@
 <?php
+session_start();
+
 // Include files
 require_once("../../php/function.php");
-
-session_start();
+include("../Homepage/header.php");
 
 if (isset($_SESSION["user_data"])) {
     header('location: ../myAccount/myAccount.php');
@@ -71,7 +72,7 @@ if (isset($_POST['signin'])) {
                         </div>
                         <button class="mt-3 w-75 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
                         <div class="mt-2 mb-3">
-                            <a href="../Register/pickRegister.html" class="link-secondary">Sign up for new account</a>
+                            <a href="../Register/pickRegister.php" class="link-secondary">Sign up for new account</a>
                         </div>
 
                         <?php
@@ -87,3 +88,6 @@ if (isset($_POST['signin'])) {
 </body>
 
 </html>
+<?php
+include("../Homepage/footer.php");
+?>
