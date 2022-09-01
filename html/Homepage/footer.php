@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/homepage/footer.css">
+    <style>
+      <?php include '../../css/homepage/footer.css'; ?>
+    </style>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
-    <div class="row">
+    <div class="row pt-3">
       <footer class="text-center text-lg-start bg-light text-muted bg-white">
           <div class="container text-center text-md-start mt-5">
             <div class="row mt-3">

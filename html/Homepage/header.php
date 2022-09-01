@@ -1,15 +1,13 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="../../css/homepage/header.css">
-
+    <style>
+      <?php include '../../css/homepage/header.css'; ?>
+    </style>
 </head>
   <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
         <h2 class="logo">Lazada</h2>
@@ -37,12 +35,6 @@
                   </li>';
               }
             ?>
-            <!-- <li class="nav-item" id="cart">
-              <a class="nav-link" href="/html/MyAccount/myAccount.php">Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/html/MyAccount/myAccount.php">My account</a>
-            </li> -->
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">

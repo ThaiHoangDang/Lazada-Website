@@ -18,7 +18,7 @@ nav {
 
 .d-flex {
     width: 35%;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .navbar-nav .nav-link {
@@ -35,14 +35,15 @@ nav {
     position: relative;
 }
 
-@media only screen and (max-width:992px) {
+@media only screen and (max-width:991px) {
     .navbar {
         max-height: 400px;
     }
 
     .d-flex {
-        width: 90%;
+        width: 100%;
         padding-left: 25px;
+        padding-bottom: 10px;
     }
     .nav-item {
         padding-left: 25px;

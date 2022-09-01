@@ -32,7 +32,7 @@
                         </select>
                     </div> -->
                 </div>
-                <div class="grid-container bg-white rounded-1">
+                <div class="grid-container bg-white rounded-1 px-5 py-4">
                     <?php 
                         for ($i = count($products)-1; $i > count($products)-20; $i--) {
                             echo('
@@ -62,5 +62,5 @@
 </html>
 
 <?php 
-    include("../Homepage/footer.html")
+    include("../Homepage/footer.php");
 ?>
