@@ -74,7 +74,9 @@ if (isset($_POST['saveImg'])) {
                             <li class="list-group-item"><label>Name:</label>
                                 <?= $_SESSION["user_data"]["name"]; ?>
                             </li>
-
+                            <li class="list-group-item"><label>Account Type:</label>
+                                <?= $_SESSION["user_data"]["role"]; ?>
+                            </li>
                             <li class="list-group-item"><label>Email:</label>
                                 <?= $_SESSION["user_data"]["email"]; ?>
                             </li>

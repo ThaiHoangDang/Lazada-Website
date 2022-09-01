@@ -151,5 +151,5 @@
 </html>
 
 <?php 
-    include("../Homepage/footer.html");
+    include("../Homepage/footer.php");
 ?>
