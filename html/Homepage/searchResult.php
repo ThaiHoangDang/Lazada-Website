@@ -3,11 +3,11 @@
     require_once("../../php/function.php");
     
     $products = readcsv("../../data/product.csv");
+    $search = $_GET['search'];
+
+
     include("../Homepage/header.php");
     include("../Homepage/slider.html");
-
-    $min = $_GET['min'];
-    $max = $_GET['max'];
 ?>
 
 
@@ -17,7 +17,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Filtered Result</title>
+        <title>Search Result</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <link rel="stylesheet" href="../../css/homepage/homepage.css">
     </head>
@@ -25,14 +25,14 @@
         <div class="container py-5">
             <div class="row">
                 <div class="py-2">
-                    <h1>Filtered Result</h1>
-                    <h5 class="font-weight-light text-secondary">Between $<?=$min?> and $<?=$max?></h5>
+                    <h1>Search Result</h1>
+                    <h5 class="font-weight-light text-secondary">For "<?=$search?>"</h5>
                 </div>
                 <div class="grid-container bg-white rounded-1 px-5 py-4">
                     <?php
                         $count = 0;
                         for ($i = count($products)-1; $i > -1; $i--) {
-                            if ($min <= $products[$i]["Price"] && $products[$i]["Price"] <= $max) {
+                            if (str_contains(strtolower($products[$i]["Product Name"]), strtolower($search))) {
                                 $count++;
                                 echo('
                                     <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'">
@@ -57,7 +57,6 @@
                         if ($count == 0) {
                             echo "Cannot find products";
                         }
-
                     ?>
                 </div>
             </div>

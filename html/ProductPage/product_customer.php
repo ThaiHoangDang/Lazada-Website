@@ -72,8 +72,8 @@
                         <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
                     </div>
                     <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
-                    <button type="button" class="btn btn-outline-dark" name="addToCart">Add To Cart</button>
-                    <button type="button" class="btn btn-dark" name="buyNow">Buy Now</button>
+                    <button type="button" class="btn btn-outline-dark me-2" name="addToCart">Add To Cart</button>
+                    <button type="button" class="btn btn-dark mx-2" name="buyNow">Buy Now</button>
                 </div>
             </div>
             <div class="row px-xl-5 pt-4">

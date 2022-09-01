@@ -37,8 +37,8 @@
               }
             ?>
           </ul>
-          <form class="d-flex searchtool" role="search">
-            <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+          <form action="searchResult.php" class="d-flex searchtool">
+            <input class="form-control me-1" placeholder="Search" name="search">
             <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
         </div>
