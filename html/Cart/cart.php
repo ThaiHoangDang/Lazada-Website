@@ -1,10 +1,12 @@
 <?php
 session_start();
 
-// if (!isset($_SESSION['user_data'])) {
-//     header('location: ../login/login.php');
-// }
-// ?>
+if ((!isset($_SESSION['user_data']))||($_SESSION["user_data"]["role"] !== "Customer")) {
+    header('location: ../login/login.php');
+}
+
+include("../Homepage/header.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,13 +15,15 @@ session_start();
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Cart</title>
+
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body class="bg-light">
-      <div class="container">
+    <div class="container mb-5">
+    <div class="container">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb py-4 fw-bold">
-            <li class="breadcrumb-item"><a href="../Homepage/homepage.html">Home</a></li>
+          <ol class="breadcrumb pt-4 fw-bold">
+            <li class="breadcrumb-item"><a href="../Homepage/homepage.php">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Cart</li>
           </ol>
         </nav>
@@ -144,7 +148,12 @@ session_start();
               </div>
           </div>
       </div>
+    </div>
       <script src="../../js/Cart/cart.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<?php 
+    include("../Homepage/footer.php");
+?>

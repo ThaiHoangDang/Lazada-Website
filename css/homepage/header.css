@@ -16,7 +16,7 @@ nav {
     font-size: 20px;
 }
 
-.d-flex {
+.searchtool {
     width: 35%;
     padding-right: 20px;
 }
@@ -40,7 +40,7 @@ nav {
         max-height: 400px;
     }
 
-    .d-flex {
+    .searchtool {
         width: 100%;
         padding-left: 25px;
         padding-bottom: 10px;

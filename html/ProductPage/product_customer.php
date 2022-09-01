@@ -27,7 +27,7 @@
 <body class="bg-light">
     <div class="container">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb py-4 fw-bold">
+            <ol class="breadcrumb pt-4 fw-bold">
                 <li class="breadcrumb-item"><a href="../../Homepage/homepage.php">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><?= $product["Product Name"]; ?></li>
             </ol>
@@ -36,7 +36,7 @@
 
     <div class="container py-5 bg-white rounded-1">
         <div class="row px-xl-5">
-            <div class="col-lg-5 pb-5">
+            <div class="col-lg-5">
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner border">
                         <?php
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="row px-xl-5">
+        <div class="row px-xl-5 pt-4">
             <div class="col">
                 <h4 class="mb-3">Product Description</h4>
                 <?php
