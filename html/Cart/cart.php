@@ -38,7 +38,9 @@ include("../Homepage/header.php");
                       <div class="card mb-3">
                           <div class="row g-0">
                             <div class="col-md-4">
-                              <img src="../../img/productImage/iphone.png" class="img-fluid rounded-start" alt="...">
+                              <div class="container ratio ratio-1x1"> 
+                                <img src="../../img/productImage/iphone.png" class="img-fluid rounded-start" alt="...">
+                              </div>
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">
