@@ -5,6 +5,14 @@
   // if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
   //     header('location: login.php');
   // }
+  $customers = readcsv("../../data/user.csv");
+  $products = readcsv("../../data/product.csv");
+  $orders = readcsv("../../data/Order.csv");
+  $active_orders = array_filter($orders, function ($var){
+    return ($var["Status"]=="active");
+  });
+  $order_items = readcsv("../../data/OrderItem.csv");
+  
 ?>
 
 <!DOCTYPE html>
