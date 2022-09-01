@@ -1,14 +1,3 @@
-<?php
-  if (($_SESSION["user_data"]["role"] == "Vendor")||($_SESSION["user_data"]["role"] == "Shipper")) {
-    ?>
-    <style type="text/css">
-    #cart {
-    display:none;
-    }
-    </style>
-  <?php
-  }
-?>
 
 <!doctype html>
 <html lang="en">
@@ -17,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../../css/homepage/header.css">
-    <title>Bootstrap demo</title>
 
 </head>
   <body>
@@ -33,12 +21,28 @@
             <li class="nav-item">
               <a class="nav-link" href="/html/homepage/homepage.php">Home</a>
             </li>
-            <li class="nav-item" id="cart">
-              <a class="nav-link" href="/html/cart/cart.php">Cart</a>
+            <?php
+              if (!isset($_SESSION["user_data"])) {
+                echo '<li class="nav-item">
+                <a class="nav-link" href="/html/login/login.php">Login | Register</a>
+                </li>';
+              } else {
+                  if ($_SESSION["user_data"]["role"] == "Customer") {
+                    echo '<li class="nav-item">
+                          <a class="nav-link" href="/html/cart/cart.php">Cart</a>
+                          </li>';}
+                
+                  echo '<li class="nav-item">
+                  <a class="nav-link" href="/html/myaccount/myaccount.php">My account</a>
+                  </li>';
+              }
+            ?>
+            <!-- <li class="nav-item" id="cart">
+              <a class="nav-link" href="/html/MyAccount/myAccount.php">Cart</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/html/MyAccount/myAccount.php">My account</a>
-            </li>
+            </li> -->
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
