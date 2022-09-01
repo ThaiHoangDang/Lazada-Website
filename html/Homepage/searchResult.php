@@ -32,7 +32,7 @@
                     <?php
                         $count = 0;
                         for ($i = count($products)-1; $i > -1; $i--) {
-                            if (str_contains(strtolower($products[$i]["Product Name"]), strtolower($search))) {
+                            if ((str_contains(strtolower($products[$i]["Product Name"]), strtolower($search)))||(str_contains(strtolower($products[$i]["Brand Name"]), strtolower($search)))) {
                                 $count++;
                                 echo('
                                     <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'">
