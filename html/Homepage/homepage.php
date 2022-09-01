@@ -25,14 +25,14 @@
                     <h1>Featured Products</h1>
                     <div>
                         <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Filter
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter by Price
                             </button>
                             <ul class="dropdown-menu">
                                 <form action="filteredHomepage.php" class="text-center">
                                     <input class="dropdown-item" type="number" placeholder="min" name="min">
                                     <input class="dropdown-item" type="number" placeholder="max" name="max">
-                                    <input class="btn btn-outline-dark" type="submit">
+                                    <input class="btn btn-outline-dark mt-2" type="submit">
                                 </form>
                             </ul>
                         </div>
