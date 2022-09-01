@@ -2,17 +2,26 @@
   session_start();
   require_once("../../php/function.php");
   include("../Homepage/header.php");
-  // if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
-  //     header('location: login.php');
-  // }
-  $customers = readcsv("../../data/user.csv");
+  if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
+      header('location: login.php');
+  }
+
+  $users = readcsv("../../data/users.csv");
+  $user = getuserdata($_SESSION["user_data"]["username"], $users);
   $products = readcsv("../../data/product.csv");
-  $orders = readcsv("../../data/Order.csv");
-  $active_orders = array_filter($orders, function ($var){
-    return ($var["Status"]=="active");
+  $orders = array_filter(readcsv("../../data/Order.csv"), function ($var) use ($user){
+    if (($var["Distribution Hub"]==$user["Distribution hub"])){
+      return true;
+    }
+    return false;
   });
+  $active_orders = array_filter($orders, function ($var){
+    return ($var["Status"]=="Active");
+  });
+
   $order_items = readcsv("../../data/OrderItem.csv");
-  
+  // $order = readcsv("../../data/Order.csv");
+  // writecsv("../../data/Order.csv", $order);
 ?>
 
 <!DOCTYPE html>
@@ -25,15 +34,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body class="bg-light">
-    <div class ="container py-5">
+    <div class ="container py-4">
       <h2>Orders List</h2>
     </div>
     <div class="container bg-white rounded-1 py-4">
+      <?php
+      foreach($active_orders as $order){
+        $customer = getuserdata($order["Customer"], $users);
+        // echo '<pre>';
+        // print_r($order);
+        // echo '</pre>';
+        echo('
         <div class="card mx-5 my-3 text-start">
           <h5 class="card-header">
             <div class="row">
               <div class="col-md-10">
-                Order 10
+                Order ID: ' . $order['Order ID'] . '
               </div>
               <div class="col-md-2 text-end">
                 Status: <span class="text-success">Active</span> 
@@ -43,13 +59,13 @@
           <div class="card-body">
             <ul>
               <li class="list-group-item"><label>Customer: </label>
-                  Hoang Dang
+                  ' . $customer["name"] . '
               </li>
-              <li class="list-group-item"><label>Date: </label>
-                  10/10/2022
+              <li class="list-group-item"><label>Created at: </label>
+                  ' . $order["Time"] . ' ' . $order["Date"] . '
               </li>
               <li class="list-group-item"><label>Location: </label>
-                  112 Nguyen Thuong Hien, Hai Ba Trung, Ha Noi
+                  ' . $customer["address"] . '
               </li>
             </ul>
             <div class="text-center">
@@ -57,35 +73,9 @@
             </div>
           </div>
         </div>
-
-        <div class="card mx-5 my-2 text-start">
-          <h5 class="card-header">
-            <div class="row">
-              <div class="col-md-10">
-                Order 10
-              </div>
-              <div class="col-md-2 text-end">
-                Status: <span class="text-success">Active</span> 
-              </div>
-            </div>
-          </h5>
-          <div class="card-body">
-            <ul>
-              <li class="list-group-item"><label>Customer:</label>
-                  Minh Dau
-              </li>
-              <li class="list-group-item"><label>Date: </label>
-                  11/10/2022
-              </li>
-              <li class="list-group-item"><label>Location: </label>
-                  12 Nguyen Thuong Hien, Hai Ba Trung, Ha Noi
-              </li>
-            </ul>
-            <div class="text-center">
-              <a href="#" class="btn btn-light border" data-bs-toggle="modal" data-bs-target="#exampleModal">View Order</a>
-            </div>
-          </div>
-        </div>
+        ');
+      }
+      ?>
       </div>
     </div>
 

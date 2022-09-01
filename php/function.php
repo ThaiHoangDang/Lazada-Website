@@ -53,6 +53,14 @@
         }
         return false;
     }
+    function getuserdata(string $username, array $userarr):array{
+        foreach ($userarr as $u){
+            if ($u["username"]==$username){
+                return $u;
+            }
+        }
+        return false;
+    }
     // $data = readcsv("../data/users.csv");
     // $pass = readcsv("../data/pass.csv");
     // for ($i=0;$i<count($data);$i++){

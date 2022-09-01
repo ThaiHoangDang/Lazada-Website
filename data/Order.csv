@@ -1,11 +1,11 @@
-﻿"Order ID",Customer,Time,Date,"Distribution Hub",Status
-O1,testing123,13:09:27,26/08/2022,DH1,Active,
-O2,test12345,14:02:22,28/08/2022,DH2,Active,
-O3,test12345,03:33:29,31/08/2022,DH1,Active,
-O4,testing123,04:22:22,31/08/2022,DH2,Canceled,
-O5,bdacke1,12:22:33,31/08/2022,DH3,Delivered,
-O6,bdacke1,02:22:22,01/09/2022,DH1,Delivered,
-O7,zpinilla3,05:24:21,01/09/2022,DH4,Canceled,
-O8,zpinilla3,12:22:32,01/09/2022,DH1,Active,
-O9,zpinilla3,12:25:44,01/09/2022,DH4,Active,
-O10,testing123,13:00:00,01/09/2022,DH4,Active,
+"Order ID",Customer,Time,Date,"Distribution Hub",Status
+O1,testing123,13:09:27,26/08/2022,DH1,Active
+O2,test12345,14:02:22,28/08/2022,DH2,Active
+O3,test12345,03:33:29,31/08/2022,DH1,Active
+O4,testing123,04:22:22,31/08/2022,DH2,Canceled
+O5,bdacke1,12:22:33,31/08/2022,DH3,Delivered
+O6,bdacke1,02:22:22,01/09/2022,DH1,Delivered
+O7,zpinilla3,05:24:21,01/09/2022,DH4,Canceled
+O8,zpinilla3,12:22:32,01/09/2022,DH1,Active
+O9,zpinilla3,12:25:44,01/09/2022,DH4,Active
+O10,testing123,13:00:00,01/09/2022,DH4,Active
