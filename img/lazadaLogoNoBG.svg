@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3000" height="2522" viewBox="0 0 3000 2522">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.001" y1="0.5" x2="1.001" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fe08ed"/>
+      <stop offset="0" stop-color="#ff9200"/>
+      <stop offset="0.284" stop-color="#f36d00"/>
+      <stop offset="1" stop-color="#f0f"/>
+    </linearGradient>
+    <filter id="Path" x="-38.257" y="-19" width="3078.003" height="2524.584" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-color="#6b6d9f"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-xxl-lazada-logo">
+      <rect width="3000" height="2522"/>
+    </clipPath>
+  </defs>
+  <g id="xxl-lazada-logo" clip-path="url(#clip-xxl-lazada-logo)">
+    <g id="Group_87" data-name="Group 87" transform="translate(915 17039.986)">
+      <g id="Group_84" data-name="Group 84" transform="translate(-895 -17008.986)">
+        <g transform="matrix(1, 0, 0, 1, -20, -31)" filter="url(#Path)">
+          <path id="Path-2" data-name="Path" d="M1479.347,2404.581a119.857,119.857,0,0,1-59.962-15.611C1262.879,2298.334,103.81,1570.837,60.037,1548.626A105.119,105.119,0,0,1,.047,1464.6V444.18a110.569,110.569,0,0,1,49.8-94.839l8.395-4.8C170.368,274.911,545.732,45.618,605.095,12.605A89.873,89.873,0,0,1,650.066,0,93.464,93.464,0,0,1,692.64,10.8s525.271,342.739,605.621,373.351a413.971,413.971,0,0,0,179.886,37.816,402.626,402.626,0,0,0,201.474-49.22c78.549-41.417,580.432-360.146,585.834-360.146a79.054,79.054,0,0,1,41.966-11.4A88.077,88.077,0,0,1,2352.4,13.806c68.355,37.815,533.664,322.931,553.451,335.536h0a108.073,108.073,0,0,1,52.169,93.638V1463.4a103.824,103.824,0,0,1-59.962,84.028c-43.775,24.013-1199.247,751.51-1358.746,840.344A119.921,119.921,0,0,1,1479.347,2404.581Z" transform="translate(21.72 31)" fill="url(#linear-gradient)"/>
+        </g>
+        <path id="Path-3" data-name="Path" d="M16.959,2012.669h6a120.007,120.007,0,0,0,59.962-15.595c156.5-90.543,1314.97-817.286,1358.746-839.474a103.762,103.762,0,0,0,59.971-83.942V54.3a109.235,109.235,0,0,0-11.4-49.769L16.959,813.416Z" transform="translate(1458.11 391.914)" fill="#f624a0"/>
+        <path id="Path-4" data-name="Path" d="M0,1061.782a104.927,104.927,0,0,0,62.96,83.941c43.773,23.988,1202.842,750.732,1359.348,839.474a119.855,119.855,0,0,0,52.761,15.586V801.547L6.6,4.647A119.925,119.925,0,0,0,0,42.423Z" transform="translate(0 401.988)" fill="#f58000" opacity="0.41"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -19,7 +19,7 @@ if (isset($_POST['act'])) {
     $profile_img_file = $_FILES["profile-img"]["tmp_name"];
     $exten = pathinfo($_FILES["profile-img"]["name"], PATHINFO_EXTENSION);
     $save_file_name = $username . "." . $exten;
-    $upload_destination = '../../data/media/' . $save_file_name;
+    $upload_destination = '../../data/media/users/' . $save_file_name;
     $unique_account;
 
     // Validate input at the server side
