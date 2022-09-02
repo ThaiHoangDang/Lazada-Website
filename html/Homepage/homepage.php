@@ -21,9 +21,9 @@
     <body class="bg-light">
         <div class="container py-5">
             <div class="row">
-                <div class="py-2">
-                    <h1>Featured Products</h1>
-                    <div>
+                <div class="d-flex">
+                    <div class="w-100"><h1>Featured Products</h1></div>
+                    <div class="flex-shrink-1">
                         <div class="dropdown">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Filter by Price
