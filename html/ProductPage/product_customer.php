@@ -9,10 +9,6 @@
     $images = getimagearray($product);
     $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 
-    if (isset($_POST['addToCart'])) {
-        
-    }
-
     include("../Homepage/header.php");
     include("../../php/cartFunction.php");
 ?>
@@ -73,7 +69,7 @@
                         <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
                     </div>
                     <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
-                    <form action="">
+                    <form action="product_customer.php">
                         <div>
                             <button id="minus" type="button" class="btn btn-outline-primary minus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 -
