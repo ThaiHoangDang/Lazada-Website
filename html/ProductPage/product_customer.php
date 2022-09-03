@@ -25,7 +25,7 @@
     </style>
     <title><?=$page_title?></title>
 </head>
-<body class="bg-light" onload="createCart()">
+<body class="bg-light">
     <div class="container mb-5">
         <div class="container">
             <nav aria-label="breadcrumb">
