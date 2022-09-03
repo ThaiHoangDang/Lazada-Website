@@ -28,17 +28,17 @@
                 <h5 class="text-uppercase fw-bold mb-4">
                   Privacy policy
                 </h5>
-                <p><a href="../../html/Staticpage.html" class="text-reset">Intro</a></p>
-                <p><a href="../../html/Staticpage.html" class="text-reset">Data collect</a></p>
-                <p><a href="../../html/Staticpage.html" class="text-reset">Personal info protection</a></p>
-                <p><a href="../../html/Staticpage.html" class="text-reset">Third party site</a></p>
+                <p><a href="../../html/Privacy/introprivacy.php" class="text-reset">Intro</a></p>
+                <p><a href="../../html/Privacy/datacollect.php" class="text-reset">Data collect</a></p>
+                <p><a href="../../html/Privacy/personalprotect.php" class="text-reset">Personal info protection</a></p>
+                <p><a href="../../html/Privacy/thirdparty.php" class="text-reset">Third party site</a></p>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h5 class="text-uppercase fw-bold mb-4">Help links</h5>
-                <p><a href="../../html/Staticpage.html" class="text-reset">How to buy</a></p>
-                <p><a href="../../html/Staticpage.html" class="text-reset">Shipping and Delivery</a></p>
-                <p><a href="../../html/Staticpage.html" class="text-reset">How to return</a></p>
-                <p><a href="../../html/Staticpage.html" class="text-reset">International product policy</a></p>
+                <p><a href="../../html/Privacy/paymentmethod.php" class="text-reset">Payment method</a></p>
+                <p><a href="../../html/Privacy/shipping.php" class="text-reset">Shipping and Delivery</a></p>
+                <p><a href="../../html/Privacy/return.php" class="text-reset">How to return</a></p>
+                <p><a href="../../html/Privacy/international.php" class="text-reset">International product policy</a></p>
               </div>
               <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h5 class="text-uppercase fw-bold mb-4">Contact</h5>
