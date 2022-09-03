@@ -8,6 +8,7 @@
 
   $users = readcsv("../../data/users.csv");
   $user = getuserbyusername($_SESSION["user_data"]["username"], $users);
+  $allOrders = readcsv("../../data/Order.csv");
   $products = readcsv("../../data/product.csv");
   $orders = array_filter(readcsv("../../data/Order.csv"), function ($var) use ($user){
     if (($var["Distribution Hub"]==$user["Distribution hub"])){
@@ -18,10 +19,15 @@
   $active_orders = array_filter($orders, function ($var){
     return ($var["Status"]=="Active");
   });
-
   $order_items_list = readcsv("../../data/OrderItem.csv");
-  if (isset($_POST["View Order"])){
-    echo "DOne";
+  if (isset($_POST['act'])){
+    for($i = 0; $i < count($allOrders); $i++){
+      if ($allOrders[$i]["Order ID"]==$_POST["changeID"]){
+        $allOrders[$i]["Status"] = $_POST['change'];
+      }
+    }
+    writecsv("../../data/Order.csv", $allOrders);
+    header('location: shipper.php');
   }
   // $order = readcsv("../../data/OrderItem.csv");
   // writecsv("../../data/OrderItem.csv", $order);
@@ -91,90 +97,98 @@
         }
       }
       $customer = getuserbyusername($order["Customer"],$users);
-    echo '
-    <div class="modal fade" id="' . $order["Order ID"] . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Order 10</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <ul class="list-group list-group-flush info-list">
-              <li class="list-group-item"><label>Customer: </label>
-                  '.$customer["name"].'
-              </li>
-              <li class="list-group-item"><label>Created at: </label>
-                '.$order["Time"].' '.$order["Date"].'
-              </li>
-              <li class="list-group-item"><label>Location: </label>
-                '.$customer["address"].'
-              </li>
-              <li class="list-group-item"><label>Items: </label>
-                <div class="container">
-                  <div class="row">
-                    ';
-    echo '<div class="col-md-7">';
-    foreach ($order_items as $item){
-      $product = getproductbyid($item["Product ID"], $products);
-      $images = getimagearray($product);
-      $total = $total + $product["Price"];
       echo '
-      <div class="card mb-3" style="min-width: 400px;">
-        <div class="row g-0 align-items-center">
-          <div class="col-md-4">
-            <img src="' . $images[0] . '" class="img-fluid rounded-start p-3 align-middle" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">' . $product["Product Name"] . '</h5>
-              <p class="card-text"><small class="text-muted">$' . $product["Price"] . '</small></p>
-              <p class="card-text">ID: ' . $product["Product ID"] . '</p>
-              <p class="card-text">Quantity: ' . $item["Quantity"] . '</p>
+      <div class="modal fade" id="' . $order["Order ID"] . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Order ' . $order["Order ID"] . '</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <ul class="list-group list-group-flush info-list">
+                <li class="list-group-item"><label>Customer: </label>
+                    '.$customer["name"].'
+                </li>
+                <li class="list-group-item"><label>Created at: </label>
+                  '.$order["Time"].' '.$order["Date"].'
+                </li>
+                <li class="list-group-item"><label>Location: </label>
+                  '.$customer["address"].'
+                </li>
+                <li class="list-group-item"><label>Items: </label>
+                  <div class="container">
+                    <div class="row">
+                      ';
+      echo '<div class="col-md-7">';
+      foreach ($order_items as $item){
+        $product = getproductbyid($item["Product ID"], $products);
+        $images = getimagearray($product);
+        $total = $total + $product["Price"];
+        echo '
+        <div class="card mb-3" style="min-width: 400px;">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-4">
+              <img src="' . $images[0] . '" class="img-fluid rounded-start p-3 align-middle" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">' . $product["Product Name"] . '</h5>
+                <p class="card-text"><small class="text-muted">$' . $product["Price"] . '</small></p>
+                <p class="card-text">ID: ' . $product["Product ID"] . '</p>
+                <p class="card-text">Quantity: ' . $item["Quantity"] . '</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      ';}
-    echo '
-                    </div>
-                    <div class="col-md-5" style="min-width: 300px;">
-                      <div class="container">
-                        <div class="card">
-                          <div class="card-header text-center">
-                            <h4>Summary</h4> 
-                          </div>
-                          <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Price
-                                <span">$' . $total . '</span>
-                              </li>
-                              <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Delivery
-                                <span>$10</span>
-                              </li>
-                              <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Total
-                                <span>$' . $total + 10 .'</span>
-                              </li>
-                            </ul>
+        ';}
+      echo '
+                      </div>
+                      <div class="col-md-5" style="min-width: 300px;">
+                        <div class="container">
+                          <div class="card">
+                            <div class="card-header text-center">
+                              <h4>Summary</h4> 
+                            </div>
+                            <div class="card-body">
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                  Price
+                                  <span">$' . $total . '</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                  Delivery
+                                  <span>$10</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                  Total
+                                  <span>$' . $total + 10 .'</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger">Cancel</button>
-            <button type="button" class="btn btn-success">Delivered</button>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <form method="post" action="shipper.php">
+                <input type="hidden" name="changeID" value="'.$order["Order ID"].'">
+                <input type="hidden" name="change" value="Canceled">
+                <button type="submit" name="act" class="btn btn-outline-danger">Cancel</button>
+              </form>
+              <form method="post" action="shipper.php">
+                <input type="hidden" name="changeID" value="'.$order["Order ID"].'">
+                <input type="hidden" name="change" value="Delivered">
+                <button type="submit" name="act" class="btn btn-success">Delivered</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </div>';}
+      </div>';}
   ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>
