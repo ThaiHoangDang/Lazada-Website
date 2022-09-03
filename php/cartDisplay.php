@@ -23,8 +23,8 @@
                                 </a>
                                 <span class="card-text"><small class="text-muted">$${item.product_price} | Quantity: ${item.product_quantity} | Total: $${Number((item.product_price)*item.product_quantity).toFixed(2)}</small></span>
                                 <div class="row">
-                                    <div class="container pt-2" id="${item.product_ID}">
-                                        <button type="button" class="btn btn-outline-danger removeItem" onclick="removeProduct()">Remove</button>
+                                    <div class="container pt-2">
+                                        <button type="button" class="btn btn-outline-danger" onclick="removeItem(id)" id="${item.product_ID}">Remove</button>
                                     </div>
                                 </div>
                             </div>
@@ -37,25 +37,25 @@
         document.getElementById("totalPrice").innerHTML += (productsPrice + 2).toFixed(2);
     }
 
+    // document.getElementById("test").addEventListener("click", function() {alert("DMNCNN!!");});
 
     // document.querySelectorAll(".removeItem", function (item){
     //     item.addEventListener("click", function (){
     //         alert("Hi");
     //     })
     // })
+    function removeItem(id) {
+        let productList = localStorage.getItem("cartItems");
+        productList = JSON.parse(productList);
+        let productID = id;
+        delete productList[productID];
+        localStorage.setItem("cartItems", JSON.stringify(productList));
+        location.reload();
+    }
 
 
-    // document.querySelectorAll(".removeItem").forEach(function (item) {
-    //     item.addEventListener("click", function () {
-    //         alert("Hi");
-    //         let productList = localStorage.getItem("cartItems");
-    //         productList = JSON.parse(productList);
-    //         let productID = this.parentNode.parentNode.id;
-    //         delete productList[productID];
-    //         localStorage.setItem("cartItems", JSON.stringify(productList));
-    //         location.reload();
-    //     })
-    // })
-
-
+    function placeOrder() {
+        localStorage.removeItem("cartItems");
+        window.location.replace("/html/success/success.html");
+    }
 </script>

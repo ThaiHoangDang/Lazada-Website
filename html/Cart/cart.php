@@ -63,7 +63,7 @@ $products = readcsv("../../data/product.csv");
                             </ul>
                           </div>
                           <div class="card-footer text-center">
-                            <a href="#" class="btn btn-outline-primary">Place Order</a>
+                            <a href="#" class="btn btn-outline-primary" onclick="placeOrder()">Place Order</a>
                           </div>
                         </div>
                       </div>
