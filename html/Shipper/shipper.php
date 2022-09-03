@@ -3,7 +3,7 @@
   require_once("../../php/function.php");
   include("../Homepage/header.php");
   if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper" ) {
-      header('location: login.php');
+      header('location: ../login/login.php');
   }
 
   $users = readcsv("../../data/users.csv");
@@ -29,8 +29,6 @@
     writecsv("../../data/Order.csv", $allOrders);
     header('location: shipper.php');
   }
-  // $order = readcsv("../../data/OrderItem.csv");
-  // writecsv("../../data/OrderItem.csv", $order);
 ?>
 
 <!DOCTYPE html>
@@ -50,9 +48,6 @@
       <?php
       foreach($active_orders as $order){
         $customer = getuserbyusername($order["Customer"], $users);
-        // echo '<pre>';
-        // print_r($order);
-        // echo '</pre>';
         echo('
         <div class="card mx-5 my-3 text-start">
           <h5 class="card-header">
@@ -193,3 +188,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>
 </html>
+<?php 
+    include("../Homepage/footer.php");
+?>
