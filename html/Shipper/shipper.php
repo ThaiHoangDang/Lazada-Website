@@ -7,7 +7,7 @@
   }
 
   $users = readcsv("../../data/users.csv");
-  $user = getuserdata($_SESSION["user_data"]["username"], $users);
+  $user = getuserbyusername($_SESSION["user_data"]["username"], $users);
   $products = readcsv("../../data/product.csv");
   $orders = array_filter(readcsv("../../data/Order.csv"), function ($var) use ($user){
     if (($var["Distribution Hub"]==$user["Distribution hub"])){
@@ -19,9 +19,12 @@
     return ($var["Status"]=="Active");
   });
 
-  $order_items = readcsv("../../data/OrderItem.csv");
-  // $order = readcsv("../../data/Order.csv");
-  // writecsv("../../data/Order.csv", $order);
+  $order_items_list = readcsv("../../data/OrderItem.csv");
+  if (isset($_POST["View Order"])){
+    echo "DOne";
+  }
+  // $order = readcsv("../../data/OrderItem.csv");
+  // writecsv("../../data/OrderItem.csv", $order);
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +43,7 @@
     <div class="container bg-white rounded-1 py-4">
       <?php
       foreach($active_orders as $order){
-        $customer = getuserdata($order["Customer"], $users);
+        $customer = getuserbyusername($order["Customer"], $users);
         // echo '<pre>';
         // print_r($order);
         // echo '</pre>';
@@ -69,7 +72,7 @@
               </li>
             </ul>
             <div class="text-center">
-              <a href="#" class="btn btn-light border" data-bs-toggle="modal" data-bs-target="#exampleModal">View Order</a>
+                <button class="btn btn-light border" data-bs-toggle="modal" data-bs-target="#' . $order["Order ID"] . '">View Order</button>
             </div>
           </div>
         </div>
@@ -78,9 +81,18 @@
       ?>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <?php
+    foreach ($active_orders as $order){
+      $order_items = array();
+      $total = 0;
+      foreach ($order_items_list as $item){
+        if ($item["Order ID"]==$order["Order ID"]){
+          $order_items[]=$item;
+        }
+      }
+      $customer = getuserbyusername($order["Customer"],$users);
+    echo '
+    <div class="modal fade" id="' . $order["Order ID"] . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -90,63 +102,41 @@
           <div class="modal-body">
             <ul class="list-group list-group-flush info-list">
               <li class="list-group-item"><label>Customer: </label>
-                  Hoang Dang
+                  '.$customer["name"].'
               </li>
-              <li class="list-group-item"><label>Date: </label>
-                  10/10/2022
+              <li class="list-group-item"><label>Created at: </label>
+                '.$order["Time"].' '.$order["Date"].'
               </li>
               <li class="list-group-item"><label>Location: </label>
-                  112 Nguyen Thuong Hien, Hai Ba Trung, Ha Noi
+                '.$customer["address"].'
               </li>
               <li class="list-group-item"><label>Items: </label>
                 <div class="container">
                   <div class="row">
-                    <div class="col-md-7">
-                      <div class="card mb-3" style="min-width: 400px;">
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <img src="../../img/watch.png" class="img-fluid rounded-start" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                              <h5 class="card-title">iWatch</h5>
-                              <p class="card-text"><small class="text-muted">$200</small></p>
-                              <p class="card-text">ID: 2482934728</p>
-                              <p class="card-text">Quantity: 2</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3" style="min-width: 400px;">
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <img src="../../img/productImage/iphone.png" class="img-fluid rounded-start" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                              <h5 class="card-title">iPhone</h5>
-                              <p class="card-text"><small class="text-muted">$1300</small></p>
-                              <p class="card-text">ID: 4441144728</p>
-                              <p class="card-text">Quantity: 1</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3" style="min-width: 400px;">
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <img src="../../img/macbook.jpeg" class="img-fluid rounded-start" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                              <h5 class="card-title">Macbook</h5>
-                              <p class="card-text"><small class="text-muted">$2000</small></p>
-                              <p class="card-text">ID: 5551144728</p>
-                              <p class="card-text">Quantity: 1</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    ';
+    echo '<div class="col-md-7">';
+    foreach ($order_items as $item){
+      $product = getproductbyid($item["Product ID"], $products);
+      $images = getimagearray($product);
+      $total = $total + $product["Price"];
+      echo '
+      <div class="card mb-3" style="min-width: 400px;">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-4">
+            <img src="' . $images[0] . '" class="img-fluid rounded-start p-3 align-middle" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">' . $product["Product Name"] . '</h5>
+              <p class="card-text"><small class="text-muted">$' . $product["Price"] . '</small></p>
+              <p class="card-text">ID: ' . $product["Product ID"] . '</p>
+              <p class="card-text">Quantity: ' . $item["Quantity"] . '</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      ';}
+    echo '
                     </div>
                     <div class="col-md-5" style="min-width: 300px;">
                       <div class="container">
@@ -158,7 +148,7 @@
                             <ul class="list-group list-group-flush">
                               <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Price
-                                <span">$300</span>
+                                <span">$' . $total . '</span>
                               </li>
                               <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Delivery
@@ -166,7 +156,7 @@
                               </li>
                               <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Total
-                                <span>$310</span>
+                                <span>$' . $total + 10 .'</span>
                               </li>
                             </ul>
                           </div>
@@ -179,12 +169,13 @@
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger">Canceled</button>
+            <button type="button" class="btn btn-outline-danger">Cancel</button>
             <button type="button" class="btn btn-success">Delivered</button>
           </div>
         </div>
       </div>
-    </div>
+    </div>';}
+  ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>
 </html>

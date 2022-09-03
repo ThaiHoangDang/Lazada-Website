@@ -53,14 +53,23 @@
         }
         return false;
     }
-    function getuserdata(string $username, array $userarr):array{
-        foreach ($userarr as $u){
-            if ($u["username"]==$username){
-                return $u;
+    function getuserbyusername(string $id, array $arr):array{
+        foreach ($arr as $i){
+            if ($i["username"]==$id){
+                return $i;
             }
         }
         return false;
     }
+    function getproductbyid(string $id, array $arr):array{
+        foreach ($arr as $i){
+            if ($i["Product ID"]==$id){
+                return $i;
+            }
+        }
+        return false;
+    }
+    
     // $data = readcsv("../data/users.csv");
     // $pass = readcsv("../data/pass.csv");
     // for ($i=0;$i<count($data);$i++){
