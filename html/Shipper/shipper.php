@@ -43,6 +43,7 @@
   <body class="bg-light">
     <div class ="container py-4">
       <h2>Orders List</h2>
+      <div>Distribution hub: <?=$user["Distribution hub"]?></div>
     </div>
     <div class="container bg-white rounded-1 py-4">
       <?php
