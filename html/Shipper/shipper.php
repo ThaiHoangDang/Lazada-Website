@@ -99,7 +99,7 @@
       $customer = getuserbyusername($order["Customer"],$users);
       echo '
       <div class="modal fade" id="' . $order["Order ID"] . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Order ' . $order["Order ID"] . '</h5>
@@ -119,8 +119,8 @@
                 <li class="list-group-item"><label>Items: </label>
                   <div class="container">
                     <div class="row">
+                      <div class="col-md-7">
                       ';
-      echo '<div class="col-md-7">';
       foreach ($order_items as $item){
         $product = getproductbyid($item["Product ID"], $products);
         $images = getimagearray($product);
