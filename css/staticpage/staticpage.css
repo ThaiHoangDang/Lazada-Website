@@ -1,10 +1,42 @@
 .contain {
-    padding-top: 50px;
-    padding-left: 10%;
-    padding-right: 10%;
+    margin-top: 50px;
+    margin-left: 21%;
+    margin-right: 21%;
     
 }
 
 .content {
-    font-size: 25px;
+    font-size: 17px;
 }
+
+.inter {
+    height: 600px;
+    width: 700px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .contain {
+        margin-top: 50px;
+        margin-left: 15%;
+        margin-right: 10%;
+
+    }
+    .inter {
+        height: 500px;
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .contain {
+        margin-top: 50px;
+        margin-left: 15%;
+        margin-right: 10%;
+
+    }
+    .inter {
+        height: 300px;
+        width: 400px;
+    }
+}
+

@@ -1,6 +1,6 @@
 <script>
     let productID = '<?= $product["Product ID"]; ?>';
-    let productName = '<?= $product["Product Name"]?>';
+    let productName = `<?= $product["Product Name"]?>`;
     let productLink = '<?= "/html/productpage/product_customer.php/get?id=".$product["Product ID"]?>';
     let productImgLink = '<?= "$images[0]"?>';
     let productPrice = '<?= $product["Price"]?>';
