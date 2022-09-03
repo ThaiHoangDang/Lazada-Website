@@ -55,7 +55,7 @@
         </ul>
         <?php
         if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] == "Customer") {
-        echo "<form action='searchResult.php' class='d-flex searchtool'>
+        echo "<form action='/html/Homepage/searchResult.php' class='d-flex searchtool'>
           <input class='form-control me-1' placeholder='Search' name='search'>
           <button class='btn btn-outline-light' type='submit'>Search</button>
         </form>";
