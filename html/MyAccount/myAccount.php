@@ -50,9 +50,6 @@ if (isset($_POST['saveImg'])) {
 </head>
 
 <body class="bg-light">
-    <header>
-
-    </header>
     <main>
         <div class="container">
             <ul class="breadcrumb py-4 fw-bold">
@@ -103,7 +100,7 @@ if (isset($_POST['saveImg'])) {
                     </article>
                     <div class="col-md-5">
                         <article class="py-2 d-flex justify-content-center">
-                            <form enctype="multipart/form-data" method="post" action="customerMyAccount.php">
+                            <form enctype="multipart/form-data" method="post" action="myAccount.php">
                                 <div class="profile-picture">
                                     <label for="img-file">
                                         <span>Change Image</span>

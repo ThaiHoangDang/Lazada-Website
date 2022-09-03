@@ -1,10 +1,9 @@
 function countdown() {
-    var i = document.getElementById('counter');
-    if (parseInt(i.innerHTML) <= 0) {
+    var counter = document.querySelector('#counter');
+    if (parseInt(counter.innerHTML) <= 0) {
         location.href = '../Login/login.php';
-    }
-    if (parseInt(i.innerHTML) != 0) {
-        i.innerHTML = parseInt(i.innerHTML) - 1;
+    } else {
+        counter.innerHTML = parseInt(counter.innerHTML) - 1;
     }
 }
-setInterval(function () { countdown(); }, 1000);
+setInterval(countdown, 1000);

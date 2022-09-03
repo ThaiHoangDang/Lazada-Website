@@ -124,17 +124,11 @@ if (isset($_POST['act'])) {
 
                     <div class="col-md-6">
                         <label for="email" class="form-label">Business email </label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email address" minlength="5">
-                        <div class="invalid-feedback">
-                            Must be an email account with at least 5 characters
-                        </div>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email address">
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="form-label">Business phone number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number" minlength="5">
-                        <div class="invalid-feedback">
-                            Input must be at least 5 characters
-                        </div>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number">
                     </div>
                     <div class="col-12">
                         <button class="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
