@@ -112,23 +112,14 @@ if (isset($_POST['act'])) {
                     <div class="col-12">
                         <label for="name" class="form-label">Shipper name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Shipper name" minlength="5">
-                        <div class="invalid-feedback">
-                            Input must be at least 5 characters
-                        </div>
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email address" minlength="5">
-                        <div class="invalid-feedback">
-                            Input must be at least 5 characters
-                        </div>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email address">
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number" minlength="5">
-                        <div class="invalid-feedback">
-                            Input must be at least 5 characters
-                        </div>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number">
                     </div>
                     <div class="col-12">
                         <label for="distri-hub" class="form-label required">Distribution hub</label>

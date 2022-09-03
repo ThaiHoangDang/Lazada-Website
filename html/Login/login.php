@@ -28,9 +28,9 @@ if (isset($_POST['signin'])) {
             if ($user_data["role"] == "Customer") {
                 header('location: ../myAccount/myAccount.php');
             } elseif ($user_data["role"] == "Vendor") {
-                header('location: ../myAccount/myAccount.php');
+                header('location: ../Vendor/vendorHomepage.php');
             } elseif ($user_data["role"] == "Shipper") {
-                header('location: ../myAccount/myAccount.php');
+                header('location: ../Shipper/shipper.php');
             }
         }
     }

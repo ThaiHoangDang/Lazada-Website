@@ -17,14 +17,4 @@ function validate_password($pass): bool
     return boolval(preg_match($pass_regex, $pass));
 }
 
-function validate_email($email): bool
-{
-    $email_regex = "/^(([a-zA-Z0-9][.]?){2,}|([a-zA-Z0-9]\.)+)([a-zA-Z0-9]|(?!\.))+?[a-zA-Z0-9][@](?=[^.])[a-zA-Z0-9.]+[.][a-zA-Z]{2,5}$/";
-    return boolval(preg_match($email_regex, $email));
-}
-function validate_tel($tel): bool
-{
-    $phone_regex = "/^([0-9][-. ]?){8,10}[0-9]$/";
-    return boolval(preg_match($phone_regex, $tel));
-}
 ?>

@@ -50,15 +50,12 @@ if (isset($_POST['saveImg'])) {
 </head>
 
 <body class="bg-light">
-    <header>
-
-    </header>
     <main>
         <div class="container">
             <ul class="breadcrumb py-4 fw-bold">
                 <?php
                 if ($_SESSION["user_data"]["role"] == "Shipper") {
-                    echo "<li class='breadcrumb-item'><a href='#'>Home</a></li>";
+                    echo "<li class='breadcrumb-item'><a href='../Shipper/shipper.php'>Home</a></li>";
                 } elseif ($_SESSION["user_data"]["role"] == "Vendor") {
                     echo "<li class='breadcrumb-item'><a href='../Vendor/vendorHomepage.php'>Home</a></li>";
                 } else {
@@ -103,7 +100,7 @@ if (isset($_POST['saveImg'])) {
                     </article>
                     <div class="col-md-5">
                         <article class="py-2 d-flex justify-content-center">
-                            <form enctype="multipart/form-data" method="post" action="customerMyAccount.php">
+                            <form enctype="multipart/form-data" method="post" action="myAccount.php">
                                 <div class="profile-picture">
                                     <label for="img-file">
                                         <span>Change Image</span>

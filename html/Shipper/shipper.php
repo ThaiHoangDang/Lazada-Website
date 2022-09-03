@@ -56,7 +56,7 @@
                 Order ID: ' . $order['Order ID'] . '
               </div>
               <div class="col-md-2 text-end fw-normal fs-6">
-                Status: <span class="mb-3 px-2 py-1 fw-normal text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 fs-6">Active</span> 
+                <span class="mb-3 px-2 py-1 fw-normal text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 fs-6">Active</span> 
               </div>
             </div>
           </h5>
@@ -102,24 +102,27 @@
             </div>
             <div class="modal-body">
               <ul class="list-group list-group-flush info-list">
-                <li class="list-group-item"><label>Customer: </label>
+                <li class="list-group-item"><label class="fw-semibold">Customer: </label>
                     '.$customer["name"].'
                 </li>
-                <li class="list-group-item"><label>Created at: </label>
+                <li class="list-group-item"><label class="fw-semibold">Created at: </label>
                   '.$order["Time"].' '.$order["Date"].'
                 </li>
-                <li class="list-group-item"><label>Location: </label>
+                <li class="list-group-item"><label class="fw-semibold">Location: </label>
                   '.$customer["address"].'
                 </li>
-                <li class="list-group-item"><label>Items: </label>
-                  <div class="container">
+                <li class="list-group-item"><label class="fw-semibold">Phone: </label>
+                  '.$customer["phone"].'
+                </li>
+                <li class="list-group-item"><label class="fw-semibold">Items: </label>
+                  <div class="container py-4">
                     <div class="row">
                       <div class="col-md-7">
                       ';
       foreach ($order_items as $item){
         $product = getproductbyid($item["Product ID"], $products);
         $images = getimagearray($product);
-        $total = $total + $product["Price"];
+        $total = $total + $product["Price"]*$item["Quantity"];
         echo '
         <div class="card mb-3" style="min-width: 400px;">
           <div class="row g-0 align-items-center">
@@ -153,11 +156,11 @@
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                   Delivery
-                                  <span>$10</span>
+                                  <span>$2</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                   Total
-                                  <span>$' . $total + 10 .'</span>
+                                  <span>$' . $total + 2 .'</span>
                                 </li>
                               </ul>
                             </div>
