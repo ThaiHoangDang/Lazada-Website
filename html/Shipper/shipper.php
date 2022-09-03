@@ -51,12 +51,12 @@
         echo('
         <div class="card mx-5 my-3 text-start">
           <h5 class="card-header">
-            <div class="row">
+            <div class="row align-items-center">
               <div class="col-md-10">
                 Order ID: ' . $order['Order ID'] . '
               </div>
-              <div class="col-md-2 text-end">
-                Status: <span class="text-success">Active</span> 
+              <div class="col-md-2 text-end fw-normal fs-6">
+                Status: <span class="mb-3 px-2 py-1 fw-normal text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 fs-6">Active</span> 
               </div>
             </div>
           </h5>
