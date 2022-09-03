@@ -5,7 +5,10 @@ if ((!isset($_SESSION['user_data']))||($_SESSION["user_data"]["role"] !== "Custo
     header('location: ../login/login.php');
 }
 
+require_once("../../php/function.php");
 include("../Homepage/header.php");
+
+$products = readcsv("../../data/product.csv");
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +18,11 @@ include("../Homepage/header.php");
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Cart</title>
+      <link rel="stylesheet" href="/css/decoration/text.css">
       <link rel="stylesheet" href="/css/homepage/homepage.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
-  <body class="bg-light">
+  <body class="bg-light" onload="displayCart()">
     <div class="container mb-5">
     <div class="container">
         <nav aria-label="breadcrumb">
@@ -34,29 +38,9 @@ include("../Homepage/header.php");
       <div class="container bg-white rounded-1">
           <div class="container p-5">
               <div class="row">
-                  <div class="col-md-6">
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <div class="container ratio ratio-1x1"> 
-                                <img src="../../img/productImage/iphone.png" class="img-fluid rounded-start" alt="...">
-                              </div>
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body">
-                                <h5 class="card-title">iPhone</h5>
-                                <span class="card-text"><small class="text-muted">$1300 | Quantity: 2 | Total: $2600</small></span>
-                                <div class="row">
-                                  <div class="container pt-2">
-                                    <button type="button" class="btn btn-outline-danger">Remove</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
+                  <div class="col-md-7 productTable">
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-5">
                       <div class="container">
                         <div class="card">
                           <div class="card-header text-center">
@@ -66,15 +50,15 @@ include("../Homepage/header.php");
                             <ul class="list-group list-group-flush">
                               <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Price
-                                <span">$300</span>
+                                <span id="productsPrice">$</span>
                               </li>
                               <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Delivery
-                                <span>$10</span>
+                                <span id="deliverPrice">$2</span>
                               </li>
                               <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Total
-                                <span>$310</span>
+                                <span id="totalPrice">$</span>
                               </li>
                             </ul>
                           </div>
@@ -88,11 +72,11 @@ include("../Homepage/header.php");
           </div>
       </div>
     </div>
-      <script src="../../js/Cart/cart.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   </body>
 </html>
 
 <?php 
+    require_once("../../php/cartDisplay.php");
     include("../Homepage/footer.php");
 ?>
