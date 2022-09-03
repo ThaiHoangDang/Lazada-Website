@@ -21,16 +21,22 @@
     <body class="bg-light">
         <div class="container py-5">
             <div class="row">
-                <div class="row">
-                    <h1 class="col-8">Featured Products</h1>
-                    <!-- <div class="col-4 px-4 float-end" style="width:150px;">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Filter</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
+                <div class="d-flex">
+                    <div class="w-100"><h1>Featured Products</h1></div>
+                    <div class="flex-shrink-1">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter by Price
+                            </button>
+                            <ul class="dropdown-menu">
+                                <form action="filteredHomepage.php" class="text-center">
+                                    <input class="dropdown-item" type="number" placeholder="min" name="min">
+                                    <input class="dropdown-item" type="number" placeholder="max" name="max">
+                                    <input class="btn btn-outline-dark mt-2" type="submit">
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid-container bg-white rounded-1 px-5 py-4">
                     <?php 
@@ -41,7 +47,7 @@
                                         <a href="/html/productpage/product_customer.php/get?id='.$products[$i]["Product ID"].'" style="text-decoration: none" >
                                             <div class="card mx-auto">
                                                 <div class="container ratio ratio-1x1"> 
-                                                    <img src="'. explode("|", $products[$i]["Image"])[0].'" class="card-img-top p-4 ratio ratio-1x1" alt="ProductImg">
+                                                    <img src="'. explode("|", $products[$i]["Image"])[0].'" class="card-img-top p-4 d-block" style="height:100%;" alt="ProductImg">
                                                 </div>
                                                 <div class="card-body text-bg-light rounded-2">
                                                 <h5 class="card-title">'. $products[$i]["Product Name"] .'</h5>

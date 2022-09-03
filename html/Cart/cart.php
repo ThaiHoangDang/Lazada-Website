@@ -15,7 +15,7 @@ include("../Homepage/header.php");
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Cart</title>
-
+      <link rel="stylesheet" href="/css/homepage/homepage.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body class="bg-light">
@@ -45,70 +45,7 @@ include("../Homepage/header.php");
                             <div class="col-md-8">
                               <div class="card-body">
                                 <h5 class="card-title">iPhone</h5>
-                                <p class="card-text"><small class="text-muted">$1300</small></p>
-                                <button id="minus" type="button" class="btn btn-outline-primary minus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                  -
-                                </button>
-                                <label>
-                                  <input id="input" type="number" class="text-center" value="1" disabled min="0" style="width:50px; height:30px;">
-                                </label>
-                                <button id="plus" type="button" class="btn btn-outline-primary plus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                  +
-                                </button>
-                                <div class="row">
-                                  <div class="container pt-2">
-                                    <button type="button" class="btn btn-outline-danger">Remove</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="../../img/watch.png" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body">
-                                <h5 class="card-title">iWatch</h5>
-                                <p class="card-text"><small class="text-muted">$200</small></p>
-                                <button id="minus" type="button" class="btn btn-outline-primary minus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                  -
-                                </button>
-                                <label>
-                                  <input id="input" type="number" class="text-center" value="1" disabled min="0" style="width:50px; height:30px;">
-                                </label>
-                                <button id="plus" type="button" class="btn btn-outline-primary plus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                  +
-                                </button>
-                                <div class="row">
-                                  <div class="container pt-2">
-                                    <button type="button" class="btn btn-outline-danger">Remove</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="../../img/macbook.jpeg" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body container">
-                                <h5 class="card-title">Macbook</h5>
-                                <p class="card-text"><small class="text-muted">$2000</small></p>
-                                <button id="minus" type="button" class="btn btn-outline-primary minus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                  -
-                                </button>
-                                <label>
-                                  <input id="input" type="number" class="text-center" value="1" disabled min="0" style="width:50px; height:30px;">
-                                </label>
-                                <button id="plus" type="button" class="btn btn-outline-primary plus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                  +
-                                </button>
+                                <span class="card-text"><small class="text-muted">$1300 | Quantity: 2 | Total: $2600</small></span>
                                 <div class="row">
                                   <div class="container pt-2">
                                     <button type="button" class="btn btn-outline-danger">Remove</button>

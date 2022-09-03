@@ -1,6 +1,6 @@
 const minusButton = document.getElementById('minus');
 const plusButton = document.getElementById('plus');
-const inputField = document.getElementById('input');
+const inputField = document.getElementById('quantity');
 
 minusButton.addEventListener('click', event => {
   event.preventDefault();

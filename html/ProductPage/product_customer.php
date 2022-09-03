@@ -10,6 +10,7 @@
     $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 
     include("../Homepage/header.php");
+    include("../../php/cartFunction.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@
     </style>
     <title><?=$page_title?></title>
 </head>
-<body class="bg-light">
+<body class="bg-light" onload="createCart()">
     <div class="container mb-5">
         <div class="container">
             <nav aria-label="breadcrumb">
@@ -62,32 +63,46 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7 pb-5">
-                    <h2 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h2>
-                    <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
-                    <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Quantity</span>
-                        <input type="text" class="form-control" placeholder="Quantity" aria-label="Quantity" aria-describedby="basic-addon1">
-                        <button class="btn btn-primary px-3">Add To Cart</button>
+                <div class="col-lg-7 px-4">
+                    <div class="pb-4">
+                        <h2 class="font-weight-semi-bold"><?=$product["Product Name"]; ?></h2>
+                        <h5 class="font-weight-light text-secondary"><?=$product["Brand Name"]; ?></h5>
                     </div>
+                    <h3 class="font-weight-semi-bold mb-4">$<?=$product["Price"]; ?></h3>
+                    <form action="product_customer.php">
+                        <div>
+                            <button id="minus" type="button" class="btn btn-outline-primary minus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                -
+                            </button>
+                            <label>
+                                <input id="quantity" type="number" class="text-center" value="1" min="0" max="100" disabled>
+                            </label>
+                            <button id="plus" type="button" class="btn btn-outline-primary plus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                +
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <button type="button" class="btn btn-outline-dark me-2" name="addToCart" onclick="addToCartEvents()">Add To Cart</button>
+                            <button type="button" class="btn btn-dark mx-2" name="buyNow" onclick="buyNowEvents()">Buy Now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="row px-xl-5 pt-4">
-                <div class="col">
-                    <h4 class="mb-3">Product Description</h4>
-                    <?php
-                        $product_des = explode(" | ", $product["About Product"]);
-                        foreach ($product_des as $content){
-                            echo "<p>" . $content . "</p>";
-                        }
-                    ?>
-                </div>
-            </div>
+        </div>
+
+        <div class="container my-5 py-5 bg-white rounded-1 px-4">
+            <h4 class="mb-3">Product Description</h4>
+            <?php
+                $product_des = explode(" | ", $product["About Product"]);
+                foreach ($product_des as $content){
+                    echo "<p>" . $content . "</p>";
+                }
+            ?>
         </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/js/Function/changeQuantity.js"></script>
 </body>
 </html>
 
