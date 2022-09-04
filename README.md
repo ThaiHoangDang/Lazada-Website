@@ -1,6 +1,6 @@
 I. Links
-Video demo link: 
-Github URL: https://github.com/ThaiHoangDang/WebProgramming 
+- Video demo link: 
+- Github URL: https://github.com/ThaiHoangDang/WebProgramming 
 
 II. Step to start the application:
 1. After cloning from github, open cmd and localhost our website.
