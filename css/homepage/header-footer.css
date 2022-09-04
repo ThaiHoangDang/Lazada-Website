@@ -1,10 +1,11 @@
-.logo {
+/* Header */
+.nav-logo {
     color: white;
     font-size: 30px;
     margin: 0 20px;
 }
 
-#logoimg {
+.nav-logoimg {
     height: 50px; 
     width: 50px;
     padding-left: 20px;
@@ -13,28 +14,18 @@
 .navbar {
     max-height: 70px;
 }
-
-.container-fluid {
-    color: white;
-}
-
-nav {
-    font-size: 20px;
-}
-
-.searchtool {
+.nav-searchtool {
     width: 35%;
     padding-right: 20px;
+
+}
+.nav-searchtool > input, .nav-searchtool > button {
+    font-size: 20px;
 }
 
 .navbar-nav .nav-link {
     color: white;
 }
-
-.d-flex .form-control {
-    font-size: 20px;
-}
-
 .nav-item {
     padding-left: 25px;
     font-size: 20px;
@@ -46,7 +37,7 @@ nav {
         max-height: 400px;
     }
 
-    .searchtool {
+    .nav-searchtool {
         width: 100%;
         padding-left: 25px;
         padding-bottom: 10px;
@@ -56,10 +47,24 @@ nav {
         font-size: 20px;
         position: relative;
     }
-    .logo {
+    .nav-logo {
         display: inline-block;
     }
     
+}
+
+/* Footer */
+footer a {
+    text-decoration: none;
+}
+
+footer a:link:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    background-color: rgba(80, 132, 201, 0.5);
+    color: black;
 }
 
 

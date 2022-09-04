@@ -3,7 +3,6 @@ session_start();
 
 // Include files
 require_once("../../php/function.php");
-include("../Homepage/header.php");
 
 if (isset($_SESSION["user_data"])) {
     header('location: ../myAccount/myAccount.php');
@@ -48,10 +47,16 @@ if (isset($_POST['signin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/homepage/header-footer.css">
     <link rel="stylesheet" href="/css/Account/account.css">
 </head>
 
 <body class="bg-light">
+
+    <?php
+    include("../Homepage/header.php");
+    ?>
+
     <main class="page-content">
         <div class="container">
             <div class="dialogue-signin">
@@ -64,7 +69,7 @@ if (isset($_POST['signin'])) {
                         </div>
                         <div class="form-floating">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                            <label for="pass">Password</label>
+                            <label for="password">Password</label>
                         </div>
                         <div class="mt-2">
                             <input type="checkbox" onclick="togglePasswordVisibility()">
@@ -80,14 +85,17 @@ if (isset($_POST['signin'])) {
                             echo "<h4 class=\"text-danger\">$status</h4>";
                         }
                         ?>
+                    </form>
                 </div>
             </div>
         </div>
     </main>
+
+    <?php
+    include("../Homepage/footer.php");
+    ?>
+
     <script src="../../js/Common/common.js" async></script>
 </body>
 
 </html>
-<?php
-include("../Homepage/footer.php");
-?>

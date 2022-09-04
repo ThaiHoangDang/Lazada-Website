@@ -4,7 +4,7 @@ session_start();
 // Include files
 require_once("../../php/function.php");
 require_once("../../php/validateInput.php");
-include("../Homepage/header.php");
+
 
 if (isset($_POST['act'])) {
 
@@ -73,10 +73,16 @@ if (isset($_POST['act'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/homepage/header-footer.css">
     <link rel="stylesheet" href="/css/Account/account.css">
 </head>
 
 <body class="bg-light">
+
+    <?php
+    include("../Homepage/header.php");
+    ?>
+
     <main class="page-content">
         <div class="container">
             <div class="p-5 bg-white rounded-1">
@@ -151,11 +157,12 @@ if (isset($_POST['act'])) {
             </div>
         </div>
     </main>
+
+    <?php
+    include("../Homepage/footer.php");
+    ?>
+    
     <script src="../../js/Common/common.js"></script>
 </body>
 
 </html>
-
-<?php
-include("../Homepage/footer.php");
-?>
