@@ -5,7 +5,7 @@
         let productList = localStorage.getItem("cartItems");
         productList = JSON.parse(productList);
         let productTable = document.querySelector(".productTable");
-        let productsPrice =0;
+        let productsPrice = 0;
         if (productList != null){
             Object.values(productList).map(function(item){
                 productsPrice += Number(item.product_price) * item.product_quantity;
