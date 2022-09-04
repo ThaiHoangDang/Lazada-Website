@@ -25,8 +25,7 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/homepage/header-footer.css">
     <link rel="stylesheet" href="/css/ProductPage/product_page.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="/js/Function/changeQuantity.js"></script>
+
 </head>
 
 <body class="bg-light">
@@ -118,5 +117,8 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
     <?php
     include("../Homepage/footer.php")
     ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/js/Function/changeQuantity.js"></script>
 </body>
+
 </html>

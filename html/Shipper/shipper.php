@@ -43,7 +43,7 @@ if (isset($_POST['act'])) {
   <link rel="icon" type="image/x-icon" href="/img/lazadaLogo.webp">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/homepage/header-footer.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="bg-light">
@@ -210,6 +210,7 @@ if (isset($_POST['act'])) {
   <?php
   include("../Homepage/footer.php");
   ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

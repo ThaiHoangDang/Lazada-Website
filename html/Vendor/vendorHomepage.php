@@ -66,7 +66,6 @@ if (isset($_POST['act'])) {
     <link rel="stylesheet" href="/css/homepage/header-footer.css">
     <link rel="stylesheet" href="/css/homepage/homepage.css">
     <link rel="stylesheet" href="/css/Vendor/vendorpage.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-light">
@@ -163,5 +162,7 @@ if (isset($_POST['act'])) {
     <?php
     include("../Homepage/footer.php");
     ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
