@@ -9,19 +9,22 @@ II. Step to start the application:
 After accessing this page, all features can be used. 
 
 III. User account: 
-1.Customer: 
+ 
+1. Customer: 
 username: bdacke1
 password: $2y$10$NFQQHbMhT3Diuxn88WahwudI/BXExospkGX.V8nxq1tvGMsc9QbvW
 
-2.Vendor:
+2. Vendor:
 username: sbredee4
 password: $2y$10$xCPg7BKRixhNW5Z2UoXn.u81t2.81V0KTV6AEIrSK.lqDuDTqRp/y
 
-3.Shipper: 
+3. Shipper: 
+
 username: fwilloughey7
 password: $2y$10$7bEK4c0zMaYJ1rFWGcJGXOevE4ggrk1Przo6vMxhIcZiy7bvwOhNi
 
 IV. Contribution:
+
 Dau Hoang Minh: 25%
 Le Trinh Quoc Huynh: 25%
 Dang Thai Hoang: 25%
