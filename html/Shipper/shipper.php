@@ -43,6 +43,7 @@ if (isset($_POST['act'])) {
   <link rel="icon" type="image/x-icon" href="/img/lazadaLogo.webp">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/homepage/header-footer.css">
+  <link rel="stylesheet" href="/css/Shipper/shipper.css">
 
 </head>
 
@@ -139,7 +140,7 @@ if (isset($_POST['act'])) {
         $images = getimagearray($product);
         $total = $total + $product["Price"] * $item["Quantity"];
         echo '
-          <div class="card mb-3" style="min-width: 400px;">
+          <div class="card mb-3 product-info">
             <div class="row g-0 align-items-center">
               <div class="col-md-4">
                 <img src="' . $images[0] . '" class="img-fluid rounded-start p-3 align-middle" alt="...">
@@ -158,7 +159,7 @@ if (isset($_POST['act'])) {
       }
       echo '
                         </div>
-                        <div class="col-md-5" style="min-width: 300px;">
+                        <div class="col-md-5 product-summary">
                           <div class="container">
                             <div class="card">
                               <div class="card-header text-center">
