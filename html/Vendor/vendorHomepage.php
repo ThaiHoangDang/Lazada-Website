@@ -115,19 +115,19 @@ if (isset($_POST['act'])) {
                     <div class="modal-body">
                         <form id="addProduct" enctype="multipart/form-data" method="post" action="vendorHomepage.php">
                             <div class="mb-3">
-                                <label for="Product Name" class="form-label required">Product name</label>
+                                <label for="name" class="form-label required">Product name</label>
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Product Name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="Product Name" class="form-label">Brand</label>
+                                <label for="brand" class="form-label">Brand</label>
                                 <input type="text" class="form-control" name="brand" id="brand" placeholder=<?= $_SESSION['user_data']['name'] ?> disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="Price" class="form-label required">Price</label>
+                                <label for="price" class="form-label required">Price</label>
                                 <input type="number" class="form-control" name="price" id="price" placeholder="Price" step="0.01" min="0" required>
                             </div>
                             <div class="mb-3">
-                                <label for="Category" class="form-label required">Category</label>
+                                <label for="category" class="form-label required">Category</label>
                                 <select class="form-select" aria-label="Default select example" name="category" id="category">
                                     <?php
                                     foreach ($categories as $cat) {
@@ -140,10 +140,10 @@ if (isset($_POST['act'])) {
                             </div>
                             <div class="mb-3">
                                 <label for="product-image" class="form-label required">Product Images</label>
-                                <input class="form-control" type="file" name="img-file[]" accept="image/*" onchange="loadFile(event)" multiple required>
+                                <input class="form-control" type="file" name="img-file[]" id="product-image" accept="image/*" onchange="loadFile(event)" multiple required>
                             </div>
                             <div class="mb-3">
-                                <label for="Product Description" class="form-label required">Product Description</label>
+                                <label for="description" class="form-label required">Product Description</label>
                                 <textarea class="form-control" name="description" id="description" rows="3" required></textarea>
                             </div>
                         </form>

@@ -9,8 +9,6 @@ $product = getproductdata($products);
 $images = getimagearray($product);
 $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 
-
-include("../../php/cartFunction.php");
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +29,9 @@ include("../../php/cartFunction.php");
 
     <?php
     include("../Homepage/header.php");
+    include("../../php/cartFunction.php");
     ?>
-    
+
     <div class="container mb-5">
         <div class="container">
             <nav aria-label="breadcrumb">

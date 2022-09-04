@@ -42,9 +42,9 @@ $search = $_GET['search'];
                     if ((str_contains(strtolower($products[$i]["Product Name"]), strtolower($search))) || (str_contains(strtolower($products[$i]["Brand Name"]), strtolower($search)))) {
                         $count++;
                         echo ('
-                                    <a href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
+                                    <a href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '"></a>
                                         <div class="coll-4 coll-s-6">
-                                            <a class="text-decoration-none" href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '" " >
+                                            <a class="text-decoration-none" href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
                                                 <div class="card mx-auto">
                                                     <div class="container ratio ratio-1x1"> 
                                                         <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4 ratio ratio-1x1" alt="ProductImg">
@@ -57,7 +57,6 @@ $search = $_GET['search'];
                                                 </div>
                                             </a>
                                         </div>
-                                    </a>
                                 ');
                     }
                 }
@@ -72,7 +71,7 @@ $search = $_GET['search'];
     <?php
     include("../Homepage/footer.php");
     ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 

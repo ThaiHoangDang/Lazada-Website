@@ -37,7 +37,6 @@ session_start();
           <p>1.2. You should be aware, however, that no method of transmission over the Internet or method of electronic storage is completely secure. While security cannot be guaranteed, we strive to protect the security of your information and are constantly reviewing and enhancing our information security measures. You are also advised to exercise caution with respect to the sharing of your personal data and your authentication / security details (such as passwords, credit card details, transaction details) outside of our Platform / Services.</p>
           <p>1.3. We will only retain your personal data for as long as we are either required or permitted to by law or as relevant for the purposes for which it was collected.</p>
           <p>1.4. We will cease to retain your personal data by securely disposing of the same, or remove the means by which the data can be associated with you through anonymisation, as soon as it is reasonable to assume that such retention no longer serves the purposes for which the personal data was collected, and is no longer necessary for any legal or business purpose.</p>
-          </p>
           <br>
 
 

@@ -67,7 +67,7 @@ if (isset($_POST['saveImg'])) {
                     echo "<li class='breadcrumb-item'><a href='../Homepage/homepage.php'>Home</a></li>";
                 }
                 ?>
-                <li class="breadcrumb-item active" aria-current="page">My account</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a>My account</a></li>
             </ul>
         </div>
         <div class="container">
@@ -75,8 +75,8 @@ if (isset($_POST['saveImg'])) {
         </div>
         <div class="container pb-5 mb-5">
             <div class="mt-3 bg-white rounded-1">
-                <section class="row px-5 py-4">
-                    <article class="col-md-7">
+                <div class="row px-5 py-4">
+                    <div class="col-md-7">
                         <ul class="list-group list-group-flush info-list">
                             <li class="list-group-item"><label>Username:</label>
                                 <?= $_SESSION["user_data"]["username"]; ?>
@@ -102,9 +102,9 @@ if (isset($_POST['saveImg'])) {
                             ?>
 
                         </ul>
-                    </article>
+                    </div>
                     <div class="col-md-5">
-                        <article class="py-2 d-flex justify-content-center">
+                        <div class="py-2 d-flex justify-content-center">
                             <form enctype="multipart/form-data" method="post" action="myAccount.php">
                                 <div class="profile-picture">
                                     <label for="img-file">
@@ -125,23 +125,25 @@ if (isset($_POST['saveImg'])) {
                                 }
                                 ?>
                             </form>
-                        </article>
+                        </div>
 
-                        <article class="py-2 w-100">
+                        <div class="py-2 w-100">
                             <div class="list-group">
                                 <a class="list-group-item list-group-item active" href="">My profile</a>
                                 <a class="list-group-item list-group-item-action" href="../Login/logout.php">Sign Out</a>
                             </div>
-                        </article>
+                        </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </main>
+
+    <?php
+    include("../Homepage/footer.php");
+    ?>
+
     <script src="../../js/Common/common.js" async></script>
 </body>
 
 </html>
-<?php
-include("../Homepage/footer.php");
-?>
