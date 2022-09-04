@@ -59,16 +59,16 @@ if (isset($_POST['act'])) {
         $customer = getuserbyusername($order["Customer"], $users);
         echo ('
           <div class="card mx-5 my-3 text-start">
-            <h5 class="card-header">
+            <div class="card-header">
               <div class="row align-items-center">
-                <div class="col-md-10">
+                <div class="col-md-10 h5">
                   Order ID: ' . $order['Order ID'] . '
                 </div>
                 <div class="col-md-2 text-end fw-normal fs-6">
                   <span class="mb-3 px-2 py-1 fw-normal text-success bg-success bg-opacity-10 border border-success border-opacity-10 rounded-2 fs-6">Active</span> 
                 </div>
               </div>
-            </h5>
+            </div>
             <div class="card-body">
               <ul>
                 <li class="list-group-item"><label>Customer: </label>
@@ -90,7 +90,6 @@ if (isset($_POST['act'])) {
       }
       ?>
     </div>
-    </div>
     <?php
     foreach ($active_orders as $order) {
       $order_items = array();
@@ -102,11 +101,11 @@ if (isset($_POST['act'])) {
       }
       $customer = getuserbyusername($order["Customer"], $users);
       echo '
-        <div class="modal fade" id="' . $order["Order ID"] . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="' . $order["Order ID"] . '" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Order ' . $order["Order ID"] . '</h5>
+                <h5 class="modal-title">Order ' . $order["Order ID"] . '</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -162,7 +161,7 @@ if (isset($_POST['act'])) {
                                 <ul class="list-group list-group-flush">
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Price
-                                    <span">$' . $total . '</span>
+                                    <span>$' . $total . '</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Delivery
