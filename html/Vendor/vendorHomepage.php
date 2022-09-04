@@ -60,9 +60,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cart</title>
+        <title>Vendor Homepage</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../css/homepage/homepage.css">
+        <link rel="stylesheet" href="/css/homepage/homepage.css">
         <link rel="stylesheet" href="/css/Vendor/vendorpage.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     </head>
@@ -71,13 +71,13 @@
             <div class="row">
                 <div class="row row-cols-auto">
                         <h2>Your Products</h2>
-                        <button type="button" class="btn btn-outline-primary h-75" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New</button>
+                        <button type="button" class="btn btn-outline-primary h-75 align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New</button>
                 </div>
                 <div class="grid-container ">
                     <?php 
                         for ($i = 0; $i < count($vendorProducts); $i++) {
                             echo('
-                                <a href="/html/productpage/product_customer.php/get?id='.$vendorProducts[$i]["Product ID"].'" class="d-block">
+                                <a href="/html/productpage/product_vendor.php/get?id='.$vendorProducts[$i]["Product ID"].'" class="d-block">
                                     <div class="coll-4 coll-s-6">
                                         <div class="card mx-auto">
                                             <div class="container position-relative bg-white overflow-hidden ratio ratio-1x1"> 

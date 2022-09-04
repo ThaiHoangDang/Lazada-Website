@@ -4,9 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    <?php include '../../css/homepage/header.css'; ?>
-  </style>
+  <link href="/css/homepage/header.css" rel="stylesheet">
 </head>
 
 <body>

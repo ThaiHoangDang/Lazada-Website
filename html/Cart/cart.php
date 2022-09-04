@@ -27,7 +27,7 @@ $products = readcsv("../../data/product.csv");
     <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb pt-4 fw-bold">
-            <li class="breadcrumb-item"><a href="../Homepage/homepage.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="/html/Homepage/homepage.php">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Cart</li>
           </ol>
         </nav>
