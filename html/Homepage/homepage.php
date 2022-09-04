@@ -53,7 +53,7 @@ $products = readcsv("../../data/product.csv");
                         echo ('
                                     <a href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '"></a>
                                         <div class="coll-4 coll-s-6">
-                                            <a href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '" style="text-decoration: none">
+                                            <a class="text-decoration-none" href="/html/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
                                                 <div class="card mx-auto">
                                                     <div class="container ratio ratio-1x1"> 
                                                         <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4" alt="ProductImg">

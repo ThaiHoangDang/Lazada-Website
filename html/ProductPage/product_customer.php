@@ -82,13 +82,13 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
                         <h3 class="font-weight-semi-bold mb-4">$<?= $product["Price"]; ?></h3>
                         <form action="product_customer.php">
                             <div>
-                                <button id="minus" type="button" class="btn btn-outline-primary minus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                <button id="minus" type="button" class="btn btn-outline-primary minus quantity-btn">
                                     -
                                 </button>
                                 <label>
                                     <input id="quantity" type="number" class="text-center" value="1" min="0" max="100" disabled>
                                 </label>
-                                <button id="plus" type="button" class="btn btn-outline-primary plus" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                <button id="plus" type="button" class="btn btn-outline-primary plus quantity-btn">
                                     +
                                 </button>
                             </div>
