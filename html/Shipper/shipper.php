@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once("../../php/function.php");
-
+// Authorize user's permission
 if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper") {
   header('location: ../login/login.php');
 }
-
+// Read data from csv files
 $users = readcsv("../../data/users.csv");
 $user = getuserbyusername($_SESSION["user_data"]["username"], $users);
 $allOrders = readcsv("../../data/Order.csv");
@@ -20,6 +20,7 @@ $active_orders = array_filter($orders, function ($var) {
   return ($var["Status"] == "Active");
 });
 $order_items_list = readcsv("../../data/OrderItem.csv");
+// Change order status and write to csv file
 if (isset($_POST['act'])) {
   for ($i = 0; $i < count($allOrders); $i++) {
     if ($allOrders[$i]["Order ID"] == $_POST["changeID"]) {
@@ -41,19 +42,22 @@ if (isset($_POST['act'])) {
   <title>Shipper Page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/homepage/header-footer.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-light">
-
+  <!-- HEADER -->
   <?php
   include("../Homepage/header.php");
   ?>
+  <!-- MAIN CONTENT -->
   <main>
     <div class="container py-4">
       <h2>Orders List</h2>
       <div>Distribution hub: <?= $user["Distribution hub"] ?></div>
     </div>
     <div class="container bg-white rounded-1 py-4">
+      <!-- Generate order preview cards -->
       <?php
       foreach ($active_orders as $order) {
         $customer = getuserbyusername($order["Customer"], $users);
@@ -90,6 +94,7 @@ if (isset($_POST['act'])) {
       }
       ?>
     </div>
+    <!-- Generates modals coresponding to preview cards -->
     <?php
     foreach ($active_orders as $order) {
       $order_items = array();
@@ -127,6 +132,7 @@ if (isset($_POST['act'])) {
                       <div class="row">
                         <div class="col-md-7">
                         ';
+      // Generates items list of the order
       foreach ($order_items as $item) {
         $product = getproductbyid($item["Product ID"], $products);
         $images = getimagearray($product);
@@ -199,12 +205,10 @@ if (isset($_POST['act'])) {
     }
     ?>
   </main>
-
+  <!-- FOOTER -->
   <?php
   include("../Homepage/footer.php");
   ?>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,8 +1,10 @@
 <?php
 session_start();
+// Authorize user's permission
 if (!isset($_GET["id"])) {
     header("Location: ../404/404.html");
 }
+// Read data from csv files
 require_once("../../php/function.php");
 $products = readcsv("../../data/product.csv", false);
 $product = getproductdata($products);
@@ -23,16 +25,17 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/homepage/header-footer.css">
     <link rel="stylesheet" href="/css/ProductPage/product_page.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/js/Function/changeQuantity.js"></script>
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     include("../../php/cartFunction.php");
     ?>
-
+    <!-- MAIN CONTENT -->
     <main>
         <div class="container mb-5">
             <div class="container">
@@ -46,6 +49,7 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
 
             <div class="container py-5 bg-white rounded-1">
                 <div class="row px-xl-5">
+                    <!-- Product images preview carousel -->
                     <div class="col-lg-5">
                         <div id="product-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -70,7 +74,7 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
                             </button>
                         </div>
                     </div>
-
+                    <!-- Product details -->
                     <div class="col-lg-7 px-4">
                         <div class="pb-4">
                             <h2 class="font-weight-semi-bold"><?= $product["Product Name"]; ?></h2>
@@ -92,13 +96,10 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
             </div>
         </div>
     </main>
-
+    <!-- FOOTER -->
     <?php
     include("../Homepage/footer.php")
     ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="/js/Function/changeQuantity.js"></script>
 </body>
 
 </html>

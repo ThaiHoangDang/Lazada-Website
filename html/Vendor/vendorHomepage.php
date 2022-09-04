@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once("../../php/function.php");
-
+// Authorize user's permission
 if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] != "Vendor") {
     header('location: ../login/login.php');
 }
-
+// Read data from csv files
 $allProducts = readcsv("../../data/product.csv");
 $vendorProducts = array();
 foreach ($allProducts as $product) {
@@ -18,7 +18,7 @@ foreach ($allProducts as $product) {
     $categories[] = $product["Category"];
 }
 $categories = array_unique($categories);
-
+// Create new product and write to csv
 if (isset($_POST['act'])) {
     $id = "P" . count($allProducts) + 1;
     $name = $_POST["name"];
@@ -69,11 +69,11 @@ if (isset($_POST['act'])) {
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     ?>
-
+    <!-- MAIN CONTENT -->
     <main>
         <div class="container py-5">
             <div class="row">
@@ -82,6 +82,7 @@ if (isset($_POST['act'])) {
                     <button type="button" class="btn btn-outline-primary h-75 align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New</button>
                 </div>
                 <div class="grid-container ">
+                    <!-- Generates a preview card for each product -->
                     <?php
                     for ($i = 0; $i < count($vendorProducts); $i++) {
                         echo ('
@@ -105,6 +106,7 @@ if (isset($_POST['act'])) {
                 </div>
             </div>
         </div>
+        <!-- Add new product modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                 <div class="modal-content">
@@ -156,11 +158,9 @@ if (isset($_POST['act'])) {
             </div>
         </div>
     </main>
-
+    <!-- FOOTER -->
     <?php
     include("../Homepage/footer.php");
     ?>
-
 </body>
-
 </html>
