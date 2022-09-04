@@ -50,11 +50,11 @@ if (isset($_POST['saveImg'])) {
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     ?>
-
+    <!-- MAIN CONTENT -->
     <main>
         <div class="container">
             <ul class="breadcrumb py-4 fw-bold">
@@ -138,7 +138,7 @@ if (isset($_POST['saveImg'])) {
             </div>
         </div>
     </main>
-
+    <!-- FOOTER -->
     <?php
     include("../Homepage/footer.php");
     ?>

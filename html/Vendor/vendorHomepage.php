@@ -32,8 +32,8 @@ if (isset($_POST['act'])) {
     for ($i = 0; $i < count($product_imgs['name']); $i++) {
         $exten = pathinfo($product_imgs['name'][$i], PATHINFO_EXTENSION);
         $file_name = $id . "_" . $i . "." . $exten;
-        $upload_destination = '../../data/media/products/' . $file_name;
-        $path = '/data/media/products/' . $file_name;
+        $upload_destination = '../../data/media/newProducts/' . $file_name;
+        $path = '/data/media/newProducts/' . $file_name;
         move_uploaded_file($product_imgs["tmp_name"][$i], $upload_destination);
         $patharr[] = $path;
     }

@@ -78,11 +78,11 @@ if (isset($_POST['act'])) {
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     ?>
-
+    <!-- MAIN CONTENT -->
     <main class="page-content">
         <div class="container">
             <div class="p-5 bg-white rounded-1">
@@ -158,7 +158,7 @@ if (isset($_POST['act'])) {
             </div>
         </div>
     </main>
-
+    <!-- FOOTER -->
     <?php
     include("../Homepage/footer.php");
     ?>

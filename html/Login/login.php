@@ -4,6 +4,7 @@ session_start();
 // Include files
 require_once("../../php/function.php");
 
+// Redirect to profile page if user has signed in
 if (isset($_SESSION["user_data"])) {
     header('location: ../myAccount/myAccount.php');
 }
@@ -52,11 +53,11 @@ if (isset($_POST['signin'])) {
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     ?>
-
+    <!-- MAIN CONTENT -->
     <main class="page-content">
         <div class="container">
             <div class="dialogue-signin">
@@ -90,7 +91,7 @@ if (isset($_POST['signin'])) {
             </div>
         </div>
     </main>
-
+    <!-- FOOTER -->
     <?php
     include("../Homepage/footer.php");
     ?>

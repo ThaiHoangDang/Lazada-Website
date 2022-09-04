@@ -1,3 +1,4 @@
+// Countdown to redirect user back to login page
 function countdown() {
     var counter = document.querySelector('#counter');
     if (parseInt(counter.innerHTML) <= 0) {
