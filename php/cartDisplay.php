@@ -1,9 +1,13 @@
 <script>
     let productsPrice = 0;
+    let productList = localStorage.getItem("cartItems");
+    productList = JSON.parse(productList);
+
+    if (localStorage.getItem("cartItems") === "{}") {
+    localStorage.removeItem("cartItems");
+    }
 
     function displayCart() {
-        let productList = localStorage.getItem("cartItems");
-        productList = JSON.parse(productList);
         let productTable = document.querySelector(".productTable");
         let productsPrice = 0;
         if (productList != null){
@@ -58,7 +62,35 @@
 
 
     function placeOrder() {
-        localStorage.removeItem("cartItems");
-        window.location.replace("/html/success/success.html");
+        if (localStorage.getItem("cartItems") != null) {
+            <?php
+            date_default_timezone_set("Asia/Ho_Chi_Minh");
+            ?>
+
+            let customer = '<?= $_SESSION["user_data"]["username"]?>';
+            let time = '<?=date("H:i:s")?>'
+            let date = '<?=date("j/n/Y")?>'
+          
+            let hubs = ["DH1", "DH2", "DH3", "DH4"];
+            let choosenHub = hubs[Math.floor(Math.random()*hubs.length)];
+            let orderInfo = customer + "," + time + "," + date + "," + choosenHub
+
+            let orderItems = "Order items =";
+            Object.values(productList).map(function(item){
+                orderItems += ([item.product_ID +"-"+ item.product_quantity]+",");
+            });
+
+            document.cookie = "Order info" + "=" + orderInfo + "; path=/";
+            document.cookie = orderItems + "; path=/";
+
+            window.location.replace("/php/addOrder.php");
+
+            // localStorage.removeItem("cartItems");
+
+        } else {
+            alert("Your cart doesn't have any products!");
+        }
     }
+
 </script>
+
