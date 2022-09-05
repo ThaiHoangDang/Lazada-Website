@@ -1,3 +1,4 @@
+// Toggle password visibility
 function togglePasswordVisibility() {
     var pass = document.querySelector('#password');
     if (pass.type === "password") {
@@ -5,6 +6,10 @@ function togglePasswordVisibility() {
     } else {
         pass.type = "password";
     }
+}
+// Clear the shopping cart
+function clearCart() {
+    localStorage.removeItem("cartItems");
 }
 // Show the image input 
 var loadFile = function (event) {

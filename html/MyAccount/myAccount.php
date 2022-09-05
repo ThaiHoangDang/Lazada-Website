@@ -131,7 +131,7 @@ if (isset($_POST['saveImg'])) {
                         <div class="py-2 w-100">
                             <div class="list-group">
                                 <a class="list-group-item list-group-item active" href="">My profile</a>
-                                <a class="list-group-item list-group-item-action" href="../Login/logout.php">Sign Out</a>
+                                <a class="list-group-item list-group-item-action" href="../Login/logout.php" onclick="clearCart()">Sign Out</a>
                             </div>
                         </div>
                     </div>
