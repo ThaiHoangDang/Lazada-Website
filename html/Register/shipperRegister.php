@@ -40,7 +40,7 @@ if (isset($_POST['act'])) {
         $unique_account = true;
         for ($index = 0; $index < count($users); $index++) {
             if ($username == $users[$index]["username"]) {
-                $unique_account == false;
+                $unique_account = false;
                 break;
             }
         }
