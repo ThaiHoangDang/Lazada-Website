@@ -2,7 +2,7 @@ username,password,role,name,email,phone,address,"Distribution hub",Image
 cclowsley0,$2y$10$mtL9jeHILLYvWWhE.rQ9buy6RoP27pak8eCpaKSFBY1yG2T4HGS9q,Customer,"Chip Clowsley",cclowsley0@senate.gov,6815644049,"9232 Graceland Center",,cclowsley0.png
 bdacke1,$2y$10$skM.ZXriUip3MvqLAqH7zuNxyxZ178sB19aKBfW8xFQWwPEx.DICe,Customer,"Bethina Dacke",bdacke1@noaa.gov,4464835273,"67729 Oak Circle",,bdacke1.webp
 wbastistini2,$2y$10$94hLCe0UM607O4WSI7yErOaqqe354RSKoVfaerFXC6BmfTW6LPv42,Customer,"Werner Bastistini",wbastistini2@cyberchimps.com,4952275936,"6224 Manufacturers Street",,wbastistini2.webp
-zpinilla3,$2y$10$gosjG6B2lQLhASB9r.zmAuWv0r1Cs8.gQ2M.4d4wx7yGcX4YVGGoe,"Zack Pinilla",zpinilla3@house.gov,1482242588,"3 Pond Way",,zpinilla3.jpeg,
+zpinilla3,$2y$10$gosjG6B2lQLhASB9r.zmAuWv0r1Cs8.gQ2M.4d4wx7yGcX4YVGGoe,Shipper,"Zack Pinilla",zpinilla3@house.gov,1482242588,"3 Pond Way",DH4,zpinilla3.jpg
 sbredee4,$2y$10$rQ1tDYlRdO3xSClTAaq0ae4T/zeQKlbacgYePR4nBRjOkASskvpp2,Vendor,Lening,sbredee4@is.gd,3312079917,"97852 Fairview Circle",,sbredee4.jpg
 sreuther5,$2y$10$gWJwK8F0ce9LTs0PUBzT6uS.RpTi0oQBBZPQqO.00xF.yTTBpAL9a,Vendor,"Clothing Gold",sreuther5@nps.gov,8911675970,"56317 David Drive",,sreuther5.jpg
 agallie6,$2y$10$wp5w7po3sPPRC6vgwXkeQu0L.Fp7eatFo2mLXJ3RO0PDKU.9Mjo/G,Vendor,Homegenics,agallie6@drupal.org,5824652049,"7 Hansons Avenue",,agallie6.jpg
@@ -11,4 +11,3 @@ gharroway8,$2y$10$VW5PdZWogAyn/zOar/u8xeW0esiYpAhXd75HC2cAyELt6wrSc1B0O,Shipper,
 test12345,$2y$10$c5GuxMFYEQ6pdjVNFuqV3u.SPGb9ZKkVzYyoHuaP//143njyIstKu,Customer,"Hoang Minh",minh123@gmail.com,0927653451,"Son Tay, Ha Noi",,test12345.webp
 testing123,$2y$10$.uhmSl3iB/h/nr7Sx6vZouR6tDw7Bo.8og9OHPN/OrVQV6MTK.eau,Customer,"Dang Hoang Thai",hoangthai@gmail.com,0942367522,"Nam Tu Liem, Ha Noi",,testing123.png
 hoangminh,$2y$10$8k.GmL248NFn6RVxDB2FZe7VTm3KuerPnV/RqsBHsGKFABFLjKNwi,Shipper,"Do Hoang Minh",dohoangminh98@gmail.com,0375552471,,DH1,hoangminh.png
-vendortest,$2y$10$QEUXiouR4Fmce.f1Smcol.ubB8ZrcE92h/7QdbNjpTKM7b7K0uFzC,Vendor,"BestPrice Clothing",homy@homy.com,0998247444,Hanoi,,vendortest.jpeg
