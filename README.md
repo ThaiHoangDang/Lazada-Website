@@ -11,19 +11,19 @@ II. Step to start the application:
 III. User account: 
  
 1. Customer: 
-- username: bdacke1
-- password: $2y$10$NFQQHbMhT3Diuxn88WahwudI/BXExospkGX.V8nxq1tvGMsc9QbvW
+- username: customer
+- password: Customer01*
 
 2. Vendor:
-- username: sbredee4
-- password: $2y$10$xCPg7BKRixhNW5Z2UoXn.u81t2.81V0KTV6AEIrSK.lqDuDTqRp/y
+- username: vendortest
+- password: Vendor01*
 
 3. Shipper: 
-- username: fwilloughey7
-- password: $2y$10$7bEK4c0zMaYJ1rFWGcJGXOevE4ggrk1Przo6vMxhIcZiy7bvwOhNi
+- username: shippertest
+- password: Shipper01*
 
 IV. Contribution:
 1. Dau Hoang Minh: 25%
 2. Le Trinh Quoc Huynh: 25%
 3. Dang Thai Hoang: 25%
-4. Doan Huy: 25% 
+4. Doan Huy: 25%

@@ -70,22 +70,20 @@
         return false;
     }
     
-    // $data = readcsv("../data/users.csv");
-    // $pass = readcsv("../data/pass.csv");
+    // $data = readcsv("../data/temp.csv");
     // for ($i=0;$i<count($data);$i++){
-    //     // $hash = password_hash($data[$i]["password"],PASSWORD_DEFAULT);
-    //     // $data[$i]["password"] = $hash;
-    //     $verify = password_verify($pass[$i]["password"], $data[$i]["password"]);
-    //     if ($verify) {
-    //         echo 'Password Verified!';
-    //     } else {
-    //         echo 'Incorrect Password!';
-    //     }
+    //     $hash = password_hash($data[$i]["password"],PASSWORD_DEFAULT);
+    //     $data[$i]["password"] = $hash;
+    //     // $verify = password_verify($pass[$i]["password"], $data[$i]["password"]);
+    //     // if ($verify) {
+    //     //     echo 'Password Verified!';
+    //     // } else {
+    //     //     echo 'Incorrect Password!';
+    //     // }
     // }
 
-    // writecsv("../data/users.csv", $data);
+    // writecsv("../data/new_users.csv", $data);
     // echo '<pre>';
     // print_r($data);
     // echo '</pre>';
-
 ?>
