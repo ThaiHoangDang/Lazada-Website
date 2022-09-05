@@ -12,15 +12,15 @@ III. User account:
  
 1. Customer: 
 - username: bdacke1
-- password: $2y$10$NFQQHbMhT3Diuxn88WahwudI/BXExospkGX.V8nxq1tvGMsc9QbvW
+- password: W1ejgAookQh55$
 
 2. Vendor:
 - username: sbredee4
-- password: $2y$10$xCPg7BKRixhNW5Z2UoXn.u81t2.81V0KTV6AEIrSK.lqDuDTqRp/y
+- password: d3$JDFuuuW&
 
 3. Shipper: 
 - username: fwilloughey7
-- password: $2y$10$7bEK4c0zMaYJ1rFWGcJGXOevE4ggrk1Przo6vMxhIcZiy7bvwOhNi
+- password: P87!hyHygg
 
 IV. Contribution:
 1. Dau Hoang Minh: 25%
