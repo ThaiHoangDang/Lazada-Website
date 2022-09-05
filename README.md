@@ -11,11 +11,11 @@ II. Step to start the application:
 III. User account: 
  
 1. Customer: 
-- username: bdacke1
+- username: bdacke123
 - password: W1ejgAookQh55$
 
 2. Vendor:
-- username: sbredee4
+- username: sbredee45
 - password: d3$JDFuuuW&
 
 3. Shipper: 
