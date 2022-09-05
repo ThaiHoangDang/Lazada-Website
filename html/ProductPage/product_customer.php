@@ -80,24 +80,30 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
                             <h5 class="font-weight-light text-secondary"><?= $product["Brand Name"]; ?></h5>
                         </div>
                         <h3 class="font-weight-semi-bold mb-4">$<?= $product["Price"]; ?></h3>
-                        <form action="product_customer.php">
-                            <div>
-                                <button id="minus" type="button" class="btn btn-outline-primary minus quantity-btn">
-                                    -
-                                </button>
-                                <label>
-                                    <input id="quantity" type="number" class="text-center" value="1" min="0" max="100" disabled>
-                                </label>
-                                <button id="plus" type="button" class="btn btn-outline-primary plus quantity-btn">
-                                    +
-                                </button>
-                            </div>
-                            <!-- Add to cart & Buy now interact -->
-                            <div class="mt-4">
-                                <button type="button" class="btn btn-outline-dark me-2" name="addToCart" onclick="addToCartEvents()">Add To Cart</button>
-                                <button type="button" class="btn btn-dark mx-2" name="buyNow" onclick="buyNowEvents()">Buy Now</button>
-                            </div>
-                        </form>
+                        <?php 
+                            if ($_SESSION["user_data"]["role"] = "Customer") {
+                                echo '
+                                    <form action="product_customer.php">
+                                        <div>
+                                            <button id="minus" type="button" class="btn btn-outline-primary minus quantity-btn">
+                                                -
+                                            </button>
+                                            <label>
+                                                <input id="quantity" type="number" class="text-center" value="1" min="0" max="100" disabled>
+                                            </label>
+                                            <button id="plus" type="button" class="btn btn-outline-primary plus quantity-btn">
+                                                +
+                                            </button>
+                                        </div>
+                                        <!-- Add to cart & Buy now interact -->
+                                        <div class="mt-4">
+                                            <button type="button" class="btn btn-outline-dark me-2" name="addToCart" onclick="addToCartEvents()">Add To Cart</button>
+                                            <button type="button" class="btn btn-dark mx-2" name="buyNow" onclick="buyNowEvents()">Buy Now</button>
+                                        </div>
+                                    </form>
+                                ';
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
