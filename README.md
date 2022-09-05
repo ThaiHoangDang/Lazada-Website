@@ -11,19 +11,19 @@ II. Step to start the application:
 III. User account: 
  
 1. Customer: 
-- username: bdacke123
-- password: W1ejgAookQh55$
+- username: customer
+- password: Customer01*
 
 2. Vendor:
-- username: sbredee45
-- password: d3$JDFuuuW&
+- username: vendortest
+- password: Vendor01*
 
 3. Shipper: 
-- username: fwilloughey7
-- password: P87!hyHygg
+- username: shippertest
+- password: Shipper01*
 
 IV. Contribution:
 1. Dau Hoang Minh: 25%
 2. Le Trinh Quoc Huynh: 25%
 3. Dang Thai Hoang: 25%
-4. Doan Huy: 25% 
+4. Doan Huy: 25%
