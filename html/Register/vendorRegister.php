@@ -38,7 +38,7 @@ if (isset($_POST['act'])) {
 
         $unique_account = true;
         for ($index = 0; $index < count($users); $index++) {
-            if ($username == $users[$index]["username"] || ($users[$index]["role"] == "Vendor" && $name == $users[$index]["name"])) {
+            if ($username == $users[$index]["username"] || ($users[$index]["role"] == "Vendor" && ($name == $users[$index]["name"] || $address == $users[$index]["address"]))) {
                 $unique_account = false;
                 break;
             }
@@ -148,7 +148,7 @@ if (isset($_POST['act'])) {
                             echo "<p class='my-0'>You will be redirected in <span id='counter'>10</span> second(s).</p>";
                             echo "<script src='../../js/Register/redirectRegister.js'></script>";
                         } else {
-                            echo "<p class='text-danger'> The username or the business name is not unique</p>";
+                            echo "<p class='text-danger'> The username or the business name or the business address is not unique</p>";
                         }
                     }
                     ?>
