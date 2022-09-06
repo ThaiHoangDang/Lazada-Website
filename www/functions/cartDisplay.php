@@ -1,17 +1,22 @@
 <script>
     let productsPrice = 0;
+
+    // read products list in local storage
     let productList = localStorage.getItem("cartItems");
     productList = JSON.parse(productList);
 
+    // delete cartItems if there is no products
     if (localStorage.getItem("cartItems") === "{}") {
     localStorage.removeItem("cartItems");
     }
 
+    // loop through products list and display on screen
     function displayCart() {
         let productTable = document.querySelector(".productTable");
         let productsPrice = 0;
         if (productList != null){
             Object.values(productList).map(function(item){
+                // calculate total products' price
                 productsPrice += Number(item.product_price) * item.product_quantity;
                 productTable.innerHTML += `
                     <div class="card mb-3" >
@@ -39,11 +44,12 @@
                     `
             })
         }
-
+        // display products' price and total price
         document.getElementById("productsPrice").innerHTML += productsPrice.toFixed(2);
         document.getElementById("totalPrice").innerHTML += (productsPrice + 2).toFixed(2);
     }
 
+    // allow user to remove a product from cart
     function removeItem(id) {
         let productList = localStorage.getItem("cartItems");
         productList = JSON.parse(productList);
@@ -54,6 +60,7 @@
     }
 
 
+    // 
     function placeOrder() {
         if (localStorage.getItem("cartItems") != null) {
             <?php
@@ -63,7 +70,8 @@
             let customer = '<?= $_SESSION["user_data"]["username"]?>';
             let time = '<?=date("H:i:s")?>'
             let date = '<?=date("j/n/Y")?>'
-          
+            
+            // choose random distribution hub
             let hubs = ["DH1", "DH2", "DH3", "DH4"];
             let choosenHub = hubs[Math.floor(Math.random()*hubs.length)];
             let orderInfo = customer + "," + time + "," + date + "," + choosenHub
@@ -73,12 +81,15 @@
                 orderItems += ([item.product_ID +"-"+ item.product_quantity]+",");
             });
 
+            // sending data to cookie
             document.cookie = "Order info" + "=" + orderInfo + "; path=/";
             document.cookie = orderItems + "; path=/";
 
+            // relocate to addOrder.php
             window.location.replace("/functions/addOrder.php");
 
         } else {
+            // display if there is product in cart
             alert("Your cart doesn't have any products!");
         }
     }
