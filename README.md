@@ -5,7 +5,7 @@ I. Links
 II. Step to start the application:
 1. After cloning from github, open cmd and localhost our website.
 2. After localhosting successfully, please type the following path after localhost link to access homepage:
-/html/Homepage/homepage.php
+/html/Homepage/homepage.php (chưa đúng)
 - After accessing this page, all features can be used. 
 
 III. User account: 
