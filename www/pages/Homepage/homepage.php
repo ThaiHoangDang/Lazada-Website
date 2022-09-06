@@ -55,7 +55,7 @@ $products = readcsv("../../../data/product.csv");
                 <!-- display all items -->
                 <div class="grid-container bg-white rounded-1 px-5 py-4">
                     <?php
-                    for ($i = count($products) - 1; $i >=0; $i--) {
+                    for ($i = count($products) - 1; $i >= count($products) - 18; $i--) {
                         echo ('
                                 <div class="coll-4 coll-s-6">
                                     <a class="text-decoration-none" href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
