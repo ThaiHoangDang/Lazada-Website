@@ -81,7 +81,7 @@ $page_title = $product["Brand Name"] . " | " . $product["Product Name"];
                         </div>
                         <h3 class="font-weight-semi-bold mb-4">$<?= $product["Price"]; ?></h3>
                         <?php 
-                            if ($_SESSION["user_data"]["role"] = "Customer") {
+                            if ((isset($_SESSION["user_data"])) && ($_SESSION["user_data"]["role"] = "Customer")) {
                                 echo '
                                     <form action="product_customer.php">
                                         <div>
