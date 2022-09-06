@@ -1,10 +1,13 @@
 <?php
     function readcsv(string $path): array{
+        // Create empty array and open file
         $data = [];  
         $file = fopen($path, "r");
         if ($file !== false) {
+            // Read the headers of the csv
             flock($file, LOCK_SH);
             $title_line = fgetcsv($file);
+            // Read all the values and assign them to the corresponding headers
             while (!feof($file)) {
                 $line = fgetcsv($file);
                 if (!empty($line)) {
@@ -24,10 +27,12 @@
         $file = fopen($path, "w");
         if ($file !== false) {
             flock($file, LOCK_EX);
+            // Create an array of headers
             $title_line = [];
             foreach ($data[0] as $title => $field) {
                 $title_line[] = $title;
             }
+            // Write to csv with the first line containing headers
             fputcsv($file, $title_line);
             foreach ($data as $fields) {
                 fputcsv($file, $fields);
@@ -69,21 +74,4 @@
         }
         return false;
     }
-    
-    // $data = readcsv("../data/temp.csv");
-    // for ($i=0;$i<count($data);$i++){
-    //     $hash = password_hash($data[$i]["password"],PASSWORD_DEFAULT);
-    //     $data[$i]["password"] = $hash;
-    //     // $verify = password_verify($pass[$i]["password"], $data[$i]["password"]);
-    //     // if ($verify) {
-    //     //     echo 'Password Verified!';
-    //     // } else {
-    //     //     echo 'Incorrect Password!';
-    //     // }
-    // }
-
-    // writecsv("../data/new_users.csv", $data);
-    // echo '<pre>';
-    // print_r($data);
-    // echo '</pre>';
 ?>
