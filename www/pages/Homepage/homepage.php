@@ -1,7 +1,10 @@
 <?php
 session_start();
+
+// required file
 require_once("../../functions/data.php");
 
+// read product file
 $products = readcsv("../../../data/product.csv");
 ?>
 
@@ -21,12 +24,13 @@ $products = readcsv("../../../data/product.csv");
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     include("../Homepage/slider.html");
     ?>
     
+    <!-- MAIN CONTENT -->
     <main>
         <div class="container py-5">
             <div class="row">
@@ -35,6 +39,7 @@ $products = readcsv("../../../data/product.csv");
                         <h1>Featured Products</h1>
                     </div>
                     <div class="flex-shrink-1">
+                        <!-- Filter products by price -->
                         <div class="dropdown">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Filter by Price
@@ -47,32 +52,34 @@ $products = readcsv("../../../data/product.csv");
                         </div>
                     </div>
                 </div>
+                <!-- display all items -->
                 <div class="grid-container bg-white rounded-1 px-5 py-4">
                     <?php
                     for ($i = count($products) - 1; $i >=0; $i--) {
                         echo ('
-                                    <a href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '"></a>
-                                        <div class="coll-4 coll-s-6">
-                                            <a class="text-decoration-none" href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
-                                                <div class="card mx-auto">
-                                                    <div class="container ratio ratio-1x1"> 
-                                                        <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4" alt="ProductImg">
-                                                    </div>
-                                                    <div class="card-body text-bg-light rounded-2">
-                                                    <h5 class="card-title">' . $products[$i]["Product Name"] . '</h5>
-                                                    <p class="card-text"><small class="text-muted">' . $products[$i]["Brand Name"] . '</small></p>
-                                                    <p class="card-text">$' . $products[$i]["Price"] . '</p>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                <div class="coll-4 coll-s-6">
+                                    <a class="text-decoration-none" href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
+                                        <div class="card mx-auto">
+                                            <div class="container ratio ratio-1x1"> 
+                                                <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4" alt="ProductImg">
+                                            </div>
+                                            <div class="card-body text-bg-light rounded-2">
+                                            <h5 class="card-title">' . $products[$i]["Product Name"] . '</h5>
+                                            <p class="card-text"><small class="text-muted">' . $products[$i]["Brand Name"] . '</small></p>
+                                            <p class="card-text">$' . $products[$i]["Price"] . '</p>
+                                            </div>
                                         </div>
-                                ');
+                                    </a>
+                                </div>
+                            ');
                     }
                     ?>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- FOOTER -->
     <?php
     include("../Homepage/footer.php");
     ?>

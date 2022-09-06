@@ -1,13 +1,14 @@
 <?php
 session_start();
 
+// Redirect to login if users is not customer
 if ((!isset($_SESSION['user_data'])) || ($_SESSION["user_data"]["role"] !== "Customer")) {
   header('location: ../login/login.php');
 }
 
 require_once("../../functions/data.php");
 
-
+// Read product file
 $products = readcsv("../../../data/product.csv");
 ?>
 
@@ -27,14 +28,16 @@ $products = readcsv("../../../data/product.csv");
 </head>
 
 <body class="bg-light" onload="displayCart()">
-
+  <!-- HEADER -->
   <?php
   include("../Homepage/header.php");
   ?>
-
+  
+  <!-- MAIN CONTENT -->
   <main>
     <div class="container mb-5">
       <div class="container">
+        <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb pt-4 fw-bold">
             <li class="breadcrumb-item"><a href="/pages/Homepage/homepage.php">Home</a></li>
@@ -48,8 +51,10 @@ $products = readcsv("../../../data/product.csv");
       <div class="container bg-white rounded-1">
         <div class="container p-5">
           <div class="row">
+            <!-- product table for storing cart items -->
             <div class="col-md-7 productTable">
             </div>
+            <!-- Summary section of cart -->
             <div class="col-md-5">
               <div class="container">
                 <div class="card">
@@ -84,6 +89,7 @@ $products = readcsv("../../../data/product.csv");
     </div>
   </main>
 
+  <!-- FOOTER -->
   <?php
   include("../Homepage/footer.php");
   require_once("../../functions/cartDisplay.php");

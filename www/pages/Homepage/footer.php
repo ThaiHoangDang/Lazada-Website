@@ -1,3 +1,4 @@
+<!-- Footer for pages -->
 <footer>
   <div class="row pt-3">
     <div class="text-center text-lg-start bg-light text-muted bg-white">
@@ -38,7 +39,7 @@
       </div>
       <div class="footer-copyright text-center p-4">
 
-        <p class="text-reset"> © 2022 Copyright: <span class="fw-bold">RMIT University</span></p>
+        <p class="text-reset"> © 2022 Copyright: <span class="fw-bold">HHHD Team</span></p>
       </div>
     </div>
   </div>

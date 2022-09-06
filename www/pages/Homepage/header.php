@@ -1,4 +1,4 @@
-
+<!-- header for pages -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
         <img src="/img/lazadaLogoNoBG.svg" class="nav-logoimg" alt="logo">
@@ -9,6 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
+              <!-- adjust nav link based on users' role -->
               <?php
               if (!isset($_SESSION["user_data"])) {
                 echo "<a class='nav-link' href='/pages/homepage/homepage.php'>Home</a>";
@@ -24,6 +25,7 @@
               ?>
 
             </li>
+            <!-- Display different sections based on users'role -->
             <?php
             if (!isset($_SESSION["user_data"])) {
               echo '<li class="nav-item">
@@ -42,6 +44,7 @@
             }
             ?>
           </ul>
+          <!-- Display search tool if user is customer -->
           <?php
           if (!isset($_SESSION["user_data"]) || $_SESSION["user_data"]["role"] == "Customer") {
           echo "<form action='/pages/Homepage/searchResult.php' class='d-flex nav-searchtool'>

@@ -1,10 +1,13 @@
 <?php
 session_start();
+
+// require file
 require_once("../../functions/data.php");
 
+// read products data
 $products = readcsv("../../../data/product.csv");
 
-
+// get min and max price 
 $min = $_GET['min'];
 $max = $_GET['max'];
 ?>
@@ -24,12 +27,13 @@ $max = $_GET['max'];
 </head>
 
 <body class="bg-light">
-
+    <!-- HEADER -->
     <?php
     include("../Homepage/header.php");
     include("../Homepage/slider.html");
     ?>
 
+    <!-- MAIN CONTENT -->
     <div class="container py-5">
         <div class="row">
             <div class="py-2">
@@ -40,27 +44,28 @@ $max = $_GET['max'];
                 <?php
                 $count = 0;
                 for ($i = count($products) - 1; $i > -1; $i--) {
+                    // loop through products list and find matching result
                     if ($min <= $products[$i]["Price"] && $products[$i]["Price"] <= $max) {
                         $count++;
                         echo ('
-                                    <a href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '"></a>
-                                        <div class="coll-4 coll-s-6">
-                                            <a class="text-decoration-none" href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
-                                                <div class="card mx-auto">
-                                                    <div class="container ratio ratio-1x1"> 
-                                                        <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4 ratio ratio-1x1" alt="ProductImg">
-                                                    </div>
-                                                    <div class="card-body text-bg-light rounded-2">
-                                                    <h5 class="card-title">' . $products[$i]["Product Name"] . '</h5>
-                                                    <p class="card-text"><small class="text-muted">' . $products[$i]["Brand Name"] . '</small></p>
-                                                    <p class="card-text">$' . $products[$i]["Price"] . '</p>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                <div class="coll-4 coll-s-6">
+                                    <a class="text-decoration-none" href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
+                                        <div class="card mx-auto">
+                                            <div class="container ratio ratio-1x1"> 
+                                                <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4 ratio ratio-1x1" alt="ProductImg">
+                                            </div>
+                                            <div class="card-body text-bg-light rounded-2">
+                                            <h5 class="card-title">' . $products[$i]["Product Name"] . '</h5>
+                                            <p class="card-text"><small class="text-muted">' . $products[$i]["Brand Name"] . '</small></p>
+                                            <p class="card-text">$' . $products[$i]["Price"] . '</p>
+                                            </div>
                                         </div>
-                                ');
+                                    </a>
+                                </div>
+                            ');
                     }
                 }
+                // display if there is no product matching the input
                 if ($count == 0) {
                     echo "Cannot find products";
                 }
