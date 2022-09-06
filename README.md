@@ -37,3 +37,5 @@ V. Reference:
 - All photos for products and users data were taken from https://stock.adobe.com/ and https://www.freepik.com/
 2. Products dataset: 
     PROMPTCLOUD. "Amazon Product Dataset 2020". kaggle.com. https://www.kaggle.com/datasets/promptcloud/amazon-product-dataset-2020 (accessed Aug. 27, 2022).
+3. Static pages:
+- All contents in static pages were taken from: https://www.lazada.vn/# 
