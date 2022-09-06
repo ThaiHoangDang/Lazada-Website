@@ -3,10 +3,14 @@ I. Links
 - Github URL: https://github.com/ThaiHoangDang/WebProgramming 
 
 II. Step to start the application:
-1. After cloning from github, open cmd and localhost our website.
-2. After localhosting successfully, please type the following path after localhost link to access homepage:
-/html/Homepage/homepage.php (chưa đúng)
-- After accessing this page, all features can be used. 
+
+1. Unzip the submission folder to your preferred location
+
+2. Open the command line and navigage to the above submission folder. Continue to navigate to the "www" folder (eg: cd www) to set the "www" folder as the document root
+
+3. Localhost our website by typing the command (eg: php - S localhost:8000)
+
+4. Open the browser and go to localhost:8000. You will be directed to the website homepage and can start using all the functions
 
 III. User account: 
  
