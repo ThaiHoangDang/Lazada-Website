@@ -69,7 +69,7 @@ $products = readcsv("../../../data/product.csv");
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Delivery
-                        <span id="deliverPrice">$2.00</span>
+                        <span id="deliveryPrice">$</span>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Total

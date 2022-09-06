@@ -1,19 +1,20 @@
 <script>
     let productsPrice = 0;
 
-    // read products list in local storage
-    let productList = localStorage.getItem("cartItems");
-    productList = JSON.parse(productList);
-
     // delete cartItems if there is no products
     if (localStorage.getItem("cartItems") === "{}") {
     localStorage.removeItem("cartItems");
     }
 
+    // read products list in local storage
+    let productList = localStorage.getItem("cartItems");
+    productList = JSON.parse(productList);
+
     // loop through products list and display on screen
     function displayCart() {
         let productTable = document.querySelector(".productTable");
         let productsPrice = 0;
+        let deliveryPrice = 0;
         if (productList != null){
             Object.values(productList).map(function(item){
                 // calculate total products' price
@@ -43,10 +44,12 @@
                     </div>
                     `
             })
+            deliveryPrice = 2;
         }
         // display products' price and total price
         document.getElementById("productsPrice").innerHTML += productsPrice.toFixed(2);
-        document.getElementById("totalPrice").innerHTML += (productsPrice + 2).toFixed(2);
+        document.getElementById("deliveryPrice").innerHTML += deliveryPrice.toFixed(2);
+        document.getElementById("totalPrice").innerHTML += (productsPrice + deliveryPrice).toFixed(2);
     }
 
     // allow user to remove a product from cart
