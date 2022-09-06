@@ -84,6 +84,11 @@ if (isset($_POST['act'])) {
     <!-- MAIN CONTENT -->
     <main class="page-content">
         <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../Homepage/homepage.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="pickRegister.php">Register</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Vendor Register</li>
+            </ol>
             <div class="p-5 bg-white rounded-1">
                 <form class="row g-3 needs-validation" enctype="multipart/form-data" method="post" action="vendorRegister.php" novalidate>
                     <h2 class="text-center">Register as vendor</h2>
