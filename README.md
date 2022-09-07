@@ -11,7 +11,7 @@
 
 2. Open the command line and navigage to the above submission folder. Continue to navigate to the "www" folder (eg: cd www) to set the "www" folder as the document root
 
-3. Localhost our website by typing the command (eg: php - S localhost:8000)
+3. Localhost our website by typing the command (eg: php -S localhost:8000)
 
 4. Open the browser and go to localhost:8000. You will be directed to the website homepage and can start using all the functions
 
