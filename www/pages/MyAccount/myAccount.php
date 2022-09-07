@@ -26,13 +26,13 @@ if (isset($_POST['saveImg'])) {
     $_SESSION["user_data"]["profile_img"] = $save_file_name;
 
     // Write data back to the database
-    $data = readcsv("../../../data/users.csv");
+    $data = readcsv("../../../data/accounts.csv");
     for ($index = 0; $index < count($data); $index++) {
         if ($data[$index]["username"] == $_SESSION["user_data"]["username"]) {
             $data[$index]["Image"] = $save_file_name;
         }
     }
-    writecsv("../../../data/users.csv", $data);
+    writecsv("../../../data/accounts.csv", $data);
 }
 ?>
 

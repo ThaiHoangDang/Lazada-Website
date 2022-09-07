@@ -1,5 +1,5 @@
 I. Links
-- Video demo link: 
+- Video demo link: https://www.youtube.com/watch?v=lk0TDgcRVZY
 - Github URL: https://github.com/ThaiHoangDang/WebProgramming 
 
 II. Step to start the application:
@@ -13,6 +13,7 @@ II. Step to start the application:
 4. Open the browser and go to localhost:8000. You will be directed to the website homepage and can start using all the functions
 
 III. User account: 
+All user accounts are saved in the accounts.csv file (/data/accounts.csv)
  
 1. Customer: 
 - username: customer
@@ -39,3 +40,4 @@ V. Reference:
     PROMPTCLOUD. "Amazon Product Dataset 2020". kaggle.com. https://www.kaggle.com/datasets/promptcloud/amazon-product-dataset-2020 (accessed Aug. 27, 2022).
 3. Static pages:
 - All contents in static pages were taken from: https://www.lazada.vn/# 
+4. The website application is developed using Bootstrap 5, following the guidance from https://getbootstrap.com/docs/5.2/getting-started/introduction/
