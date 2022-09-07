@@ -51,7 +51,7 @@ $search = $_GET['search'];
                                     <a class="text-decoration-none" href="/pages/productpage/product_customer.php/get?id=' . $products[$i]["Product ID"] . '">
                                         <div class="card mx-auto">
                                             <div class="container ratio ratio-1x1"> 
-                                                <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4 ratio ratio-1x1" alt="ProductImg">
+                                                <img src="' . explode("|", $products[$i]["Image"])[0] . '" class="card-img-top p-4 ratio ratio-1x1" alt="' . $products[$i]["Product Name"] . '">
                                             </div>
                                             <div class="card-body text-bg-light rounded-2">
                                             <h5 class="card-title">' . $products[$i]["Product Name"] . '</h5>
