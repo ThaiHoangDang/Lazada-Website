@@ -26,7 +26,7 @@ if (isset($_POST['signin'])) {
             ];
             $_SESSION["user_data"] = $user_data;
             if ($user_data["role"] == "Customer") {
-                header('location: ../myAccount/myAccount.php');
+                header('location: ../Homepage/homepage.php');
             } elseif ($user_data["role"] == "Vendor") {
                 header('location: ../Vendor/vendorHomepage.php');
             } elseif ($user_data["role"] == "Shipper") {
