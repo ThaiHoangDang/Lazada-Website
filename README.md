@@ -5,7 +5,7 @@
 - Video demo link: https://www.youtube.com/watch?v=EFYOQu3Ifas
 - Github URL: https://github.com/ThaiHoangDang/WebProgramming 
 
-### II. Step to start the application:
+### II. Steps to start the application:
 
 1. Unzip the submission folder to your preferred location
 
@@ -19,7 +19,7 @@
 All user accounts are saved in the accounts.db file (/data/accounts.db)
  
 1. Customer: 
-- username: customer
+- username: customertest
 - password: Customer01*
 
 2. Vendor:
