@@ -28,10 +28,10 @@ All user accounts are saved in the accounts.db file (/data/accounts.db)
 - password: Shipper01*
 
 IV. Contribution:
-1. Dau Hoang Minh: 25%
-2. Le Trinh Quoc Huynh: 25%
-3. Dang Thai Hoang: 25%
-4. Doan Huy: 25%
+1. Dau Hoang Minh: 25% (S3926201)
+2. Le Trinh Quoc Huynh: 25% (S3925997)
+3. Dang Thai Hoang: 25% (S3927234)
+4. Doan Huy: 25% (S3924345)
 
 V. Reference:
 1. Media:
