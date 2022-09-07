@@ -94,6 +94,11 @@ if (isset($_POST['act'])) {
           </div>
           ');
       }
+      if (count($active_orders)==0){
+        echo ('
+          <p>There is no active order to be displayed</p>
+        ');
+      }
       ?>
     </div>
     <!-- Generates modals coresponding to preview cards -->
