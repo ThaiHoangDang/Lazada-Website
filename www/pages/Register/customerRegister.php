@@ -31,7 +31,7 @@ if (isset($_POST['act'])) {
         validate_length($address, 5)
     ) {
         // Check if the username is unique
-        $users = readcsv("../../../data/accounts.db", true);
+        $users = readcsv("../../../data/accounts.db");
         $headers;
         foreach ($users[0] as $header => $field) {
             $headers[] = $header;

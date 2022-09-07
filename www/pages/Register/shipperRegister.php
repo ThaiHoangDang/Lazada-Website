@@ -27,8 +27,7 @@ if (isset($_POST['act'])) {
     // Validate input at the server side
     if (
         validate_length($username, 8, 20) &&
-        validate_password($password) &&
-        validate_length($name, 5)
+        validate_password($password) 
     ) {
         // Check if the username is unique
         $users = readcsv("../../../data/accounts.db");
