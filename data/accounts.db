@@ -1,0 +1,13 @@
+username,password,role,name,email,phone,address,"Distribution hub",Image
+cclowsley0,$2y$10$mtL9jeHILLYvWWhE.rQ9buy6RoP27pak8eCpaKSFBY1yG2T4HGS9q,Customer,"Chip Clowsley",cclowsley0@gmail.com,0981564404,"9232 Graceland Center",,cclowsley0.png
+wbastistini2,$2y$10$94hLCe0UM607O4WSI7yErOaqqe354RSKoVfaerFXC6BmfTW6LPv42,Customer,"Werner Bastistini",wbastistini2@gmail.com,0495227593,"6224 Manufacturers Street",,wbastistini2.webp
+zpinilla3,$2y$10$gosjG6B2lQLhASB9r.zmAuWv0r1Cs8.gQ2M.4d4wx7yGcX4YVGGoe,Shipper,"Zack Pinilla",zpinilla3@gmail.com,0948224258,"3 Pond Way",DH4,zpinilla3.jpg
+sreuther5,$2y$10$gWJwK8F0ce9LTs0PUBzT6uS.RpTi0oQBBZPQqO.00xF.yTTBpAL9a,Vendor,"Clothing Gold",clothinggold@gmail.com,0891167597,"56317 David Drive",,sreuther5.jpg
+agallie6,$2y$10$wp5w7po3sPPRC6vgwXkeQu0L.Fp7eatFo2mLXJ3RO0PDKU.9Mjo/G,Vendor,Homegenics,homegenics@gmail.com,0582465204,"7 Hansons Avenue",,agallie6.jpg
+gharroway8,$2y$10$VW5PdZWogAyn/zOar/u8xeW0esiYpAhXd75HC2cAyELt6wrSc1B0O,Shipper,"Glenn Harroway",gharroway8@gmail.com,0975106003,,DH2,gharroway8.jpeg
+test12345,$2y$10$c5GuxMFYEQ6pdjVNFuqV3u.SPGb9ZKkVzYyoHuaP//143njyIstKu,Customer,"Hoang Minh",minh123@gmail.com,0927653451,"Trai Lang Hamlet, Co Dong Village, Son Tay, Ha Noi",,test12345.webp
+testing123,$2y$10$.uhmSl3iB/h/nr7Sx6vZouR6tDw7Bo.8og9OHPN/OrVQV6MTK.eau,Customer,"Dang Hoang Thai",hoangthai@gmail.com,0942367522,"Bac Tu Liem, Ha Noi",,testing123.png
+hoangminh,$2y$10$8k.GmL248NFn6RVxDB2FZe7VTm3KuerPnV/RqsBHsGKFABFLjKNwi,Shipper,"Do Hoang Minh",dohoangminh98@gmail.com,0375552471,,DH1,hoangminh.png
+customer,$2y$10$tn2Z89Uy2O8nVT4TuYadres/gZyxhx5qmGscTjFf9uV2XOuJef0Hm,Customer,"Dang Thai An",anlinh@gmail.com,0969522388,"05 Nguyen Hoang, My Dinh, Nam Tu Liem, Ha Noi",,customer.webp
+vendortest,$2y$10$Hvi1YFD/LOK.jUM9A8J1cuYEJbPx8mlORi/26fi6Zm6Ege4nJMPDO,Vendor,"BestPrice Clothing",bestpriceclothing@gmail.com,0923112387,"Xuan Tai Village, Phong Nam Ward, Binh Thuan",,vendortest.jpg
+shippertest,$2y$10$uwrOzly0x.mg6/AzEc5wcODzEBwlxI8XvJlejIykAmLfGYN5AirmG,Shipper,"Doan Hoang Hai",s3924345@rmit.edu.vn,0975132475,,DH1,shippertest.JPG

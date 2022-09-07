@@ -31,7 +31,7 @@ if (isset($_POST['act'])) {
         validate_length($name, 5)
     ) {
         // Check if the username is unique
-        $users = readcsv("../../../data/accounts.csv");
+        $users = readcsv("../../../data/accounts.db");
         $headers;
         foreach ($users[0] as $header => $field) {
             $headers[] = $header;
@@ -55,7 +55,7 @@ if (isset($_POST['act'])) {
                 $newUser[$headers[$index]] = $newUserFields[$index];
             }
             $users[] = $newUser;
-            writecsv("../../../data/accounts.csv", $users);
+            writecsv("../../../data/accounts.db", $users);
 
             // Save the uploaded the profile image 
             move_uploaded_file($profile_img_file, $upload_destination);

@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_data']) || $_SESSION["user_data"]["role"] != "Shipper
   header('location: ../Login/login.php');
 }
 // Read data from csv files
-$users = readcsv("../../../data/accounts.csv");
+$users = readcsv("../../../data/accounts.db");
 $user = getuserbyusername($_SESSION["user_data"]["username"], $users);
 $allOrders = readcsv("../../../data/Order.csv");
 $products = readcsv("../../../data/product.csv");

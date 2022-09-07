@@ -13,7 +13,7 @@ II. Step to start the application:
 4. Open the browser and go to localhost:8000. You will be directed to the website homepage and can start using all the functions
 
 III. User account: 
-All user accounts are saved in the accounts.csv file (/data/accounts.csv)
+All user accounts are saved in the accounts.db file (/data/accounts.db)
  
 1. Customer: 
 - username: customer

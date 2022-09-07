@@ -10,7 +10,7 @@ if (isset($_SESSION["user_data"])) {
 }
 
 if (isset($_POST['signin'])) {
-    $data = readcsv("../../../data/accounts.csv");
+    $data = readcsv("../../../data/accounts.db");
     for ($index = 0; $index < count($data); $index++) {
         if ($_POST['username'] == $data[$index]["username"] && password_verify($_POST['password'], $data[$index]["password"])) {
             $user_data = [
