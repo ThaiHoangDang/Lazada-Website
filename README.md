@@ -38,9 +38,10 @@ All user accounts are saved in the accounts.db file (/data/accounts.db)
 
 ### V. Reference:
 1. Media:
-- All photos for illustration and users' profile were taken from https://stock.adobe.com/ and https://www.freepik.com/
+- All photos for illustration and users' profile were taken from: https://stock.adobe.com/ and https://www.freepik.com/
+- The new product's photos were taken from: https://www.nike.com/gb/
 2. Products dataset: 
     PROMPTCLOUD. "Amazon Product Dataset 2020". kaggle.com. https://www.kaggle.com/datasets/promptcloud/amazon-product-dataset-2020 (accessed Aug. 27, 2022).
 3. Static pages:
-- Photoes in the slider and all contents in static pages were taken from: https://www.lazada.vn/# 
+- Photos in the slider and all contents in static pages were taken from: https://www.lazada.vn/# 
 4. The website application is developed using Bootstrap 5, following the guidance from https://getbootstrap.com/docs/5.2/getting-started/introduction/
