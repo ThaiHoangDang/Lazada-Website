@@ -144,7 +144,8 @@ if (isset($_POST['saveImg'])) {
     include("../Homepage/footer.php");
     ?>
 
-    <script src="/js/Common/common.js" async></script>
+    <script src="/js/Common/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

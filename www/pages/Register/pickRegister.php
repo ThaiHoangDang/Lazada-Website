@@ -22,8 +22,8 @@
         <div class="container">
             <div class="p-5 bg-white rounded-1">
                 <h1 class="text-center mb-4">Register as ...</h1>
-                <div class="row row-cols-3 g-3">
-                    <div class="col">
+                <div class="row g-3">
+                    <div class="col-md-4">
                         <div class="card shadow-sm">
                             <img src="../../img/register/customer.jpeg" class="card-img-top img-cover" alt="Customer Illustration">
                             <div class="card-body">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="card shadow-sm">
                             <img src="../../img/register/vendor.jpeg" class="card-img-top img-cover" alt="Vendor Illustration">
                             <div class="card-body">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="card shadow-sm">
                             <img src="../../img/register/shipper.jpeg" class="card-img-top img-cover" alt="Shipper Illustration">
                             <div class="card-body">
@@ -65,6 +65,7 @@
     include("../Homepage/footer.php");
     ?>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

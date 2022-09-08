@@ -27,7 +27,7 @@ if (isset($_POST['act'])) {
     // Validate input at the server side
     if (
         validate_length($username, 8, 20) &&
-        validate_password($password) 
+        validate_password($password)
     ) {
         // Check if the username is unique
         $users = readcsv("../../../data/accounts.db");
@@ -168,7 +168,8 @@ if (isset($_POST['act'])) {
     include("../Homepage/footer.php");
     ?>
 
-    <script src="/js/Common/common.js" async></script>
+    <script src="/js/Common/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
